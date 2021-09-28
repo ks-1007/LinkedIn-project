@@ -16,11 +16,10 @@
 }
 /* Hero section  */
 .heroCont {
-  /* height: 300px; */
-  /* border: 2px solid black; */
   width: 100%;
   background-color: white;
   border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
 }
 .infoCont {
   display: grid;
@@ -80,4 +79,18 @@
 .infoRight > img {
   height: 40px;
   margin-right: 10px;
+}
+
+/*About section*/
+.aboutCont {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid rgb(224, 223, 220);
+}
+.aboutCont > p:nth-of-type(1) {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 10px;
 }
