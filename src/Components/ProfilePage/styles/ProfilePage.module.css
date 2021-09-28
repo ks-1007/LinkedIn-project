@@ -81,6 +81,45 @@
   margin-right: 10px;
 }
 
+/* Dashboard section*/
+.dashboardCont {
+  background-color: rgb(220, 230, 241);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid rgb(224, 223, 220);
+}
+.dashboardCont > p:nth-of-type(1) {
+  font-size: 22px;
+  font-weight: 450;
+  margin-bottom: 0;
+}
+
+.profileStats {
+  display: grid;
+  grid-template-columns: repeat(3, 33.33333333333%);
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+}
+.profileStats > div {
+  padding: 0 20px;
+  border-right: 2px solid rgb(224, 223, 220);
+}
+.profileStats > div > p:nth-of-type(1) {
+  font-size: 40px;
+  margin: 0;
+  color: rgb(29, 114, 199);
+  font-weight: 350;
+}
+.profileStats > div > p {
+  margin: 10px 0 15px 0;
+  font-size: 17px;
+}
+.profileStats > div:nth-last-of-type(1) {
+  border-right: none !important;
+}
+
 /*About section*/
 .aboutCont {
   background-color: white;
