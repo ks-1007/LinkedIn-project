@@ -132,3 +132,45 @@
   width: 60px;
   margin-right: 25px;
 }
+
+/* Skills section */
+.skillsCont {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  padding: 0 25px;
+  margin-top: 20px;
+}
+.skillsCont > p {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 30px !important;
+}
+.skillsCont > button {
+  height: 36px;
+  border-radius: 18px;
+  color: rgb(29, 114, 199);
+  background-color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 20px;
+  cursor: pointer;
+  border: 2px solid rgb(29, 114, 199);
+  margin-right: 10px;
+}
+.skillsCont > div > div {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgb(235, 235, 235);
+  font-size: 17px;
+  font-weight: 500;
+}
+.skillsCont > button:hover {
+  background-color: rgb(232, 243, 255);
+  border: 3px solid rgb(29, 114, 199);
+}
+.skillsCont > div {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
