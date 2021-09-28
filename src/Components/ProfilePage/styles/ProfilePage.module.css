@@ -1,0 +1,83 @@
+/*Root cont*/
+.rootCont {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+.leftSection {
+  width: 100%;
+}
+.rightSection {
+  width: 100%;
+}
+/* Hero section  */
+.heroCont {
+  /* height: 300px; */
+  /* border: 2px solid black; */
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+.infoCont {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding-bottom: 20px;
+}
+.infoCont > div {
+  width: 90%;
+  padding: 0 5%;
+}
+
+.infoCont span {
+  color: rgb(29, 114, 199);
+  font-weight: 700;
+  cursor: pointer;
+}
+.infoCont span:hover {
+  border-bottom: 2px solid rgb(29, 114, 199);
+}
+
+.infoCont button {
+  height: 36px;
+  border-radius: 18px;
+  color: rgb(102, 102, 102);
+  background-color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 20px;
+  cursor: pointer;
+  border: 2px solid rgb(102, 102, 102);
+  margin-right: 10px;
+}
+.infoCont button:hover {
+  background-color: rgb(221, 221, 221);
+  border: 3px solid grey;
+}
+.openToBtn {
+  color: white !important;
+  background-color: rgb(10, 102, 194) !important;
+  border: none !important;
+}
+.openToBtn:hover {
+  background-color: rgb(6, 75, 144) !important;
+}
+.infoRight {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.infoRight > p:hover {
+  color: rgb(29, 114, 199);
+  border-bottom: 2px solid rgb(29, 114, 199);
+}
+.infoRight > img {
+  height: 40px;
+  margin-right: 10px;
+}
