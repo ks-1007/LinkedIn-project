@@ -94,3 +94,17 @@
   font-weight: 450;
   margin-top: 10px;
 }
+
+/* Education section */
+.educationCont {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  padding: 20px;
+  margin-top: 20px;
+}
+.educationCont > p:nth-of-type(1) {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 10px;
+}
