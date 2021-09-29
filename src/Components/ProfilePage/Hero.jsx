@@ -2,14 +2,19 @@ import styles from "./styles/ProfilePage.module.css"
 export function Hero() {
   return (
     <div className={styles.heroCont}>
-      <div
-        style={{
-          width: "100%",
-          height: "250px",
-          borderBottom: "1px solid black",
-        }}
-      >
-        image section
+      <div className={styles.bgImageCont}>
+        <img
+          src="https://media-exp1.licdn.com/dms/image/C5616AQER4T-xhofYAA/profile-displaybackgroundimage-shrink_200_800/0/1629004315429?e=1638403200&v=beta&t=RkH2coHgsufTUF_lrSqn7JfmvEd8rxRiDa1Aeu4fhPA"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <div className={styles.profileImageCont}>
+        <img
+          src="https://media-exp1.licdn.com/dms/image/C5603AQH4XQ6lmGPozw/profile-displayphoto-shrink_200_200/0/1632109602585?e=1638403200&v=beta&t=R7Lgc4CWWIECFg_eXr31QxUHBesaBMp5DNOm03u8tiQ"
+          alt=""
+          srcset=""
+        />
       </div>
       <div className={styles.infoCont}>
         <div>

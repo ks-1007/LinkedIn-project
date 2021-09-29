@@ -14,12 +14,33 @@
 .rightSection {
   width: 100%;
 }
+
 /* Hero section  */
 .heroCont {
   width: 100%;
   background-color: white;
   border-radius: 10px;
   border: 2px solid rgb(224, 223, 220);
+}
+.bgImageCont {
+  width: 100%;
+}
+.bgImageCont > img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.profileImageCont {
+  margin-top: -130px;
+  margin-left: 30px;
+  width: 170px;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+.profileImageCont > img {
+  border-radius: 50%;
+  width: 170px;
+  border: 5px solid white;
 }
 .infoCont {
   display: grid;
@@ -245,6 +266,10 @@
   border-bottom: 2px solid rgb(235, 235, 235);
   font-size: 17px;
   font-weight: 500;
+  cursor: pointer;
+}
+.skillsCont > div > div:hover {
+  text-decoration: underline;
 }
 .skillsCont > div > div:nth-last-of-type(1) {
   border-bottom: none;
