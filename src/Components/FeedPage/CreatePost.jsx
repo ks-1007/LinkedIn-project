@@ -129,7 +129,7 @@ const Button = styled.div`
     border-radius: .2rem;
     :hover {
         transition: ease-in-out 0.2s;
-      background-color: #e7e7e7  
+        background-color: #e7e7e7  ;
     }
 `
 const Icon = styled.div`
