@@ -254,3 +254,65 @@
   display: grid;
   grid-template-columns: 50% 50%;
 }
+
+/* Interests section*/
+.interestsCont {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgb(224, 223, 220);
+  padding: 0 25px;
+  margin-top: 20px;
+  border-bottom: none;
+}
+.interestsCont > p {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 30px !important;
+}
+.interestsCont > div:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.interestsDiv {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.interestsDiv:hover {
+  text-decoration: underline;
+}
+.interestsDiv p {
+  margin: 0;
+  color: rgb(103, 103, 103);
+  font-size: 14px;
+}
+.interestsDiv > div:nth-of-type(1) > p:nth-of-type(1) {
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+.interestsDiv img {
+  border-radius: 50%;
+  width: 60px;
+  margin-right: 25px;
+}
+.seeAllDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgb(235, 235, 235);
+  color: rgb(103, 103, 103);
+  font-weight: 500;
+  font-size: 18px;
+  height: 40px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  border: 2px solid rgb(224, 223, 220);
+  cursor: pointer;
+}
+.seeAllDiv:hover {
+  background-color: rgb(221, 221, 221);
+}
