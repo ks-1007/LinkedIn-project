@@ -246,6 +246,12 @@
   font-size: 17px;
   font-weight: 500;
 }
+.skillsCont > div > div:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.skillsCont > div > div:nth-last-of-type(2) {
+  border-bottom: none;
+}
 .skillsCont > button:hover {
   background-color: rgb(232, 243, 255);
   border: 3px solid rgb(29, 114, 199);
