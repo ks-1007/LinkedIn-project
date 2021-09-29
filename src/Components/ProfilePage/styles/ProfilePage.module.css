@@ -92,7 +92,7 @@
 .dashboardCont > p:nth-of-type(1) {
   font-size: 22px;
   font-weight: 450;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .profileStats {
@@ -105,6 +105,10 @@
 .profileStats > div {
   padding: 0 20px;
   border-right: 2px solid rgb(224, 223, 220);
+  cursor: pointer;
+}
+.profileStats > div:hover {
+  text-decoration: underline;
 }
 .profileStats > div > p:nth-of-type(1) {
   font-size: 40px;
@@ -120,6 +124,43 @@
   border-right: none !important;
 }
 
+.dashboardExtras {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  margin-top: 20px;
+}
+.dashboardExtras > div {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 2px solid rgb(224, 223, 220);
+  height: 50px;
+  cursor: pointer;
+}
+.dashboardExtras > div:hover {
+  text-decoration: underline;
+}
+.dashboardExtras > div:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.dashboardExtras > div > div > p {
+  margin: 0;
+}
+.dashboardExtras > div > div > p:nth-of-type(1) {
+  font-weight: 500;
+}
+.dashboardExtras > div > div > p:nth-of-type(2) {
+  color: rgb(103, 103, 103);
+}
+.dashboardExtras > div > div span {
+  color: rgb(103, 103, 103);
+}
+.dashboardIcons {
+  font-size: 25px;
+  color: rgb(103, 103, 103);
+  margin-right: 15px;
+}
 /*About section*/
 .aboutCont {
   background-color: white;
