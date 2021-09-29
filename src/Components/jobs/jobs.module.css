@@ -1,0 +1,42 @@
+.options{
+    width: 14.5%;
+    /* min-width: 220px; */
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    display: block;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    border:1px solid #E0DFDC;
+    /*  */
+    position: fixed;
+}
+.options_list{
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    color: #666666;
+    margin: auto;
+    padding-top: 12px;
+    height: 35px;
+    cursor: pointer;
+}
+.options_list p{
+    margin-top: 0px;
+    margin-left: 8px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+}
+.options_list>svg{
+    margin-left: 16px;
+}
+
+.options:nth-child(2){
+    margin-top: 370px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+}
+.options:nth-child(2)>div>p{
+    color: rgb(134, 134, 134);
+}
