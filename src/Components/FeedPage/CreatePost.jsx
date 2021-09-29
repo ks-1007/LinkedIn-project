@@ -144,6 +144,6 @@ const Hashtags = styled.div`
 `
 const HashtagsPara = styled.div`
     margin: 0 16px;
-    border-top: 1px solid #cfcfcf;
+    border-top: 1px solid rgba(0,0,0,.15);
     padding:10px 0;
 `

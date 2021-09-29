@@ -1,10 +1,10 @@
 import "./App.css"
-import CreatePost from './Components/FeedPage/CreatePost'
+import ProfileCard from './Components/FeedPage/ProfileCard'
 
 function App() {
   return(
     <div className="app">
-      <CreatePost/>
+      <ProfileCard/>
     </div>
   )
 }
