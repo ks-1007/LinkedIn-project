@@ -8,7 +8,7 @@ export default function CreatePost() {
         <CardCont>
             <Top>
                 <Image>
-                    <img src="logo.png" alt="Profile" />
+                    <img src="profile.jpeg" alt="Profile" />
                 </Image>
                 <StartCont>
                     <Start>
@@ -89,7 +89,6 @@ const Top = styled.div`
 `
 const Image = styled.div`
     margin-right: 8px;
-    
     img{
         border-radius: 50%;
         width:48px;
@@ -101,6 +100,7 @@ const StartCont = styled.div`
 `
 const Start = styled.div`
     border: 1px solid #cfcfcf;
+    min-height: 48px;
     border-radius: 35px;
     font-weight: 500;
     font-size: 0.9rem;
@@ -110,7 +110,8 @@ const Start = styled.div`
     }
 `
 const Para = styled.div`
-    padding: 10px 8px 10px 16px;   
+    padding: 10px 8px 10px 16px;
+    line-height: 1.5rem; 
 `
 const ButtonsCont = styled.div`
     display: flex;
@@ -125,6 +126,11 @@ const Button = styled.div`
     display: flex;
     padding: 0 8px;
     cursor: pointer;
+    border-radius: .2rem;
+    :hover {
+        transition: ease-in-out 0.2s;
+      background-color: #e7e7e7  
+    }
 `
 const Icon = styled.div`
     vertical-align: middle;
