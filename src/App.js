@@ -1,10 +1,10 @@
 import "./App.css"
-import Navbar from './Components/Nav/Navbar'
+import CreatePost from './Components/FeedPage/CreatePost'
 
 function App() {
   return(
     <div className="app">
-    <Navbar/>
+      <CreatePost/>
     </div>
   )
 }

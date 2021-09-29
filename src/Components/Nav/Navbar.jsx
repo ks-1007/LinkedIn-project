@@ -84,7 +84,6 @@ export default function Navbar() {
 
 const NavCont = styled.div`
     width: 100vw;
-    
     top: 0;
     position: fixed;
     padding:0 30px;
@@ -103,6 +102,7 @@ const Logo = styled.div`
         width:34px;
         margin-top: 10px;
         margin-right: 8px;
+        cursor: pointer;
     }
 `
 const Search = styled.div`
@@ -115,6 +115,7 @@ const Search = styled.div`
     img{
         padding-left:15px;
         margin: 8px auto;
+        cursor: pointer;
         @media (min-width: 1024px) {
         display: none;
         }
@@ -123,6 +124,7 @@ const Search = styled.div`
        margin-top: 9px;
        height:32px;
        width:232px;
+       cursor: pointer;
        @media ${device.laptop} {
         display: none;
         }
@@ -137,6 +139,7 @@ const NavButton = styled.div`
     flex-direction: column;
     width: 80px;
     padding: 5px 0px;
+    cursor: pointer;
     &:last-child{
         width: 100px;
     }
