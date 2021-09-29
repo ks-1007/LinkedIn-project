@@ -1,10 +1,11 @@
 import "./App.css"
-import ProfileCard from './Components/FeedPage/ProfileCard'
+//import ProfileCard from './Components/FeedPage/ProfileCard'
+import Navbar from "./Components/Nav/Navbar"
 
 function App() {
   return(
     <div className="app">
-      <ProfileCard/>
+      <Navbar/>
     </div>
   )
 }
