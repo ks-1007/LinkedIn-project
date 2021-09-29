@@ -2,9 +2,11 @@ import "./App.css"
 import Navbar from './Components/Nav/Navbar'
 
 function App() {
-  return <div>
+  return(
+    <div className="app">
     <Navbar/>
-  </div>
+    </div>
+  )
 }
 
 export default App
