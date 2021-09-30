@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
+    email: { type: String, required: true },
     connections: [{ type: mongoose.Schema.Types.ObjectId, required: false }],
     profile_pic: { type: String, required: false },
     background_pic: { type: String, required: false },

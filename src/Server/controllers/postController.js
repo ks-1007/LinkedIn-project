@@ -3,25 +3,32 @@ const express = require("express")
 const router = express.Router()
 
 const Post = require("../models/post.model")
-
+const User = require("../models/user.model")
 const authenticate = require("../middlewares/authenticate")
 
 // getting feeds of connections
 router.get("", authenticate, async function (req, res) {
   // getting current user from authenticate middleware
   const { user } = req.user
-  const { connections } = user
-  const posts = await Post.find({
-    $or: [{ user: user._id }, { user: { $in: connections } }],
-  })
+  const curr_user = await User.findById(user._id)
+  let { connections } = curr_user
+  connections = [...connections, user._id]
+  //console.log("connections:", connections)
+  const posts = await Post.find({ user: { $in: connections } })
     .lean()
     .exec()
 
-  res.send(200).json({ posts })
+  res.status(200).json({ posts })
+})
+// getting feeds of all
+router.get("/all", authenticate, async function (req, res) {
+  const posts = await Post.find().lean().exec()
+
+  res.status(200).json({ posts })
 })
 
 // posting a post
-router.post("", async function (req, res) {
+router.post("", authenticate, async function (req, res) {
   // getting user from authenticate middleware
   const { user } = req.user
   let body = req.body

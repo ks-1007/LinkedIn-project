@@ -19,12 +19,32 @@ router.post("", async (req, res) => {
   return res.status(201).json({ token: token })
 })
 
+// getting all users
+router.get("/all", authenticate, async (req, res) => {
+  const users = await User.find().lean().exec()
+
+  return res.status(200).send({ users })
+})
 // getting all users which are not connection (to show on suggestion list)
-router.get("", authenticate, async (req, res) => {
+router.get("/not_connections", authenticate, async (req, res) => {
   // we will get current user from authenticate middlewares
   const { user } = req.user
-  const { connections } = user
+  const curr_user = await User.findById(user._id)
+  let { connections } = curr_user
+  connections = [...connections, user._id]
   const users = await User.find({ _id: { $nin: connections } })
+    .lean()
+    .exec()
+
+  return res.status(200).send({ users })
+})
+// getting all users which are connection (to show on connection list)
+router.get("/connections", authenticate, async (req, res) => {
+  // we will get current user from authenticate middlewares
+  const { user } = req.user
+  const curr_user = await User.findById(user._id)
+  let { connections } = curr_user
+  const users = await User.find({ _id: { $in: connections } })
     .lean()
     .exec()
 
@@ -83,7 +103,7 @@ router.patch("/invite/:inviter_id", authenticate, async (req, res) => {
   await User.findByIdAndUpdate(
     user._id,
     {
-      $pull: { invites: user._id },
+      $pull: { invites: req.params.inviter_id },
     },
     { upsert: true, new: true }
   )
