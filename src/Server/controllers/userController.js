@@ -19,6 +19,87 @@ router.post("", async (req, res) => {
   return res.status(201).json({ token: token })
 })
 
+//[untested] updating a user single item --> for profile pic, bg pic, location, about
+router.patch("", authenticate, async (req, res) => {
+  const { user } = req.user
+  const updated = await User.findByIdAndUpdate(user._id, req.body)
+
+  return res.status(201).json({ updated })
+})
+
+//[untested] adding in user's education
+router.patch("/education_add", authenticate, async (req, res) => {
+  const { user } = req.user
+  const curr_user = await User.findById(user._id)
+  const { education } = curr_user
+  const updated = await User.findByIdAndUpdate(
+    user._id,
+    {
+      $push: { education: [req.body.education, ...education] },
+    },
+    { upsert: true, new: true }
+  )
+
+  return res.status(201).json({ updated })
+})
+
+//[untested] adding in user's certification
+router.patch("/certification_add", authenticate, async (req, res) => {
+  const { user } = req.user
+  const curr_user = await User.findById(user._id)
+  const { licenses_certifications } = curr_user
+  const updated = await User.findByIdAndUpdate(
+    user._id,
+    {
+      $push: {
+        licenses_certifications: [
+          req.body.education,
+          ...licenses_certifications,
+        ],
+      },
+    },
+    { upsert: true, new: true }
+  )
+
+  return res.status(201).json({ updated })
+})
+
+//[untested] adding in user's skills
+router.patch("/skill_add", authenticate, async (req, res) => {
+  const { user } = req.user
+  const curr_user = await User.findById(user._id)
+  const { skill } = curr_user
+  const updated = await User.findByIdAndUpdate(
+    user._id,
+    {
+      $push: {
+        skill: [req.body.education, ...skill],
+      },
+    },
+    { upsert: true, new: true }
+  )
+
+  return res.status(201).json({ updated })
+})
+
+//[untested] adding in user's accomplishments
+router.patch("/accomplishments_add", authenticate, async (req, res) => {
+  const { user } = req.user
+  const curr_user = await User.findById(user._id)
+  const { accomplishments } = curr_user
+  const updated = await User.findByIdAndUpdate(
+    user._id,
+    {
+      $push: {
+        accomplishments: [req.body.education, ...accomplishments],
+      },
+    },
+    { upsert: true, new: true }
+  )
+
+  return res.status(201).json({ updated })
+})
+
 // getting all users
 router.get("/all", authenticate, async (req, res) => {
   const users = await User.find().lean().exec()
