@@ -31,4 +31,64 @@ router.get("", authenticate, async (req, res) => {
   return res.status(200).send({ users })
 })
 
+// sending connection request
+router.patch("/request/:receiver_id", authenticate, async (req, res) => {
+  // we will get current user from authenticate middleware and receiver from params
+  const { user } = req.user
+  const receiver = await User.findByIdAndUpdate(req.params.receiver_id, {
+    $push: { invites: user._id },
+  })
+  const curr_user = await User.findByIdAndUpdate(
+    user._id,
+    {
+      $push: { requests: req.params.receiver_id },
+    },
+    { upsert: true, new: true }
+  )
+
+  return res.status(201).send({ curr_user })
+})
+
+// accepting invite request
+router.patch("/invite/:inviter_id", authenticate, async (req, res) => {
+  // we will get current user from authenticate middleware and inviter from params
+  const { user } = req.user
+
+  // adding user to connection list of inviter
+  const inviter = await User.findByIdAndUpdate(
+    req.params.inviter_id,
+    {
+      $push: { connections: user._id },
+    },
+    { upsert: true, new: true }
+  )
+  // removing user from requests list of inviter
+  await User.findByIdAndUpdate(
+    req.params.inviter_id,
+    {
+      $pull: { requests: user._id },
+    },
+    { upsert: true, new: true }
+  )
+
+  // adding user to connection list of inviter
+  const curr_user = await User.findByIdAndUpdate(
+    user._id,
+    {
+      $push: { connections: req.params.inviter_id },
+    },
+    { upsert: true, new: true }
+  )
+  // removing user from requests list of inviter
+  await User.findByIdAndUpdate(
+    user._id,
+    {
+      $pull: { invites: user._id },
+    },
+    { upsert: true, new: true }
+  )
+
+  return res.status(201).json({ curr_user })
+})
+
 module.exports = router
