@@ -1,12 +1,13 @@
 /*Root cont*/
 .rootCont {
-  width: 80%;
+  width: 85%;
   margin: auto;
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 68% 28%;
   justify-content: center;
   min-height: 100vh;
   padding-top: 50px;
+  gap: 2%;
 }
 .leftSection {
   width: 100%;
@@ -21,21 +22,24 @@
   background-color: white;
   border-radius: 10px;
   border: 2px solid rgb(224, 223, 220);
+  overflow: hidden;
 }
 .bgImageCont {
   width: 100%;
 }
 .bgImageCont > img {
   width: 100%;
-  border-radius: 10px 10px 0 0;
+  /* border-radius: 10px 10px 0 0; */
 }
 .profileImageCont {
   margin-top: -130px;
   margin-left: 30px;
   width: 170px;
   border-radius: 50%;
-  z-index: 1;
+  /* z-index: 1; */
   cursor: pointer;
+  overflow: hidden;
+  /* border: 5px solid white; */
 }
 .profileImageCont > img {
   border-radius: 50%;
@@ -346,4 +350,46 @@
 }
 .seeAllDiv:hover {
   background-color: rgb(221, 221, 221);
+}
+
+/* right side top component*/
+.rightSection {
+  position: relative;
+}
+.rightTopCont {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  color: rgb(117, 117, 117);
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 500;
+  position: fixed;
+  width: 320px;
+}
+.rightTopCont > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.rightTopCont > div:hover {
+  text-decoration: underline;
+}
+.rightTopCont > div:nth-of-type(1) {
+  border-bottom: 2px solid rgb(235, 235, 235);
+}
+
+/*LinkedIn ad*/
+.adCont {
+  position: fixed;
+  top: 200px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
 }
