@@ -38,7 +38,7 @@
   border-radius: 50%;
   /* z-index: 1; */
   cursor: pointer;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* border: 5px solid white; */
 }
 .profileImageCont > img {
