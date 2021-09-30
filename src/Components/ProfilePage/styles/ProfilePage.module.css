@@ -393,3 +393,25 @@
   justify-content: center;
   padding: 0 10px;
 }
+
+/*footer section*/
+.footerCont {
+  /* background-color: rgb(243, 242, 239); */
+  width: 80%;
+  margin: 50px auto;
+}
+.footerCont > svg {
+  color: rgb(10, 102, 194);
+}
+.footerCont > div:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: repeat(3, 20%);
+  color: rgb(97, 97, 96);
+  font-size: 13px;
+  font-weight: 500;
+  /* width: 60%; */
+}
+.footerCont > div > div:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
