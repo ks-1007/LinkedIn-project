@@ -1,6 +1,4 @@
-.nav{
-    /* background-color: #666666; */
-}
+
 .nav>svg{
     height: 34px;
     /* margin-left: 195px; */
@@ -82,7 +80,6 @@ box-shadow: 1px 8px 10px rgb(218, 218, 218);
     right: 0;
     margin-right: 60px;
     margin-top: 5px;
-    /* z-index: -1; */
 }
 /* find jobs */
 
