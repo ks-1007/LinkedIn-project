@@ -47,7 +47,6 @@ export const JobsList = () => {
                 </div>
                 <div className={styles.jobs_available}>
                     <p>Recommended for you<br/><span>Based on your profile and search history.</span></p>
-                    
                     <div>
                         <SingleJob />
                         <SingleJob />
