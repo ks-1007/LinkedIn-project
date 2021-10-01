@@ -7,6 +7,8 @@ const newToken = (user) => {
 
 const authenticate = require("../middlewares/authenticate")
 
+const upload = require("../middlewares/file-uploads")
+
 const User = require("../models/user.model")
 
 const router = express.Router()
@@ -19,13 +21,43 @@ router.post("", async (req, res) => {
   return res.status(201).json({ token: token })
 })
 
-//[untested] updating a user single item --> for profile pic, bg pic, location, about
+//[untested] updating for location, about
 router.patch("", authenticate, async (req, res) => {
   const { user } = req.user
   const updated = await User.findByIdAndUpdate(user._id, req.body)
 
   return res.status(201).json({ updated })
 })
+
+//[untested] updating profile-pic
+router.patch(
+  "/profile-pic",
+  authenticate,
+  upload.single("profile_pic"),
+  async (req, res) => {
+    const { user } = req.user
+    const updated = await User.findByIdAndUpdate(user._id, {
+      profile_pic: req.file.path,
+    })
+
+    return res.status(201).json({ updated })
+  }
+)
+
+//[untested] updating background pic
+router.patch(
+  "/background-pic",
+  authenticate,
+  upload.single("background_pic"),
+  async (req, res) => {
+    const { user } = req.user
+    const updated = await User.findByIdAndUpdate(user._id, {
+      background_pic: req.file.path,
+    })
+
+    return res.status(201).json({ updated })
+  }
+)
 
 //[untested] adding in user's education
 router.patch("/education_add", authenticate, async (req, res) => {
