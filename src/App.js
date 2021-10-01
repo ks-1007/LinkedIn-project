@@ -1,7 +1,7 @@
 import "./App.css"
 
 function App() {
-  return <div style={{ backgroundColor: "rgb(243, 242, 239)" }}></div>
+  return <div className="app"></div>
 }
 
 export default App
