@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import styles from "./network.module.css"
 
 const token = localStorage.getItem("token")
+// console.log("token:", token)
 
 const Header = {
   headers: {
@@ -88,7 +89,7 @@ export const Invitations = () => {
       })
       .catch((err) => {
         console.log("err:", err)
-      })
+      }, [])
     axios
       .get("http://localhost:5000/users/invite", Header)
       .then(({ data }) => {

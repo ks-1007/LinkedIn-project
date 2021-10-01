@@ -50,7 +50,7 @@ app.get("/protected", isLoggedIn, async (req, res) => {
   if (user.length > 0) {
     res.writeHead(301, {
       // Location: "http://localhost:3000/profile",
-      Location: "http://localhost:3000/profile",
+      Location: `http://localhost:3000/profile/${user[0].email}`,
     })
   } else {
     res.writeHead(301, {

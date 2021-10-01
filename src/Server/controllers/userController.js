@@ -21,6 +21,14 @@ router.post("", async (req, res) => {
   return res.status(201).json({ token: token })
 })
 
+// get user and token from email
+router.get("/profile/:email", async (req, res) => {
+  const user = await User.find({ email: req.params.email }).exec()
+  console.log("user:", user)
+  const token = newToken(user[0])
+  return res.status(200).json({ user, token })
+})
+
 //[untested] updating for location, about
 router.patch("", authenticate, async (req, res) => {
   const { user } = req.user

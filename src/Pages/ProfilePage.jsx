@@ -1,5 +1,7 @@
-import { useState } from "react"
+import axios from "axios"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
+import { useParams } from "react-router"
 import { About } from "../Components/ProfilePage/About"
 import { Dashboard } from "../Components/ProfilePage/Dashboard"
 import { Education } from "../Components/ProfilePage/Education"
@@ -11,9 +13,21 @@ import { RightSideTop } from "../Components/ProfilePage/RightSideTop"
 import { Skills } from "../Components/ProfilePage/Skills"
 import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
 export function ProfilePage() {
-  const token = useSelector((state) => state)
-  console.log("state:", token)
+  const [user, setUser] = useState({})
+  const { email } = useParams()
 
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/users/profile/${email}`)
+      .then(({ data }) => {
+        console.log("data:", data)
+        setUser(data.user)
+        localStorage.setItem("token", data.token)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [])
   return (
     <>
       <div className={styles.rootCont}>

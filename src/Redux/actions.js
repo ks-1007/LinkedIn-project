@@ -1,5 +1,5 @@
 import axios from "axios"
-import { STORE_EMAIL, STORE_TOKEN } from "./actionTypes"
+import { STORE_TOKEN, STORE_USER } from "./actionTypes"
 
 export const storeToken = (payload) => {
   return {
@@ -7,9 +7,16 @@ export const storeToken = (payload) => {
     payload,
   }
 }
-export const storeEmail = (payload) => {
+// export const storeEmail = (payload) => {
+//   return {
+//     type: STORE_EMAIL,
+//     payload,
+//   }
+// }
+
+export const storeUser = (payload) => {
   return {
-    type: STORE_EMAIL,
+    type: STORE_USER,
     payload,
   }
 }

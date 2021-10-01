@@ -16,7 +16,7 @@ export const UserCreateForm = () => {
   const handleInput = (e) => {
     const data = {
       ...user,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.toLowerCase(),
     }
     setUser(data)
   }
