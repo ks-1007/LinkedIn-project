@@ -1,10 +1,11 @@
 import "./App.css"
-import { ProfilePage } from "./Pages/ProfilePage"
+
+import { Routes } from "./Routes/Routes"
 
 function App() {
   return (
-    <div style={{ backgroundColor: "rgb(243, 242, 239)" }}>
-      <ProfilePage />
+    <div className="app">
+      <Routes /> 
     </div>
   )
 }
