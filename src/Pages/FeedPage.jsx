@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import Navbar from "../Components/Nav/Navbar"
 import ProfileCard from "../Components/FeedPage/ProfileCard"
 import CreatePost from "../Components/FeedPage/CreatePost"
 import PostCard from "../Components/FeedPage/PostCard"
@@ -11,7 +10,6 @@ import { device } from "../Components/breakpoints"
 export default function FeedPage() {
   return (
     <>
-      {/* <Navbar /> */}
       <Page>
         <Left>
           <ProfileCard />
