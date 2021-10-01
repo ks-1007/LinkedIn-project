@@ -49,13 +49,6 @@ const Logo = styled.div`
         width:100%;
     }
 `
-const Title = styled.div`
-    text-align: center;
-    h1{
-        font-weight: 400;
-        color: #000000cf
-    }
-`
 const Form = styled.div`
     margin: auto;
     align-items: center;
