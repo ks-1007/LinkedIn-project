@@ -1,0 +1,416 @@
+/*Root cont*/
+.rootCont {
+  width: 85%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 68% 28%;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  gap: 2%;
+}
+.leftSection {
+  width: 100%;
+}
+.rightSection {
+  width: 100%;
+}
+
+/* Hero section  */
+.heroCont {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  overflow: hidden;
+}
+.bgImageCont {
+  width: 100%;
+}
+.bgImageCont > img {
+  width: 100%;
+  /* border-radius: 10px 10px 0 0; */
+}
+.profileImageCont {
+  margin-top: -130px;
+  margin-left: 30px;
+  width: 170px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.profileImageCont > img {
+  border-radius: 50%;
+  width: 170px;
+  border: 5px solid white;
+}
+.infoCont {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  padding-bottom: 20px;
+}
+.infoCont > div {
+  width: 90%;
+  padding: 0 5%;
+}
+
+.infoCont span {
+  color: rgb(29, 114, 199);
+  font-weight: 700;
+  cursor: pointer;
+}
+.infoCont span:hover {
+  border-bottom: 2px solid rgb(29, 114, 199);
+}
+
+.infoCont button {
+  height: 36px;
+  border-radius: 18px;
+  color: rgb(102, 102, 102);
+  background-color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 20px;
+  cursor: pointer;
+  border: 2px solid rgb(102, 102, 102);
+  margin-right: 10px;
+}
+.infoCont button:hover {
+  background-color: rgb(221, 221, 221);
+  border: 3px solid grey;
+}
+.openToBtn {
+  color: white !important;
+  background-color: rgb(10, 102, 194) !important;
+  border: none !important;
+}
+.openToBtn:hover {
+  background-color: rgb(6, 75, 144) !important;
+}
+.infoRight {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.infoRight > p:hover {
+  color: rgb(29, 114, 199);
+  border-bottom: 2px solid rgb(29, 114, 199);
+}
+.infoRight > img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Dashboard section*/
+.dashboardCont {
+  background-color: rgb(220, 230, 241);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid rgb(224, 223, 220);
+}
+.dashboardCont > p:nth-of-type(1) {
+  font-size: 22px;
+  font-weight: 450;
+  margin: 0;
+}
+
+.profileStats {
+  display: grid;
+  grid-template-columns: repeat(3, 33.33333333333%);
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+}
+.profileStats > div {
+  padding: 0 20px;
+  border-right: 2px solid rgb(224, 223, 220);
+  cursor: pointer;
+}
+.profileStats > div:hover {
+  text-decoration: underline;
+}
+.profileStats > div > p:nth-of-type(1) {
+  font-size: 40px;
+  margin: 0;
+  color: rgb(29, 114, 199);
+  font-weight: 350;
+}
+.profileStats > div > p {
+  margin: 10px 0 15px 0;
+  font-size: 17px;
+}
+.profileStats > div:nth-last-of-type(1) {
+  border-right: none !important;
+}
+
+.dashboardExtras {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  margin-top: 20px;
+}
+.dashboardExtras > div {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 2px solid rgb(224, 223, 220);
+  height: 50px;
+  cursor: pointer;
+}
+.dashboardExtras > div:hover {
+  text-decoration: underline;
+}
+.dashboardExtras > div:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.dashboardExtras > div > div > p {
+  margin: 0;
+}
+.dashboardExtras > div > div > p:nth-of-type(1) {
+  font-weight: 500;
+}
+.dashboardExtras > div > div > p:nth-of-type(2) {
+  color: rgb(103, 103, 103);
+}
+.dashboardExtras > div > div span {
+  color: rgb(103, 103, 103);
+}
+.dashboardIcons {
+  font-size: 25px;
+  color: rgb(103, 103, 103);
+  margin-right: 15px;
+}
+/*About section*/
+.aboutCont {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid rgb(224, 223, 220);
+}
+.aboutCont > p:nth-of-type(1) {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 10px;
+}
+
+/* Education section */
+.educationCont {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  padding: 0 25px;
+  margin-top: 20px;
+}
+.educationCont > p {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 30px !important;
+}
+.educationCont > div {
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+  border-bottom: 2px solid rgb(235, 235, 235);
+  cursor: pointer;
+}
+.educationCont > div > div > p:nth-of-type(1) {
+  font-weight: 500;
+  font-size: 17px;
+}
+.educationCont > div:nth-last-of-type(1) {
+  border-bottom: none !important;
+}
+.educationCont > div:hover {
+  text-decoration: underline;
+}
+.educationCont p {
+  margin: 0;
+}
+.educationCont img {
+  width: 60px;
+  margin-right: 25px;
+}
+
+/* Skills section */
+.skillsCont {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  padding: 0 25px;
+  margin-top: 20px;
+}
+.skillsCont > p {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 30px !important;
+}
+.skillsCont > button {
+  height: 36px;
+  border-radius: 18px;
+  color: rgb(29, 114, 199);
+  background-color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0 20px;
+  cursor: pointer;
+  border: 2px solid rgb(29, 114, 199);
+  margin-right: 10px;
+}
+.skillsCont > div > div {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgb(235, 235, 235);
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.skillsCont > div > div:hover {
+  text-decoration: underline;
+}
+.skillsCont > div > div:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.skillsCont > div > div:nth-last-of-type(2) {
+  border-bottom: none;
+}
+.skillsCont > button:hover {
+  background-color: rgb(232, 243, 255);
+  border: 3px solid rgb(29, 114, 199);
+}
+.skillsCont > div {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+/* Interests section*/
+.interestsCont {
+  background-color: white;
+  border-radius: 10px 10px 0 0;
+  border: 2px solid rgb(224, 223, 220);
+  padding: 0 25px;
+  margin-top: 20px;
+  border-bottom: none;
+}
+.interestsCont > p {
+  font-size: 22px;
+  font-weight: 450;
+  margin-top: 30px !important;
+}
+.interestsCont > div:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.interestsDiv {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.interestsDiv:hover {
+  text-decoration: underline;
+}
+.interestsDiv p {
+  margin: 0;
+  color: rgb(103, 103, 103);
+  font-size: 14px;
+}
+.interestsDiv > div:nth-of-type(1) > p:nth-of-type(1) {
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+.interestsDiv img {
+  border-radius: 50%;
+  width: 60px;
+  margin-right: 25px;
+}
+.seeAllDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 2px solid rgb(235, 235, 235);
+  color: rgb(103, 103, 103);
+  font-weight: 500;
+  font-size: 18px;
+  height: 40px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  border: 2px solid rgb(224, 223, 220);
+  cursor: pointer;
+}
+.seeAllDiv:hover {
+  background-color: rgb(221, 221, 221);
+}
+
+/* right side top component*/
+.rightSection {
+  position: relative;
+}
+.rightTopCont {
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  color: rgb(117, 117, 117);
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 500;
+  position: fixed;
+  width: 320px;
+}
+.rightTopCont > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.rightTopCont > div:hover {
+  text-decoration: underline;
+}
+.rightTopCont > div:nth-of-type(1) {
+  border-bottom: 2px solid rgb(235, 235, 235);
+}
+
+/*LinkedIn ad*/
+.adCont {
+  position: fixed;
+  top: 200px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 223, 220);
+  /* width: 320px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+}
+.adCont > img {
+  width: 320px;
+}
+/*footer section*/
+.footerCont {
+  /* background-color: rgb(243, 242, 239); */
+  width: 80%;
+  margin: 50px auto;
+}
+.footerCont > svg {
+  color: rgb(10, 102, 194);
+}
+.footerCont > div:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: repeat(3, 20%);
+  color: rgb(97, 97, 96);
+  font-size: 13px;
+  font-weight: 500;
+  /* width: 60%; */
+}
+.footerCont > div > div:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
