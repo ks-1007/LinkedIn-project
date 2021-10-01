@@ -182,6 +182,21 @@ router.patch("/request/:receiver_id", authenticate, async (req, res) => {
   return res.status(201).send({ curr_user })
 })
 
+// getting list of invite requests
+router.get("/invite", authenticate, async (req, res) => {
+  const { user } = req.user
+
+  const curr_user = await User.findById(user._id)
+
+  const { invites } = curr_user
+
+  const inviters = await User.find({ _id: { $in: invites } })
+    .lean()
+    .exec()
+
+  return res.status(201).send({ inviters })
+})
+
 // accepting invite request
 router.patch("/invite/:inviter_id", authenticate, async (req, res) => {
   // we will get current user from authenticate middleware and inviter from params

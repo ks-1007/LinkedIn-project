@@ -3,11 +3,12 @@ const session = require("express-session")
 const passport = require("passport")
 require("./middlewares/auth")
 
+const User = require("./models/user.model")
 const connect = require("./configs/db")
-
+const cors = require("cors")
 const app = express()
 app.use(express.json())
-
+app.use(cors())
 //Passport start--------
 function isLoggedIn(req, res, next) {
   req.user ? next() : res.sendStatus(401)
@@ -43,9 +44,23 @@ app.get(
   })
 )
 
-app.get("/protected", isLoggedIn, (req, res) => {
+app.get("/protected", isLoggedIn, async (req, res) => {
   console.log(req.user)
-  res.send(`Hello ${req.user.email}, you are logged in`)
+  const user = await User.find({ email: req.user.email }).lean().exec()
+  if (user.length > 0) {
+    res.writeHead(301, {
+      // Location: "http://localhost:3000/profile",
+      Location: "http://localhost:3000/profile",
+    })
+  } else {
+    res.writeHead(301, {
+      // Location: "http://localhost:3000/profile",
+      Location: "http://localhost:3000/create-user",
+    })
+  }
+
+  res.end()
+  // res.send("hello")
 })
 
 app.get("/logout", (req, res) => {

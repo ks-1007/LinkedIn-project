@@ -1,3 +1,5 @@
+import { useState } from "react"
+import { useSelector } from "react-redux"
 import { About } from "../Components/ProfilePage/About"
 import { Dashboard } from "../Components/ProfilePage/Dashboard"
 import { Education } from "../Components/ProfilePage/Education"
@@ -9,6 +11,9 @@ import { RightSideTop } from "../Components/ProfilePage/RightSideTop"
 import { Skills } from "../Components/ProfilePage/Skills"
 import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
 export function ProfilePage() {
+  const token = useSelector((state) => state)
+  console.log("state:", token)
+
   return (
     <>
       <div className={styles.rootCont}>

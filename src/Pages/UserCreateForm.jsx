@@ -1,6 +1,12 @@
+import axios from "axios"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { Redirect, useHistory } from "react-router"
+import { storeToken } from "../Redux/actions"
 import styles from "./pages.module.css"
 export const UserCreateForm = () => {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const initState = {
     name: "",
     email: "",
@@ -13,6 +19,20 @@ export const UserCreateForm = () => {
       [e.target.name]: e.target.value,
     }
     setUser(data)
+  }
+  const handleContinue = () => {
+    axios
+      .post("http://localhost:5000/users", user)
+      .then(({ data }) => {
+        // console.log("res:", res)
+        console.log("token:", data.token)
+        localStorage.setItem("token", data.token)
+        // dispatch(storeToken(data.token))
+        history.push("/profile")
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
   }
   return (
     <div>
@@ -38,7 +58,7 @@ export const UserCreateForm = () => {
           onInput={handleInput}
           placeholder="description"
         />
-        <button>continue</button>
+        <button onClick={handleContinue}>continue</button>
       </div>
     </div>
   )

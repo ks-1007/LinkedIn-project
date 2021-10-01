@@ -13,6 +13,7 @@ const verifyToken = (token) => {
 const authenticate = async function (req, res, next) {
   // bearerToken will be given from redux store
   const bearerToken = req?.headers?.authorization
+  // console.log("bearerToken:", bearerToken)
 
   const token = bearerToken.split(" ")[1]
 
