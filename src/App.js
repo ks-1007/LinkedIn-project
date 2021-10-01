@@ -10,10 +10,12 @@ import { ProfilePage } from "./Pages/ProfilePage"
 //       {/* <Notifications/> */}
 
 function App() {
+
   return (
     <div className="app">
       <ProfilePage />
     </div>
+
   )
 }
 
