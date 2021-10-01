@@ -2,7 +2,6 @@ const express = require("express")
 const session = require("express-session")
 const passport = require("passport")
 require("./middlewares/auth")
-const storeEmail = require("../Redux/actions")
 
 const connect = require("./configs/db")
 
