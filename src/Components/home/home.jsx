@@ -1,5 +1,6 @@
 import styles from './home.module.css'
-import {BsChevronCompactRight} from 'react-icons/bs';
+import { BsChevronCompactRight } from 'react-icons/bs';
+import { NavLink } from "react-router-dom"
 
 export const Home = () => {
     return (
@@ -20,8 +21,8 @@ export const Home = () => {
                         <polygon fill="currentColor" points="3 3 0 3 0 18 9 18 9 15 3 15"></polygon>
                     </g>
                     </svg>
-                    <button>join now</button>
-                    <button>sign in</button>
+                    <button><NavLink to="/join">join now</NavLink></button>
+                    <button><NavLink to="/login">sign in</NavLink></button>
                 </div>
                 <div className={styles.intro}>
                     <div>
