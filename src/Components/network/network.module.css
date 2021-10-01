@@ -1,0 +1,214 @@
+/* manage network */
+.manage{
+    width: 320px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    display: block;
+    padding-top: 0.1px;
+    padding-left: 0.1px; 
+    border:1px solid #E0DFDC;
+    /*  */
+    position: fixed;
+}
+.network_div{
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    padding-bottom: 20px;
+}
+.manage>p{
+    margin-top: 11px;
+    margin-left: 4%;
+    margin-bottom: 5px;
+}
+.manage_network{
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    color: rgba(0,0,0,.6);
+    margin: auto;
+    padding-top: 8px;
+    height: 35px;
+    cursor: pointer;
+}
+.manage_network:hover{
+    background-color: rgb(226, 226, 226);
+}
+.manage_network>p{
+    margin-top: 0px;
+    margin-left: 14px;
+}
+.manage_network>p:nth-child(3){
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+}
+.manage_network>svg{
+    margin-left: 18px;
+}
+.manage img{
+    margin: 10px;
+}
+
+/* invitations /.........*/
+
+.invitations{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 7px;
+    display: block;
+    /* margin-top: -12px; */
+    margin-bottom: 15px;
+    border:1px solid #E0DFDC;
+}
+.invitations>div:nth-child(1){
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding-top: 1px;
+}
+.invitations>div:nth-child(1)>p{
+    margin: 13px;
+    color: #191919;
+}
+
+.inv_div{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid#E0DFDC;
+}
+.inv_div>div:nth-child(1){
+    width: 70px;
+    height: 70px;
+    /* border-radius: 50%; */
+    overflow: hidden;
+    margin: 15px 5px 15px 10px;
+    cursor: pointer;
+}
+.inv_div img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+.inv_div>div:nth-child(2){
+    width: 65%;
+    /* background-color: wheat; */
+    overflow-wrap:normal ;
+}
+.inv_div>div:nth-child(2)>h4{
+    margin-bottom: 0px;
+    word-break: break-word;
+    font-weight: 500;
+}
+.inv_div>div:nth-child(2)>p{
+    font-size: 15px;
+    color: #949494;
+}
+.inv_div>button:nth-child(3){
+    height: 30px;
+    width: 70px;
+    margin-top: 30px;
+    background-color: white;
+    border:none;
+    font-size: 16px;
+    margin-right: 5px;
+    color: #666666;
+    cursor: pointer;
+}
+.inv_div>button:nth-child(3):hover{
+    background-color: rgb(230, 230, 230);
+}
+.inv_div>button:nth-child(4){
+    height: 33px;
+    width: 85px;
+    margin-top: 30px;
+    background-color: white;
+    border:1px solid #2879C9;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #2879C9;
+    font-weight: 600;
+    cursor: pointer;
+}
+.inv_div>button:nth-child(4):hover{
+    background-color: #d6ebff;
+}
+/* suggestions......... */
+.suggestions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+.invitations:nth-child(2)>div{
+    border:none;
+}
+
+.suggest{
+    margin: 6px;
+    width: 240px;
+    height: 235px;
+    /* background-color: rgb(245, 232, 216); */
+    border:1px solid #E0DFDC;
+    border-radius: 6px;
+    overflow: hidden;
+}
+.suggest:hover{
+    box-shadow: 1px 1px 10px rgb(199, 199, 199);
+}
+.suggest>div:nth-child(1){
+    width: 100%;
+    height: 60px;
+    background-image: url('https://media-exp1.licdn.com/dms/image/C4D16AQHocCqTUdKdaA/profile-displaybackgroundimage-shrink_350_1400/0/1605589719497?e=1638403200&v=beta&t=UwBXE_DqxinvoqjzB-6QS81t4j7gWPDNEwqD1P7l37c');
+    background-color: #666666;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.suggest>div:nth-child(2){
+    width: 70px;
+    height: 70px;
+    background-color: #B4B4B4;
+    border-radius: 50px;
+    margin-top: -38px;
+    margin-left: 10px;
+}
+.suggest>div:nth-child(2)>img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+.suggest>h4{
+    margin-top: 4px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    color: #191919;
+    font-weight: 600;
+}
+.suggest>p:nth-child(4),.suggest>p:nth-child(5){
+    margin-top: 2px;
+    font-size: 13px;
+    margin-left: 10px;
+    color: #666666;
+}
+.suggest>p:nth-child(5){
+    font-size: 12px;
+    margin: 10px 10px;
+}
+.suggest button{
+    width: 210px;
+    height: 32px;
+    margin-left: 15px;
+    background-color: white;
+    border:1px solid #2879C9;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #2879C9;
+    font-weight: 600;
+    cursor: pointer;
+}
+.suggest button:hover{
+    background-color: #d6ebff;
+    border:2px solid #2879C9;
+    cursor: pointer;
+}
