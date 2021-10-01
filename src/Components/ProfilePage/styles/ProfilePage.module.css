@@ -2,11 +2,12 @@
 .rootCont {
   width: 85%;
   margin: auto;
+  padding-top: 6.5rem;
   display: grid;
   grid-template-columns: 68% 28%;
   justify-content: center;
   min-height: 100vh;
-  padding-top: 50px;
+  /* padding-top: 50px; */
   gap: 2%;
 }
 .leftSection {
