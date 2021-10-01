@@ -21,8 +21,8 @@ export const Home = () => {
                         <polygon fill="currentColor" points="3 3 0 3 0 18 9 18 9 15 3 15"></polygon>
                     </g>
                     </svg>
-                    <NavLink to="/join"><button>join now</button></NavLink>
-                    <NavLink to="/login"><button>sign in</button></NavLink>
+                    <button><NavLink to="/join">join now</NavLink></button>
+                    <button><NavLink to="/login">sign in</NavLink></button>
                 </div>
                 <div className={styles.intro}>
                     <div>
