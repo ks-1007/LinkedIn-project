@@ -44,7 +44,7 @@ export const Home = () => {
                 </div>
                 <div className={styles.find}>
                     <div>
-                        <p>Welcome to your<br />professional community</p>
+                        {/* <p>Welcome to your<br />professional community</p> */}
                     </div>
                     <div>
                     </div>
