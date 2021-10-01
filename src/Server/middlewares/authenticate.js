@@ -16,6 +16,7 @@ const authenticate = async function (req, res, next) {
   console.log("bearerToken:", bearerToken)
 
   const token = bearerToken.split(" ")[1]
+  console.log("token:", token)
 
   const user = await verifyToken(token)
   console.log("user:", user)

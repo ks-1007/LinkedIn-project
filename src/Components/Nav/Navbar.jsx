@@ -5,7 +5,7 @@ import styled from "styled-components"
 import { device } from "../breakpoints"
 
 export default function Navbar() {
-  const email = useSelector((state) => state.email)
+  const email = localStorage.getItem("email")
 
   return (
     <NavCont>

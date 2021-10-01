@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
 import { About } from "../Components/ProfilePage/About"
@@ -15,14 +16,15 @@ import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
 export function ProfilePage() {
   const [user, setUser] = useState({})
   const { email } = useParams()
-
+  const dispatch = useDispatch()
   useEffect(() => {
     axios
       .get(`http://localhost:5000/users/profile/${email}`)
       .then(({ data }) => {
         console.log("data:", data)
-        setUser(data.user)
+        // dispatch(setUser(data.user[0]))
         localStorage.setItem("token", data.token)
+        localStorage.setItem("email", data.user.email)
       })
       .catch((err) => {
         console.log("err:", err)
