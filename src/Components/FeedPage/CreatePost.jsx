@@ -76,12 +76,14 @@ const CardCont = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 540px;
     display: flex;
     flex-direction: column;
     color: #7e7e7e;
     border: 1px solid #cfcfcf;
     border-radius: 10px;
+    margin-bottom: 1.4rem;
+    background-color: #fff;
+    max-width: 640px;
 `
 const Top = styled.div`
     margin: 8px 16px 0;

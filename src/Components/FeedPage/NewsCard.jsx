@@ -7,7 +7,7 @@ export default function NewsCard() {
             <Top>
                 <Name>LinkedIn News</Name>
                 <Icon>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="#666666" class="mercado-match" width="16" height="16" focusable="false">
                     <path d="M12 2H4a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2zm-3 8v2H7.5A1.5 1.5 0 016 10.5a1.56 1.56 0 01.1-.5l1.08-3h2.13l-1.09 3zm0-3.75A1.25 1.25 0 1110.25 5 1.25 1.25 0 019 6.25z"></path>
                     </svg>
                 </Icon>
@@ -55,7 +55,7 @@ export default function NewsCard() {
             <Bottom>
                 <BtName>Show more</BtName>
                 <Icon>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="#666666" class="mercado-match" width="16" height="16" focusable="false">
                     <path d="M1 5l7 4.61L15 5v2.39L8 12 1 7.39z"></path>
                     </svg>
                 </Icon>
@@ -71,18 +71,22 @@ const CardCont = styled.div`
     margin: 0;
     padding: 12px;
     box-sizing: border-box;
-    min-width: 315;
     display: flex;
     flex-direction: column;
     color: #000000E6;
     border: 1px solid #cfcfcf;
     border-radius: 10px;
-    width: 315px;
+    //min-width: 315;
+    //width: 315px;
+    margin-bottom: 1.2rem;
+    background-color: #fff;
 `
+
 const Top = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: .7rem;
+    padding-top: 0.4rem;
 `
 const Name = styled.div`
     font-size: 1.2rem;
@@ -108,11 +112,13 @@ const Bullet = styled.div`
 const Comment = styled.div`
     padding-left: 25px;
     font-size: 0.8rem;
+    margin-top: 0.1rem;
     color: #00000099;
 `
 const Bottom = styled.div`
     display: flex;
     margin-top: .6rem;
+    padding-bottom: 0.4rem;
 `
 const BtName = styled.div`
     padding-right: 10px;

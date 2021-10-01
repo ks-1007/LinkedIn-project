@@ -1,10 +1,10 @@
 import "./App.css"
-import NewsCard from "./Components/FeedPage/NewsCard"
+import FeedPage from "./Pages/FeedPage"
 
 function App() {
   return(
     <div className="app">
-      <NewsCard/>
+      <FeedPage/>
     </div>
   )
 }

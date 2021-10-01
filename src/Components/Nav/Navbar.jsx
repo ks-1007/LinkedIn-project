@@ -108,9 +108,11 @@ const NavCont = styled.div`
     width: 100vw;
     top: 0;
     position: fixed;
+    background-color: #fff;
     padding:0 30px;
     font-size: 0.85rem;
     box-sizing: border-box;
+    z-index: 1000;
     border-bottom: 1px solid rgba(0,0,0,.15);
 
 `
@@ -184,7 +186,11 @@ const Icon = styled.div`
     margin: auto;
     svg{
         fill: #666666
+        
     }
+    &:hover{
+           color: #000000e6;
+        }
 `
 const IconName = styled.div`
     text-align: center;

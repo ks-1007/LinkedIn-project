@@ -51,13 +51,14 @@ const CardCont = styled.div`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 250;
     display: flex;
     flex-direction: column;
     color: #7e7e7e;
     border: 1px solid #cfcfcf;
     border-radius: 10px;
-    width: 255px;
+    max-width: 255px;
+    margin-bottom: 1.2rem;
+    background-color: #fff;
 `
 const Hero = styled.div`
     border-bottom: 1px solid rgba(0,0,0,.15);
