@@ -1,4 +1,6 @@
-
+.nav{
+    background-color: white;
+}
 .nav>svg{
     height: 34px;
     /* margin-left: 195px; */
@@ -30,6 +32,7 @@
     font-size: 17px;
     color: #0052a5;
     cursor: pointer;
+    margin-left: 10px;
 }
 .nav>button:nth-child(3):hover{
     background-color: #d6ebff;
@@ -40,6 +43,8 @@
 .intro{
     display: flex;
     flex-direction: row;
+    height: 570px;
+    background-color: white;
 }
 .intro>div{
     margin-left: 13%;
@@ -84,7 +89,7 @@ box-shadow: 1px 8px 10px rgb(218, 218, 218);
 /* find jobs */
 
 .find{
-    margin-top: 120px;
+    /* margin-top: 120px; */
     background-color: #FAF9F7;
     height: 500px;
 }
