@@ -42,3 +42,14 @@
     display: flex;
     flex-direction: row;
 }
+
+/* form */
+.form{
+    margin: 200px auto;
+    width: 200px;
+    height: 150px;
+    background-color: blanchedalmond;
+}
+.form input{
+    margin: 5px  0 0 10px;
+}
