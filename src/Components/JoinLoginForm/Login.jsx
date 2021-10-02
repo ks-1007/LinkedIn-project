@@ -21,7 +21,7 @@ export default function Join() {
                 <p>Forgot password?</p>
                 <Btn>Sign In</Btn>
                 <div></div>
-                <Btn> <a href="http://localhost:5000/">Sign In with Google</a> </Btn>
+                <Btn> <a href="http://localhost:5000/auth/google">Sign In with Google</a> </Btn>
             </Form>
             <Help>
 
