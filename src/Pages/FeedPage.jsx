@@ -25,7 +25,7 @@ export default function FeedPage() {
       .get("http://localhost:5000/posts", Header)
       .then(({ data }) => {
         console.log("data:", data)
-        setFeed(data.posts)
+        setFeed(data.posts.reverse())
       })
       .catch((err) => {
         console.log("err:", err)
