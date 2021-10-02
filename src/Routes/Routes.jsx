@@ -8,6 +8,7 @@ import { Notifications } from "../Pages/notification"
 import { ProfilePage } from "../Pages/ProfilePage"
 import Join from "../Components/JoinLoginForm/Join"
 import Login from "../Components/JoinLoginForm//Login"
+import { UserCreateForm } from "../Pages/UserCreateForm"
 export function Routes() {
   return (
     <>
@@ -17,6 +18,9 @@ export function Routes() {
         </Route>
         <Route path="/join" exact>
           <Join />
+        </Route>
+        <Route path="/join/form" exact>
+          <UserCreateForm/>
         </Route>
         <Route path="/login" exact>
           <Login />
