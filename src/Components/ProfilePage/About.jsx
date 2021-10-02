@@ -38,6 +38,7 @@ export function About({ user, handleRerender }) {
             type="text"
             name="name"
             id=""
+            value={user?.about || ""}
             onChange={(e) => setAbout(e.target.value)}
           />
         </div>
