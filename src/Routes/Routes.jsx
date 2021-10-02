@@ -10,6 +10,9 @@ import Join from "../Components/JoinLoginForm/Join"
 import Login from "../Components/JoinLoginForm//Login"
 import { UserCreateForm } from "../Pages/UserCreateForm"
 
+
+
+
 export function Routes() {
   return (
     <>
@@ -20,7 +23,13 @@ export function Routes() {
         <Route exact path="/join">
           <Join />
         </Route>
-        <Route exact path="/login">
+
+        <Route path="/join/form" exact>
+          <UserCreateForm/>
+        </Route>
+        <Route path="/login" exact>
+
+        
           <Login />
         </Route>
         <Route exact path="/feed">
