@@ -83,7 +83,7 @@ export const UserCreateForm = () => {
           <input
           type="text"
           name="description"
-          onInput={handleInput}
+          // onInput={handleInput}
         />
         </div>
         <div>
@@ -100,7 +100,7 @@ export const UserCreateForm = () => {
               <input
                 type="email"
                 name="email"
-                onInput={handleInput}
+                // onInput={handleInput}
               />
             </div>
         </div>
