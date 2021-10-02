@@ -7,8 +7,9 @@ import axios from "axios"
 import styled from "styled-components"
 import { BiPencil } from "react-icons/bi"
 const Btn = styled.div`
-  margin: 1rem 0 2rem 0;
-  width: 100%;
+  margin: 1rem auto 2rem auto;
+  width: 200px;
+
   border: none;
   height: 50px;
   text-align: center;
@@ -140,8 +141,8 @@ export function Hero(user) {
   return (
     <>
       <Modal open={heroInfoModal} onClose={onCloseHeroInfo} center>
-        <h2>Change details</h2>
         <div className={styles.editHeroCont}>
+          <h2>Change details</h2>
           <p>Name</p>
           <input type="text" name="name" id="" onChange={handleInput} />
 

@@ -19,11 +19,18 @@
 
 /* Hero section  */
 .editHeroCont input {
-  width: 200px;
+  width: 300px;
   height: 30px;
   border-radius: 3px;
   border: 1px solid rgb(138, 138, 138);
   margin: 5px 0 0 10px;
+}
+.editHeroCont p {
+  margin-top: 20px;
+}
+.editHeroCont {
+  width: 500px;
+  text-align: center;
 }
 .editPencil {
   position: absolute;
