@@ -24,7 +24,7 @@ export default function Join() {
                     <p>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</p>
                 <Btn>Agree & Join</Btn>
                 <div></div>
-                <Btn> <a href="http://localhost:5000/">Join with Google</a> </Btn>
+                <Btn> <a href="http://localhost:5000/auth/google">Join with Google</a> </Btn>
             </Form>
             <Help>
 
