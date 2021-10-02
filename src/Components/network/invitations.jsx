@@ -99,9 +99,7 @@ export const Invitations = () => {
         console.log("err:", err)
       })
   }, [])
-  return suggested.length === 0 ? (
-    <p>...loading</p>
-  ) : (
+  return (
     <div>
       <div className={styles.invitations}>
         <div>
