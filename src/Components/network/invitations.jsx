@@ -43,7 +43,7 @@ const Request = ({ name, description, _id }) => {
     </div>
   )
 }
-const Suggest = ({ name, description, _id }) => {
+const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
     axios
@@ -59,10 +59,21 @@ const Suggest = ({ name, description, _id }) => {
 
   return (
     <div className={styles.suggest}>
-      <div></div>
       <div>
         <img
-          src="https://media-exp1.licdn.com/dms/image/C4D03AQHzgitxK-mG5w/profile-displayphoto-shrink_800_800/0/1631119018087?e=1638403200&v=beta&t=GcquY9Aqos37_wqHA3dLoCMRJj533gaZKsAf0VRw_v4"
+          src={
+            background_pic ||
+            "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
+          }
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src={
+            profile_pic ||
+            "https://komarketing.com/images/2014/08/linkedin-default.png"
+          }
           alt=""
         />
       </div>
