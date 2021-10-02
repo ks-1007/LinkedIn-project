@@ -19,6 +19,7 @@ const Btn = styled.div`
   color: #fff;
   font-size: 1.2rem;
   font-weight: 500;
+  cursor: pointer;
   a {
     color: #fff;
     font-size: 1.2rem;
@@ -35,20 +36,36 @@ export function Hero(user) {
     },
   }
   const [openProfile, setOpenProfile] = useState(false)
+  const [openBg, setOpenBg] = useState(false)
+  const [heroInfoModal, setHeroInfoModal] = useState(false)
+  const [input, setInput] = useState({})
+  const [profilePic, setProfilePic] = useState("")
+  const [coverPic, setCoverPic] = useState("")
+  const onCloseHeroInfo = () => {
+    setInput({})
+    setHeroInfoModal(false)
+  }
+  const openHeroInfoModal = () => {
+    setHeroInfoModal(true)
+  }
+  const handleInput = (e) => {
+    const newInput = {
+      ...input,
+      [e.target.name]: e.target.value.toLowerCase(),
+    }
+    setInput(newInput)
+    console.log(newInput)
+  }
 
   const onOpenProfileModal = () => setOpenProfile(true)
   const onCloseProfileModal = () => {
     setOpenProfile(false)
   }
-  const [openBg, setOpenBg] = useState(false)
 
   const onOpenBgModal = () => setOpenBg(true)
   const onClosBgModal = () => {
     setOpenBg(false)
   }
-
-  const [profilePic, setProfilePic] = useState("")
-  const [coverPic, setCoverPic] = useState("")
 
   const handleUploadeProfilePic = async (e) => {
     const files = e.target.files
@@ -71,6 +88,7 @@ export function Hero(user) {
       .patch("http://localhost:5000/users/profile-pic", picBody, Header)
       .then((res) => {
         setProfilePic("")
+        onCloseProfileModal()
       })
       .catch((err) => {
         console.log("err:", err)
@@ -100,6 +118,19 @@ export function Hero(user) {
       .patch("http://localhost:5000/users/background-pic", picBody, Header)
       .then((res) => {
         setCoverPic("")
+        onClosBgModal()
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }
+
+  const updateHeroInfo = () => {
+    axios
+      .patch("http://localhost:5000/users", input, Header)
+      .then((res) => {
+        console.log("res:", res)
+        onCloseHeroInfo()
       })
       .catch((err) => {
         console.log("err:", err)
@@ -108,6 +139,21 @@ export function Hero(user) {
 
   return (
     <>
+      <Modal open={heroInfoModal} onClose={onCloseHeroInfo} center>
+        <h2>Change details</h2>
+        <div className={styles.editHeroCont}>
+          <p>Name</p>
+          <input type="text" name="name" id="" onChange={handleInput} />
+
+          <p>Heading</p>
+          <input type="text" name="description" id="" onChange={handleInput} />
+
+          <p>Location</p>
+          <input type="text" name="location" id="" onChange={handleInput} />
+        </div>
+
+        <Btn onClick={updateHeroInfo}>Save Changes</Btn>
+      </Modal>
       <Modal open={openProfile} onClose={onCloseProfileModal} center>
         <h2>Change profile pic</h2>
         <input
@@ -153,10 +199,10 @@ export function Hero(user) {
         </div>
         <div className={styles.infoCont}>
           <div>
-            <h2>{user.name}</h2>
-            <p>{user.description}</p>
+            <h3>{user.name.toUpperCase()}</h3>
+            <p>{user.description.toUpperCase()}</p>
             <p style={{ color: "rgb(102,102,102)" }}>
-              Ghaziabad, Uttar Pradesh, India . <span>Contact info</span>{" "}
+              {user.location.toUpperCase()} <span>Contact info</span>{" "}
             </p>
             <p>
               {" "}
@@ -177,7 +223,7 @@ export function Hero(user) {
             />
             <p>Masai School</p>
           </div>
-          <BiPencil className={styles.editPencil} />
+          <BiPencil className={styles.editPencil} onClick={openHeroInfoModal} />
         </div>
       </div>
     </>

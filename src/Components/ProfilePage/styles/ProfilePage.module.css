@@ -18,6 +18,13 @@
 }
 
 /* Hero section  */
+.editHeroCont input {
+  width: 200px;
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid rgb(138, 138, 138);
+  margin: 5px 0 0 10px;
+}
 .editPencil {
   position: absolute;
   right: 30px;
@@ -197,6 +204,13 @@
   margin-right: 15px;
 }
 /*About section*/
+.editAboutCont textarea {
+  width: 500px;
+  height: 100px;
+  border-radius: 3px;
+  border: 1px solid rgb(138, 138, 138);
+  margin: 5px 0 0 10px;
+}
 .aboutCont {
   background-color: white;
   border-radius: 10px;
