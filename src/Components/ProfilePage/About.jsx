@@ -4,7 +4,7 @@ import { BiPencil } from "react-icons/bi"
 import Modal from "react-responsive-modal"
 import styled from "styled-components"
 import styles from "./styles/ProfilePage.module.css"
-export function About(user) {
+export function About({ user, handleRerender }) {
   const token = localStorage.getItem("token")
 
   const Header = {
@@ -21,6 +21,7 @@ export function About(user) {
       .patch("http://localhost:5000/users", { about }, Header)
       .then((res) => {
         console.log("res:", res)
+        handleRerender()
         onCloseAboutModal()
       })
       .catch((err) => {

@@ -28,7 +28,7 @@ const Btn = styled.div`
   }
   /* } */
 `
-export function Hero(user) {
+export function Hero({ user, handleRerender }) {
   const token = localStorage.getItem("token")
 
   const Header = {
@@ -89,6 +89,7 @@ export function Hero(user) {
       .patch("http://localhost:5000/users/profile-pic", picBody, Header)
       .then((res) => {
         // setProfilePic("")
+        handleRerender()
         onCloseProfileModal()
       })
       .catch((err) => {
@@ -118,7 +119,7 @@ export function Hero(user) {
     axios
       .patch("http://localhost:5000/users/background-pic", picBody, Header)
       .then((res) => {
-        setCoverPic("")
+        handleRerender()
         onClosBgModal()
       })
       .catch((err) => {
@@ -131,6 +132,7 @@ export function Hero(user) {
       .patch("http://localhost:5000/users", input, Header)
       .then((res) => {
         console.log("res:", res)
+        handleRerender()
         onCloseHeroInfo()
       })
       .catch((err) => {

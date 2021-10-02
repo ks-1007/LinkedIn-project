@@ -19,6 +19,10 @@ import { storeUser } from "../Redux/actions"
 export function ProfilePage() {
   const [user, setUser] = useState(null)
   const { email } = useParams()
+  const [rerender, setRerender] = useState(false)
+  const handleRerender = () => {
+    setRerender(!rerender)
+  }
   const dispatch = useDispatch()
   useEffect(() => {
     axios
@@ -34,16 +38,16 @@ export function ProfilePage() {
       .catch((err) => {
         console.log("err:", err)
       })
-  }, [])
+  }, [rerender])
   return !user ? (
     <h1>...loading</h1>
   ) : (
     <>
       <div className={styles.rootCont}>
         <div className={styles.leftSection}>
-          <Hero {...user} />
-          <Dashboard {...user} />
-          <About {...user} />
+          <Hero user={user} handleRerender={handleRerender} />
+          <Dashboard />
+          <About user={user} handleRerender={handleRerender} />
           <Education {...user} />
           <Skills {...user} />
           <Interests {...user} />
