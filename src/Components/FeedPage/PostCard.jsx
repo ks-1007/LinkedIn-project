@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-export default function PostCard({ user, body }) {
+export default function PostCard({ user, body, pic }) {
   return (
     <CardCont>
       <ProfileCont>
@@ -57,7 +57,12 @@ export default function PostCard({ user, body }) {
       <CaptionCont>
         <p>{body}</p>
       </CaptionCont>
-      {/* <ImgCont></ImgCont> */}
+      {pic && (
+        <ImgCont>
+          <img src={pic} alt="" />
+        </ImgCont>
+      )}
+
       <LikesCont>
         <Icons>
           <img src="like.svg" alt="" /> <img src="celebrate.svg" alt="" />{" "}
@@ -196,9 +201,12 @@ const More = styled.div`
 const CaptionCont = styled.div``
 const ImgCont = styled.div`
   width: 100%;
-  height: 540px;
+  /* height: 540px; */
   margin: auto;
   border: 1px solid #b3b3b3;
+  img {
+    width: 400px;
+  }
 `
 const LikesCont = styled.div`
   display: flex;

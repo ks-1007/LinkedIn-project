@@ -88,7 +88,7 @@ export function Hero(user) {
     axios
       .patch("http://localhost:5000/users/profile-pic", picBody, Header)
       .then((res) => {
-        setProfilePic("")
+        // setProfilePic("")
         onCloseProfileModal()
       })
       .catch((err) => {

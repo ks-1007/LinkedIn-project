@@ -100,7 +100,7 @@ export const Invitations = () => {
       })
   }, [])
   return suggested.length === 0 ? (
-    <h1>...loading</h1>
+    <p>...loading</p>
   ) : (
     <div>
       <div className={styles.invitations}>

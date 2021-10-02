@@ -67,6 +67,7 @@
 .profileImageCont > img {
   border-radius: 50%;
   width: 170px;
+  height: 170px;
   border: 5px solid white;
 }
 .infoCont {
@@ -400,9 +401,14 @@
   font-weight: 500;
   position: fixed;
   width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .rightTopCont > div {
   display: flex;
+  padding: 7px 0;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
@@ -450,4 +456,18 @@
 .footerCont > div > div:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/*for post on createpost.jsx*/
+.postModal {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.postModal p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.postModal textarea {
+  width: 300px;
 }
