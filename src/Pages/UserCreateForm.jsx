@@ -1,19 +1,41 @@
+import axios from "axios"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { Redirect, useHistory, useParams } from "react-router"
+import { storeToken } from "../Redux/actions"
 import styles from "./pages.module.css"
 export const UserCreateForm = () => {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const initState = {
     name: "",
     email: "",
     description: "",
   }
+  const { email } = useParams()
   const [user, setUser] = useState(initState)
   const handleInput = (e) => {
     const data = {
       ...user,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.toLowerCase(),
     }
     setUser(data)
     console.log(data);
+  }
+  const handleContinue = () => {
+    axios
+      .post("http://localhost:5000/users", user)
+      .then(({ data }) => {
+        // console.log("res:", res)
+        console.log("token:", data.token)
+        localStorage.setItem("token", data.token)
+        // dispatch(storeToken(data.token))
+        localStorage.setItem("email", email)
+        history.push(`/profile/${email}`)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
   }
   return (
     <div className={styles.join_form}>
@@ -85,6 +107,7 @@ export const UserCreateForm = () => {
           name="description"
           // onInput={handleInput}
         />
+
         </div>
         <div>
             <div>
@@ -104,7 +127,10 @@ export const UserCreateForm = () => {
               />
             </div>
         </div>
-        <button>continue</button>
+        
+
+        <button onClick={handleContinue}>continue</button>
+
       </div>
       <div className={styles.copyright}>
           <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 0 56 14" preserveAspectRatio="xMinYMin meet" version="1.1" fill="CurrentColor" focusable="false" class="lazy-loaded">

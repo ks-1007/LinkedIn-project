@@ -9,41 +9,51 @@ import { ProfilePage } from "../Pages/ProfilePage"
 import Join from "../Components/JoinLoginForm/Join"
 import Login from "../Components/JoinLoginForm//Login"
 import { UserCreateForm } from "../Pages/UserCreateForm"
+
+
+
+
 export function Routes() {
   return (
     <>
       <Switch>
-        <Route path="/" exact>
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/join" exact>
+        <Route exact path="/join">
           <Join />
         </Route>
+
         <Route path="/join/form" exact>
           <UserCreateForm/>
         </Route>
         <Route path="/login" exact>
+
+        
           <Login />
         </Route>
-        <Route path="/feed">
+        <Route exact path="/feed">
           <Navbar />
           <FeedPage />
         </Route>
-        <Route path="/jobs">
+        <Route exact path="/jobs">
           <Navbar />
           <Jobs />
         </Route>
-        <Route path="/network">
+        <Route exact path="/network">
           <Navbar />
           <Network />
         </Route>
-        <Route path="/notification">
+        <Route exact path="/notification">
           <Navbar />
           <Notifications />
         </Route>
-        <Route path="/profile">
+        <Route exact path="/profile/:email">
           <Navbar />
           <ProfilePage />
+        </Route>
+        <Route exact path="/create-user/:email">
+          <UserCreateForm />
         </Route>
       </Switch>
     </>

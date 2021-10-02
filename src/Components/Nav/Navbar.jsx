@@ -1,9 +1,12 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { device } from "../breakpoints"
 
 export default function Navbar() {
+  const email = localStorage.getItem("email")
+
   return (
     <NavCont>
       <NavIn>
@@ -109,7 +112,7 @@ export default function Navbar() {
               <IconName>Notifications</IconName>
             </NavButton>
           </NavLink>
-          <NavLink to="/profile">
+          <NavLink to={`/profile/${email}`}>
             <NavButton>
               <Icon>
                 <img src="profile.jpeg" alt="profile" />
