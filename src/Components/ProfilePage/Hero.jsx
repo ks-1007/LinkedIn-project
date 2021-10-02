@@ -4,7 +4,28 @@ import "react-responsive-modal/styles.css"
 import { Modal } from "react-responsive-modal"
 import { useState } from "react"
 import axios from "axios"
-
+import styled from "styled-components"
+import { BiPencil } from "react-icons/bi"
+const Btn = styled.div`
+  margin: 1rem 0 2rem 0;
+  width: 100%;
+  border: none;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  /* &:first-child { */
+  background-color: #0a66c2;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  /* } */
+`
 export function Hero(user) {
   const token = localStorage.getItem("token")
 
@@ -96,7 +117,7 @@ export function Hero(user) {
           onChange={handleUploadeProfilePic}
         />
 
-        <button onClick={uploadProfilePicToServer}>upload</button>
+        <Btn onClick={uploadProfilePicToServer}>upload</Btn>
       </Modal>
       <Modal open={openBg} onClose={onClosBgModal} center>
         <h2>Change cover pic</h2>
@@ -107,7 +128,7 @@ export function Hero(user) {
           onChange={handleUploadCoverPic}
         />
 
-        <button onClick={uploadCoverPicToServer}>upload</button>
+        <Btn onClick={uploadCoverPicToServer}>upload</Btn>
       </Modal>
       <div className={styles.heroCont}>
         <div className={styles.bgImageCont} onClick={onOpenBgModal}>
@@ -156,6 +177,7 @@ export function Hero(user) {
             />
             <p>Masai School</p>
           </div>
+          <BiPencil className={styles.editPencil} />
         </div>
       </div>
     </>

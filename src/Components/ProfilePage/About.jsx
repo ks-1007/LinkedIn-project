@@ -1,7 +1,9 @@
+import { BiPencil } from "react-icons/bi"
 import styles from "./styles/ProfilePage.module.css"
 export function About() {
   return (
     <div className={styles.aboutCont}>
+      <BiPencil className={styles.editPencil} />
       <p>About</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit

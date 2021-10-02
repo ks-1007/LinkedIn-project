@@ -5,7 +5,16 @@ export default function ProfileCard(user) {
   return (
     <CardCont>
       <Hero>
-        <Cover>{/* <img src="cover.png" alt="" /> */}</Cover>
+        <Cover>
+          {/*
+            <img
+              src={
+                user?.background_pic ||
+                "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
+              }
+              alt=""
+            />*/}
+        </Cover>
         <ProfilePhoto>
           <img
             src={

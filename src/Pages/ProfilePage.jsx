@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
+import styled from "styled-components"
 import { About } from "../Components/ProfilePage/About"
 import { Dashboard } from "../Components/ProfilePage/Dashboard"
 import { Education } from "../Components/ProfilePage/Education"
@@ -14,6 +15,7 @@ import { RightSideTop } from "../Components/ProfilePage/RightSideTop"
 import { Skills } from "../Components/ProfilePage/Skills"
 import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
 import { storeUser } from "../Redux/actions"
+
 export function ProfilePage() {
   const [user, setUser] = useState(null)
   const { email } = useParams()
