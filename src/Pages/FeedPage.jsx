@@ -13,6 +13,11 @@ export default function FeedPage() {
   const curr_email = localStorage.getItem("email")
   const token = localStorage.getItem("token")
   const [curr_user, setCurr_user] = useState(null)
+  const [updatePosts, setUpdatePosts] = useState(false)
+
+  const handleUpdatePost = () => {
+    setUpdatePosts(!updatePosts)
+  }
   // console.log("token:", token)
 
   const Header = {
@@ -38,7 +43,7 @@ export default function FeedPage() {
       .catch((err) => {
         console.log("err:", err)
       })
-  }, [])
+  }, [updatePosts])
   return !curr_user ? (
     <h2>...loading</h2>
   ) : (
@@ -48,7 +53,7 @@ export default function FeedPage() {
           <ProfileCard {...curr_user} />
         </Left>
         <Middle>
-          <CreatePost {...curr_user} />
+          <CreatePost user={curr_user} handleUpdatePost={handleUpdatePost} />
           {feed.map((post) => {
             return <PostCard {...post} />
           })}

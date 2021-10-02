@@ -5,7 +5,7 @@ import { Modal } from "react-responsive-modal"
 import styles from "../ProfilePage/styles/ProfilePage.module.css"
 //import {device} from '../breakpoints'
 
-export default function CreatePost(user) {
+export default function CreatePost({ user, handleUpdatePost }) {
   const [post, setPost] = useState({})
   const [postPic, setPostPic] = useState("")
   const [postText, setPostText] = useState("")
@@ -27,6 +27,8 @@ export default function CreatePost(user) {
       .post(`http://localhost:5000/posts`, postBody, Header)
       .then((res) => {
         console.log("res:", res)
+        handleUpdatePost()
+
         onClosePostModal()
         // alert("posted successfully")
       })
