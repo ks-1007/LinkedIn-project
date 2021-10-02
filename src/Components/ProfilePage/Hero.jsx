@@ -146,31 +146,13 @@ export function Hero({ user, handleRerender }) {
         <div className={styles.editHeroCont}>
           <h2>Change details</h2>
           <p>Name</p>
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            id=""
-            onChange={handleInput}
-          />
+          <input type="text" name="name" id="" onChange={handleInput} />
 
           <p>Heading</p>
-          <input
-            type="text"
-            name="description"
-            value={user.description}
-            id=""
-            onChange={handleInput}
-          />
+          <input type="text" name="description" id="" onChange={handleInput} />
 
           <p>Location</p>
-          <input
-            type="text"
-            name="location"
-            value={user?.location || ""}
-            id=""
-            onChange={handleInput}
-          />
+          <input type="text" name="location" id="" onChange={handleInput} />
         </div>
 
         <Btn onClick={updateHeroInfo}>Save Changes</Btn>
