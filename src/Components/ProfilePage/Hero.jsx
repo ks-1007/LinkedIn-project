@@ -4,11 +4,9 @@ import "react-responsive-modal/styles.css"
 import { Modal } from "react-responsive-modal"
 import { useState } from "react"
 import axios from "axios"
-import FileBase64 from "react-file-base64"
-import imageToBase64 from "image-to-base64/browser"
+
 export function Hero(user) {
   const token = localStorage.getItem("token")
-  // console.log("token:", token)
 
   const Header = {
     headers: {
@@ -19,14 +17,12 @@ export function Hero(user) {
 
   const onOpenProfileModal = () => setOpenProfile(true)
   const onCloseProfileModal = () => {
-    // console.log(profilePic)
     setOpenProfile(false)
   }
   const [openBg, setOpenBg] = useState(false)
 
   const onOpenBgModal = () => setOpenBg(true)
   const onClosBgModal = () => {
-    // console.log(profilePic)
     setOpenBg(false)
   }
 

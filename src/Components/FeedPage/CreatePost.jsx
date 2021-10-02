@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import styled from "styled-components"
 //import {device} from '../breakpoints'
 
-export default function CreatePost() {
+export default function CreatePost(user) {
   const [post, setPost] = useState("")
   const handlePosting = () => {
     const token = localStorage.getItem("token")
@@ -28,7 +28,13 @@ export default function CreatePost() {
     <CardCont>
       <Top>
         <Image>
-          <img src="profile.jpeg" alt="Profile" />
+          <img
+            src={
+              user.profile_pic ||
+              "https://komarketing.com/images/2014/08/linkedin-default.png"
+            }
+            alt="Profile"
+          />
         </Image>
         <StartCont>
           <Start>

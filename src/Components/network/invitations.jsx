@@ -89,7 +89,7 @@ export const Invitations = () => {
       })
       .catch((err) => {
         console.log("err:", err)
-      }, [])
+      })
     axios
       .get("http://localhost:5000/users/invite", Header)
       .then(({ data }) => {

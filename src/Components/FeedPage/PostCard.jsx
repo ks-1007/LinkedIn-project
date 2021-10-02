@@ -6,7 +6,13 @@ export default function PostCard({ user, body }) {
     <CardCont>
       <ProfileCont>
         <UserImg>
-          <img src="profile.jpeg" alt="profile" />
+          <img
+            src={
+              user.profile_pic ||
+              "https://komarketing.com/images/2014/08/linkedin-default.png"
+            }
+            alt="profile"
+          />
         </UserImg>
         <Details>
           <UserName>

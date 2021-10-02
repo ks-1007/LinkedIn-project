@@ -1,12 +1,23 @@
-import React from "react"
+import axios from "axios"
+import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { device } from "../breakpoints"
 
 export default function Navbar() {
+  const [curr_user, setCurr_user] = useState(null)
   const email = localStorage.getItem("email")
-
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/users/profile/${email}`)
+      .then(({ data }) => {
+        setCurr_user(data.user)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [])
   return (
     <NavCont>
       <NavIn>
@@ -115,7 +126,13 @@ export default function Navbar() {
           <NavLink to={`/profile/${email}`}>
             <NavButton>
               <Icon>
-                <img src="profile.jpeg" alt="profile" />
+                <img
+                  src={
+                    curr_user?.profile_pic ||
+                    "https://komarketing.com/images/2014/08/linkedin-default.png"
+                  }
+                  alt="profile"
+                />
               </Icon>
               <IconName>Me</IconName>
             </NavButton>
