@@ -51,16 +51,16 @@ const Cont = styled.div`
     background-color: #fff
 `
 const Header = styled.div`
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `
 const Logo = styled.div`
-    margin: auto;
-    align-items: center;
-    width: 10rem;
-    img{
-        width:100%;
-    }
+  margin: auto;
+  align-items: center;
+  width: 10rem;
+  img {
+    width: 100%;
+  }
 `
 const Form = styled.div`
     margin: auto;

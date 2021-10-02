@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import styled from 'styled-components';
 
@@ -41,6 +42,42 @@ export default function Join() {
             </Footer>
         </Cont>
     )
+=======
+import React from "react"
+import styled from "styled-components"
+
+export default function Join() {
+  return (
+    <Cont>
+      <Header>
+        <Logo>
+          <img src="logo2.png" alt="Linkedin" />
+        </Logo>
+        <Title>
+          <h1>Make the most of your professional life</h1>
+        </Title>
+      </Header>
+      <Form>
+        <p>Emai or Phone number</p>
+        <input type="text" />
+        <p>Emai or Phone number</p>
+        <input type="text" />
+        <p>
+          By clicking Agree & Join, you agree to the LinkedIn User Agreement,
+          Privacy Policy, and Cookie Policy.
+        </p>
+        <button>Agree & Join</button>
+        <div></div>
+        <button>
+          {" "}
+          <a href="http://localhost:5000/auth/google">Join with Google</a>{" "}
+        </button>
+      </Form>
+      <Help></Help>
+      <Footer></Footer>
+    </Cont>
+  )
+>>>>>>> f03ef5017e1747fc5c51ba2dae1e85277f696d8b
 }
 
 //----------styled-components---------
@@ -64,12 +101,12 @@ const Header = styled.div`
     text-align: center;
 `
 const Logo = styled.div`
-    margin: auto;
-    align-items: center;
-    width: 10rem;
-    img{
-        width:100%;
-    }
+  margin: auto;
+  align-items: center;
+  width: 10rem;
+  img {
+    width: 100%;
+  }
 `
 const Form = styled.div`
     margin: auto;
