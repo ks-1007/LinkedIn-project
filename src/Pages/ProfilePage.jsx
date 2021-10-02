@@ -13,8 +13,9 @@ import { LinkedInAd } from "../Components/ProfilePage/LinkedInAd"
 import { RightSideTop } from "../Components/ProfilePage/RightSideTop"
 import { Skills } from "../Components/ProfilePage/Skills"
 import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
+import { storeUser } from "../Redux/actions"
 export function ProfilePage() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const { email } = useParams()
   const dispatch = useDispatch()
   useEffect(() => {
@@ -22,24 +23,28 @@ export function ProfilePage() {
       .get(`http://localhost:5000/users/profile/${email}`)
       .then(({ data }) => {
         console.log("data:", data)
-        // dispatch(setUser(data.user[0]))
+
         localStorage.setItem("token", data.token)
         localStorage.setItem("email", data.user.email)
+        setUser(data.user)
+        dispatch(storeUser(data.user))
       })
       .catch((err) => {
         console.log("err:", err)
       })
   }, [])
-  return (
+  return !user ? (
+    <h1>...loading</h1>
+  ) : (
     <>
       <div className={styles.rootCont}>
         <div className={styles.leftSection}>
-          <Hero />
-          <Dashboard />
-          <About />
-          <Education />
-          <Skills />
-          <Interests />
+          <Hero {...user} />
+          <Dashboard {...user} />
+          <About {...user} />
+          <Education {...user} />
+          <Skills {...user} />
+          <Interests {...user} />
         </div>
         <div className={styles.rightSection}>
           <RightSideTop />

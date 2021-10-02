@@ -43,7 +43,7 @@ export function Routes() {
           <Navbar />
           <ProfilePage />
         </Route>
-        <Route exact path="/create-user">
+        <Route exact path="/create-user/:email">
           <UserCreateForm />
         </Route>
       </Switch>

@@ -41,12 +41,11 @@ router.patch("", authenticate, async (req, res) => {
 router.patch(
   "/profile-pic",
   authenticate,
-  upload.single("profile_pic"),
+  // upload.single("profile_pic"),
   async (req, res) => {
     const { user } = req.user
-    const updated = await User.findByIdAndUpdate(user._id, {
-      profile_pic: req.file.path,
-    })
+    console.log(req.body)
+    const updated = await User.findByIdAndUpdate(user._id, req.body)
 
     return res.status(201).json({ updated })
   }
@@ -56,12 +55,11 @@ router.patch(
 router.patch(
   "/background-pic",
   authenticate,
-  upload.single("background_pic"),
+  // upload.single("background_pic"),
   async (req, res) => {
     const { user } = req.user
-    const updated = await User.findByIdAndUpdate(user._id, {
-      background_pic: req.file.path,
-    })
+    console.log("user:", user)
+    const updated = await User.findByIdAndUpdate(user._id, req.body)
 
     return res.status(201).json({ updated })
   }

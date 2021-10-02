@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { Redirect, useHistory } from "react-router"
+import { Redirect, useHistory, useParams } from "react-router"
 import { storeToken } from "../Redux/actions"
 import styles from "./pages.module.css"
 export const UserCreateForm = () => {
@@ -12,6 +12,7 @@ export const UserCreateForm = () => {
     email: "",
     description: "",
   }
+  const { email } = useParams()
   const [user, setUser] = useState(initState)
   const handleInput = (e) => {
     const data = {
@@ -28,7 +29,8 @@ export const UserCreateForm = () => {
         console.log("token:", data.token)
         localStorage.setItem("token", data.token)
         // dispatch(storeToken(data.token))
-        history.push("/profile")
+        localStorage.setItem("email", email)
+        history.push(`/profile/${email}`)
       })
       .catch((err) => {
         console.log("err:", err)
