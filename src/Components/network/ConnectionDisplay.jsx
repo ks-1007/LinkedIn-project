@@ -41,7 +41,7 @@ const Request = ({ name, description, _id, profile_pic, background_pic }) => {
         <h4>{_.startCase(name)}</h4>
         <p>{_.startCase(description)}</p>
       </div>
-      <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button>
+      {/* <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button> */}
       <button onClick={handleAccept} disabled={accepted}>
         {" "}
         {accepted ? "Accepted" : "Accept"}

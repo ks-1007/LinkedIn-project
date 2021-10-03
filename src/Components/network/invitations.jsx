@@ -151,7 +151,7 @@ export const Invitations = () => {
       </div>
       <div className={styles.invitations}>
         <div>
-          <p>Connections</p>
+          <p>Suggestions</p>
         </div>
         <div className={styles.suggestions}>
           {suggested.map((user) => {
