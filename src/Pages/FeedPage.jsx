@@ -45,7 +45,7 @@ export default function FeedPage() {
       })
   }, [updatePosts])
   return !curr_user ? (
-    <h2>...loading</h2>
+    <p>...loading</p>
   ) : (
     <>
       <Page>

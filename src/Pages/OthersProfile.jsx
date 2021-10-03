@@ -33,7 +33,7 @@ export function OthersProfilePage() {
       })
   }, [])
   return !user ? (
-    <h1>...loading</h1>
+    <p>...loading</p>
   ) : (
     <>
       <div className={styles.rootCont}>
