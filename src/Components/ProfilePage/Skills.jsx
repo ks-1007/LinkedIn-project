@@ -1,8 +1,11 @@
+import { BiPencil } from "react-icons/bi"
 import styles from "./styles/ProfilePage.module.css"
 export function Skills() {
   return (
     <div className={styles.skillsCont}>
       <p>Skills & endorsements</p>
+      <BiPencil className={styles.editPencil} />
+
       <button>Take skill quiz</button>
       <div>
         <div>

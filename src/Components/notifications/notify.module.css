@@ -1,92 +1,140 @@
-.notify{
-    width: 220px;
-    height: auto;
-    background-color: white;
-    border-radius: 10px;
-    display: block;
-    padding-top: 18px;
-    /* padding-bottom: 10px; */
-    border:1px solid #E0DFDC;
-    text-align: center;
-    overflow: hidden;
-    /*  */
-    position: fixed;
+.notify {
+  width: 220px;
+  /* min-height: 100vh; */
+  background-color: white;
+  border-radius: 10px;
+  display: block;
+  padding-top: 18px;
+  /* padding-bottom: 10px; */
+  border: 1px solid #e0dfdc;
+  text-align: center;
+  overflow: hidden;
+  /*  */
+  position: fixed;
 }
-.notify h4{
-    margin: 0px;
-    font-weight: 500;
+.notify h4 {
+  margin: 0px;
+  font-weight: 500;
 }
-.notify>div>h4{
-    color: #0A66C2;
+.notify > div > h4 {
+  color: #0a66c2;
 }
-.notify>p{
-    margin-top: 13px;
-    font-size: 16px;
-    margin-bottom: 20px;
+.notify > p {
+  margin-top: 13px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
-.notify>div>p{
-    margin-top: 10px;
-    font-size: 14px;
+.notify > div > p {
+  margin-top: 10px;
+  font-size: 14px;
 }
-.notify>div{
-    background-color: #F9FAFB;
-    padding-bottom: 17px;
-    padding-top: 10px;
+.notify > div {
+  background-color: #f9fafb;
+  padding-bottom: 17px;
+  padding-top: 10px;
 }
 
 /* notifications in detail */
 
-.list_notify{
-    /* max-width: 540px; */
-    width: 540px;
-    height: auto;
-    display: block;
-    margin-left: 245px;
-    overflow: hidden;
+.list_notify {
+  /* max-width: 540px; */
+  width: 540px;
+  min-height: 100vh;
+  display: block;
+  margin-left: 245px;
+  /* overflow: hidden; */
 }
-.notify_list{
-    width: 100%;
-    height: auto;
-    background-color: white;
-    border-radius: 7px;
-    border:1px solid #E0DFDC;
-    /* padding: 13px; */
+.notify_list {
+  width: 100%;
+  /* height: auto; */
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid #e0dfdc;
+  /* padding: 13px; */
 }
 
 /* single notification */
 
-.single_notify{
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
+.single_notify {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
 }
-.single_notify img{
-    height: 55px;
+.single_notify img {
+  height: 55px;
+  width: 55px;
 }
-.single_notify>div:nth-child(2){
-    margin-left: 8px;
-    /* background-color: green; */
-    width: 80%;
+.single_notify > div:nth-child(2) {
+  margin-left: 8px;
+  /* background-color: green; */
+  width: 79%;
 }
-.single_notify p{
-    font-size: 14px;
-    line-height: 20px;
-    margin-left: 6px;
-    color: #414141;
+.single_notify p {
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 6px;
+  color: #414141;
 }
-.single_notify div>svg{
-    margin: 8px 0 0 8px;
-    color: #616161;
+.single_notify div > svg {
+  margin: 8px 0 0 8px;
+  color: #616161;
 }
-.single_notify>div:nth-child(3){
-    margin-top: 15px;
+.single_notify > div:nth-child(3) {
+  margin-top: 15px;
 }
-.single_notify>div:nth-child(3):hover{
-     background-color: #dbdbdb;
-    height: 40px;
-    width: 40px;
-    border-radius:50px ;
+.single_notify > div:nth-child(3):hover {
+  background-color: #dbdbdb;
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
 }
-.notify_list>hr{
-    border: 0.1px solid rgb(226, 226, 226);
+.notify_list > hr {
+  border: 0.1px solid rgb(226, 226, 226);
+}
+
+/*side footer div */
+
+.ways {
+  width: 300px;
+  height: 400px;
+  display: block;
+  margin-left: 810px;
+  position: fixed;
+
+  /* background-color: rgb(63, 38, 0); */
+}
+.prepare {
+  width: 100%;
+  height: 250px;
+  background-color: white;
+  border-radius: 9px;
+  border: 1px solid #e0dfdc;
+}
+
+.prepare img {
+  width: 100%;
+  height: 250px;
+}
+
+.ways > div:nth-child(2) {
+  text-align: center;
+  margin-top: 17px;
+}
+.ways > div:nth-child(2) span {
+  font-size: 13px;
+  margin-left: 12px;
+  line-height: 25px;
+}
+.ways > div:nth-child(2) span:hover {
+  text-decoration: underline;
+}
+.ways svg {
+  margin-top: 15px;
+  color: #2879c9;
+}
+.ways svg + p {
+  font-size: 13px;
+  display: inline;
+  color: rgb(59, 59, 59);
+  margin-left: 5px;
 }

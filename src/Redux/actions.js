@@ -1,9 +1,22 @@
 import axios from "axios"
-import { STORE_TOKEN } from "./actionTypes"
+import { STORE_TOKEN, STORE_USER } from "./actionTypes"
 
 export const storeToken = (payload) => {
   return {
     type: STORE_TOKEN,
+    payload,
+  }
+}
+// export const storeEmail = (payload) => {
+//   return {
+//     type: STORE_EMAIL,
+//     payload,
+//   }
+// }
+
+export const storeUser = (payload) => {
+  return {
+    type: STORE_USER,
     payload,
   }
 }

@@ -1,4 +1,6 @@
-
+.nav{
+    background-color: white;
+}
 .nav>svg{
     height: 34px;
     /* margin-left: 195px; */
@@ -30,6 +32,7 @@
     font-size: 17px;
     color: #0052a5;
     cursor: pointer;
+    margin-left: 10px;
 }
 .nav>button:nth-child(3):hover{
     background-color: #d6ebff;
@@ -40,6 +43,8 @@
 .intro{
     display: flex;
     flex-direction: row;
+    height: 570px;
+    background-color: white;
 }
 .intro>div{
     margin-left: 13%;
@@ -84,7 +89,140 @@ box-shadow: 1px 8px 10px rgb(218, 218, 218);
 /* find jobs */
 
 .find{
-    margin-top: 120px;
+    /* margin-top: 120px; */
     background-color: #FAF9F7;
-    height: 500px;
+    height: 540px;
+    display: flex;
+    flex-direction: row;
+}
+
+.find>div:nth-child(1){
+    margin-left: 13%;
+    padding-top: 95px;
+}
+
+.find>div>p{
+    font-size: 48px;
+    font-weight: 200;
+    color: #424242;
+    /* margin-bottom: 50px; */
+}
+.find>div:nth-child(2){
+    margin-left: 5%;
+    padding-top: 85px;
+}
+.find>div>h4{
+    font-weight: 500;
+    color: #666666;
+}
+.find>div>div{
+    display: flex;
+    flex-direction: row;
+}
+.find>div>div>div{
+    background-color: #E6E5E4;
+    font-size: 21px;
+    padding: 15px 20px;
+    /* height: 40px; */
+    margin:6px 4px;
+    border-radius: 30px;
+}
+.find>div>div>div:hover{
+    background-color: #cccbcb;
+    text-decoration: underline;
+}
+
+/* started  */
+
+.started{
+    width: 100%;
+    height: 96vh;
+    background-color: violet;
+    background-color: white;
+    background-image: url(https://static-exp1.licdn.com/sc/h/2vt8plqbv2l2pi6kxm89bqs59);
+    background-repeat: no-repeat;
+    /* background-size: 128%; */
+    background-size: 2000px;
+    background-position-x: -230px;
+    padding-top: 120px;
+    padding-bottom: 20px;
+    /* background-color: rgb(0, 0, 0); */
+}
+.started p{
+    font-size: 55px;
+    color: black;
+    font-weight: 100;
+    margin-left: 200px;
+}
+.started>div>div{
+    background-color: #0A66C2;
+    color: white;
+    font-size: 21px;
+    padding: 15px 20px;
+    width: 105px;
+    margin-left: 200px;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+/* footer */
+
+.footer{
+    padding-bottom: 20px;
+    width: 100%;
+}
+.footer>div{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(167, 0, 0); */
+    /* margin-left: 200px; */
+    margin-left: 15%;
+}
+.footer svg{
+    color: #0A66C2;
+    margin-top: 25px;
+    /* margin-right: 60px; */
+    /* margin-right: 200%; */
+}
+.footer>div>div{
+    margin-right: 80px;
+}
+.footer>div>div:nth-child(2){
+    margin-left: -190px;
+}
+.footer h4{
+    font-weight: 500;
+    margin: 25px 0px 12px 0px;
+     width: 140px;
+}
+
+.footer p{
+    color: rgb(94, 94, 94);
+    margin-top: 7px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* copy right */
+.copyright{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+.copyright svg{
+    height: 15px;
+    margin-left: 200px;
+}
+.copyright p{
+    font-size: 12px;
+    margin-left: 20px;
+    font-weight: 500;
+    color: rgb(88, 88, 88);
+    
+}
+.copyright p:hover{
+    text-decoration: underline;
+    color: #0A66C2;
 }

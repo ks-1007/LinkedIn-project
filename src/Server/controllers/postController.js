@@ -15,6 +15,7 @@ router.get("", authenticate, async function (req, res) {
   connections = [...connections, user._id]
   //console.log("connections:", connections)
   const posts = await Post.find({ user: { $in: connections } })
+    .populate("user")
     .lean()
     .exec()
 

@@ -21,6 +21,14 @@ router.post("", async (req, res) => {
   return res.status(201).json({ token: token })
 })
 
+// get user and token from email
+router.get("/profile/:email", async (req, res) => {
+  const user = await User.find({ email: req.params.email }).exec()
+  // console.log("user:", user)
+  const token = newToken(user[0])
+  return res.status(200).json({ user: user[0], token })
+})
+
 //[untested] updating for location, about
 router.patch("", authenticate, async (req, res) => {
   const { user } = req.user
@@ -33,12 +41,11 @@ router.patch("", authenticate, async (req, res) => {
 router.patch(
   "/profile-pic",
   authenticate,
-  upload.single("profile_pic"),
+  // upload.single("profile_pic"),
   async (req, res) => {
     const { user } = req.user
-    const updated = await User.findByIdAndUpdate(user._id, {
-      profile_pic: req.file.path,
-    })
+    console.log(req.body)
+    const updated = await User.findByIdAndUpdate(user._id, req.body)
 
     return res.status(201).json({ updated })
   }
@@ -48,12 +55,11 @@ router.patch(
 router.patch(
   "/background-pic",
   authenticate,
-  upload.single("background_pic"),
+  // upload.single("background_pic"),
   async (req, res) => {
     const { user } = req.user
-    const updated = await User.findByIdAndUpdate(user._id, {
-      background_pic: req.file.path,
-    })
+    console.log("user:", user)
+    const updated = await User.findByIdAndUpdate(user._id, req.body)
 
     return res.status(201).json({ updated })
   }
@@ -180,6 +186,21 @@ router.patch("/request/:receiver_id", authenticate, async (req, res) => {
   )
 
   return res.status(201).send({ curr_user })
+})
+
+// getting list of invite requests
+router.get("/invite", authenticate, async (req, res) => {
+  const { user } = req.user
+
+  const curr_user = await User.findById(user._id)
+
+  const { invites } = curr_user
+
+  const inviters = await User.find({ _id: { $in: invites } })
+    .lean()
+    .exec()
+
+  return res.status(201).send({ inviters })
 })
 
 // accepting invite request
