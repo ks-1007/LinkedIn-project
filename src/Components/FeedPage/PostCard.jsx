@@ -1,8 +1,9 @@
 import _ from "lodash"
 import React from "react"
 import styled from "styled-components"
+import {format} from 'timeago.js';
 
-export default function PostCard({ user, body, pic }) {
+export default function PostCard({ user, body, pic, createdAt }) {
   return (
     <CardCont>
       <ProfileCont>
@@ -23,7 +24,7 @@ export default function PostCard({ user, body, pic }) {
             <p>{_.startCase(user.description)}</p>
           </Tagline>
           <Time>
-            <p>10h</p>
+            <p>{format(createdAt)}</p>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

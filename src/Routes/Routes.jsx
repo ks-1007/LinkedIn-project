@@ -9,6 +9,7 @@ import { ProfilePage } from "../Pages/ProfilePage"
 import Join from "../Components/JoinLoginForm/Join"
 import Login from "../Components/JoinLoginForm//Login"
 import { UserCreateForm } from "../Pages/UserCreateForm"
+import FeedPage2 from "../Pages/FeedPage2"
 
 export function Routes() {
   return (
@@ -29,7 +30,7 @@ export function Routes() {
         </Route>
         <Route exact path="/feed">
           <Navbar />
-          <FeedPage />
+          <FeedPage2 />
         </Route>
         <Route exact path="/jobs">
           <Navbar />
