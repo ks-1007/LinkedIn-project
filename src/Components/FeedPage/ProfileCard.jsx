@@ -100,7 +100,8 @@ const ProfilePhoto = styled.div`
   margin-bottom: 40px;
   //position: absolute;
   img {
-    height: 100%;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
   }
 `
