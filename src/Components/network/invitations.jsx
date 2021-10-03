@@ -1,6 +1,7 @@
 import axios from "axios"
 import _ from "lodash"
 import { useEffect, useState } from "react"
+import { Link, NavLink } from "react-router-dom"
 import styles from "./network.module.css"
 
 const token = localStorage.getItem("token")
@@ -47,7 +48,14 @@ const Request = ({ name, description, _id, profile_pic, background_pic }) => {
     </div>
   )
 }
-const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
+const Suggest = ({
+  name,
+  description,
+  _id,
+  profile_pic,
+  background_pic,
+  email,
+}) => {
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
     axios
@@ -81,7 +89,9 @@ const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
           alt=""
         />
       </div>
-      <h4>{_.startCase(name)}</h4>
+      <NavLink to={`/othersprofile/${email}`}>
+        <h4 style={{ marginLeft: "10px" }}>{_.startCase(name)}</h4>
+      </NavLink>
       <p>{_.startCase(description)}</p>
       <p>11111 followers</p>
       <button onClick={handleConnect} disabled={disableConnect}>

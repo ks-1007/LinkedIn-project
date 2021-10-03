@@ -54,7 +54,7 @@ export function Routes() {
           <ProfilePage />
         </Route>
         <Route exact path="/othersprofile/:email">
-          {/* <Navbar /> */}
+          <Navbar />
           <OthersProfilePage />
         </Route>
         <Route exact path="/create-user/:email">
