@@ -7,22 +7,26 @@ import styles from "./pages.module.css"
 export const UserCreateForm = () => {
   const dispatch = useDispatch()
   const history = useHistory()
+  const { email } = useParams()
+
   const initState = {
     name: "",
-    email: "",
+    email: email,
     description: "",
   }
-  const { email } = useParams()
   const [user, setUser] = useState(initState)
   const handleInput = (e) => {
-    const data = {
+    let data = {
       ...user,
       [e.target.name]: e.target.value.toLowerCase(),
     }
+
     setUser(data)
     console.log(data)
   }
   const handleContinue = () => {
+    // user.email = email
+    // setUser({ ...user })
     axios
       .post("http://localhost:5000/users", user)
       .then(({ data }) => {
@@ -118,10 +122,10 @@ export const UserCreateForm = () => {
             <p>City/Region</p>
             <input type="text" name="location" onInput={handleInput} />
           </div>
-          <div>
-            <p>Email *</p>
+          {/* <div>
+            <p>Email *(same as gmail)</p>
             <input type="email" name="email" onInput={handleInput} />
-          </div>
+          </div> */}
         </div>
         <div>
           <p>College/University</p>
@@ -139,7 +143,7 @@ export const UserCreateForm = () => {
           <div>
             <p>Specialization</p>
             <input
-              type="email"
+              type="text"
               name="email"
               // onInput={handleInput}
             />
