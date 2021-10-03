@@ -2,6 +2,7 @@ import styles from "./notify.module.css"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import _ from "lodash"
+import { Link } from "react-router-dom"
 
 const Single = ({ user, body, pic }) => {
   // console.log("res:", res)
@@ -75,7 +76,12 @@ export const DetailNotify = () => {
         <div className={styles.notify_list}>
           {feed.map((ele) => {
             // console.log(ele);
-            return <Single {...ele} />
+            return (
+              <Link to={`/othersprofile/${ele.user.email}`}>
+                {" "}
+                <Single {...ele} />
+              </Link>
+            )
           })}
           {/* <hr /> */}
         </div>

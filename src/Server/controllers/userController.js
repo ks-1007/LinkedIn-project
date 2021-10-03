@@ -41,7 +41,7 @@ router.patch("", authenticate, async (req, res) => {
 router.patch(
   "/profile-pic",
   authenticate,
-  // upload.single("profile_pic"),
+
   async (req, res) => {
     const { user } = req.user
     console.log(req.body)
@@ -55,7 +55,7 @@ router.patch(
 router.patch(
   "/background-pic",
   authenticate,
-  // upload.single("background_pic"),
+
   async (req, res) => {
     const { user } = req.user
     console.log("user:", user)
