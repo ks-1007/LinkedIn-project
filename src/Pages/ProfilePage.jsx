@@ -15,6 +15,8 @@ import { RightSideTop } from "../Components/ProfilePage/RightSideTop"
 import { Skills } from "../Components/ProfilePage/Skills"
 import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
 import { storeUser } from "../Redux/actions"
+import Loader from "../Components/loader/Loader"
+import Navbar from "../Components/Nav/Navbar"
 
 export function ProfilePage() {
   const [user, setUser] = useState(null)
@@ -40,9 +42,10 @@ export function ProfilePage() {
       })
   }, [rerender])
   return !user ? (
-    <p>...loading</p>
+    <Loader/>
   ) : (
-    <>
+      <>
+        <Navbar />
       <div className={styles.rootCont}>
         <div className={styles.leftSection}>
           <Hero user={user} handleRerender={handleRerender} />

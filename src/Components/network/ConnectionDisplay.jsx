@@ -3,6 +3,7 @@ import _ from "lodash"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import styles from "./network.module.css"
+import Loader from "../loader/Loader"
 
 const token = localStorage.getItem("token")
 // console.log("token:", token)
@@ -123,7 +124,7 @@ export const ConnectionDisplay = () => {
         console.log("err:", err)
       })
   }, [])
-  return (
+  return !suggested.length?<Loader/>: (
     <div>
       <div className={styles.invitations}>
         <div>
