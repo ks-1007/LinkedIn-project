@@ -189,7 +189,7 @@ const CardCont = styled.div`
   border-radius: 10px;
   margin-bottom: 1.4rem;
   background-color: #fff;
-  max-width: 640px;
+  min-width: 640px;
 `
 const Top = styled.div`
   margin: 8px 16px 0;
