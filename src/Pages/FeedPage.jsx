@@ -55,6 +55,8 @@ export default function FeedPage() {
         <Middle>
           <CreatePost user={curr_user} handleUpdatePost={handleUpdatePost} />
           {feed.map((post) => {
+            console.log("post:", post)
+
             return <PostCard {...post} />
           })}
         </Middle>

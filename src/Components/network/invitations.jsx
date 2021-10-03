@@ -1,5 +1,6 @@
 import axios from "axios"
 import _ from "lodash"
+import { connections } from "mongoose"
 import { useEffect, useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import styles from "./network.module.css"
@@ -13,7 +14,15 @@ const Header = {
   },
 }
 
-const Request = ({ name, description, _id, profile_pic, background_pic }) => {
+const Request = ({
+  name,
+  description,
+  _id,
+  profile_pic,
+  background_pic,
+  connections,
+  email,
+}) => {
   const [accepted, setAccepted] = useState(false)
   const handleAccept = () => {
     axios
@@ -36,11 +45,14 @@ const Request = ({ name, description, _id, profile_pic, background_pic }) => {
           alt=""
         />
       </div>
+
       <div>
-        <h4>{_.startCase(name)}</h4>
+        <NavLink to={`/othersprofile/${email}`}>
+          <h4 style={{ marginLeft: "10px" }}>{_.startCase(name)}</h4>
+        </NavLink>
         <p>{_.startCase(description)}</p>
       </div>
-      <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button>
+      {/* <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button> */}
       <button onClick={handleAccept} disabled={accepted}>
         {" "}
         {accepted ? "Accepted" : "Accept"}
@@ -93,7 +105,7 @@ const Suggest = ({
         <h4 style={{ marginLeft: "10px" }}>{_.startCase(name)}</h4>
       </NavLink>
       <p>{_.startCase(description)}</p>
-      <p>11111 followers</p>
+      <p>{connections.length} followers</p>
       <button onClick={handleConnect} disabled={disableConnect}>
         {" "}
         {disableConnect ? "Invitation sent" : "Connect"}
