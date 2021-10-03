@@ -92,9 +92,9 @@
   border-radius: 50px;
 }
 .inv_div > div:nth-child(2) {
-  width: 65%;
-  /* background-color: wheat; */
+  width: 72%;
   overflow-wrap: normal;
+  margin-top: 20px;
 }
 .inv_div > div:nth-child(2) > h4 {
   margin-bottom: 0px;
@@ -104,22 +104,10 @@
 .inv_div > div:nth-child(2) > p {
   font-size: 15px;
   color: #949494;
+  margin-left: 10px;
 }
+
 .inv_div > button:nth-child(3) {
-  height: 30px;
-  width: 70px;
-  margin-top: 30px;
-  background-color: white;
-  border: none;
-  font-size: 16px;
-  margin-right: 5px;
-  color: #666666;
-  cursor: pointer;
-}
-.inv_div > button:nth-child(3):hover {
-  background-color: rgb(230, 230, 230);
-}
-.inv_div > button:nth-child(4) {
   height: 33px;
   width: 85px;
   margin-top: 30px;
@@ -131,7 +119,7 @@
   font-weight: 600;
   cursor: pointer;
 }
-.inv_div > button:nth-child(4):hover {
+.inv_div > button:nth-child(3):hover {
   background-color: #d6ebff;
 }
 /* suggestions......... */
@@ -153,6 +141,7 @@
   border: 1px solid #e0dfdc;
   border-radius: 6px;
   overflow: hidden;
+  position: relative;
 }
 .suggest:hover {
   box-shadow: 1px 1px 10px rgb(199, 199, 199);
@@ -210,6 +199,8 @@
   color: #2879c9;
   font-weight: 600;
   cursor: pointer;
+  position: absolute;
+  bottom: 10px;
 }
 .suggest button:hover {
   background-color: #d6ebff;
