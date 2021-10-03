@@ -121,5 +121,9 @@ const Time = styled.div`
     margin: 0;
     font-size: 0.85rem;
     padding-left: 0.3rem;
+    padding-right: 0.3rem;
   }
+      svg{
+      padding-top: 0.2rem;;
+    }
 `
