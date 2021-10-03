@@ -1,8 +1,7 @@
 import axios from "axios"
 import _ from "lodash"
-import { connections } from "mongoose"
 import { useEffect, useState } from "react"
-import { Link, NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import styles from "./network.module.css"
 
 const token = localStorage.getItem("token")
@@ -14,15 +13,7 @@ const Header = {
   },
 }
 
-const Request = ({
-  name,
-  description,
-  _id,
-  profile_pic,
-  background_pic,
-  connections,
-  email,
-}) => {
+const Request = ({ name, description, _id, profile_pic, background_pic }) => {
   const [accepted, setAccepted] = useState(false)
   const handleAccept = () => {
     axios
@@ -45,14 +36,11 @@ const Request = ({
           alt=""
         />
       </div>
-
       <div>
-        <NavLink to={`/othersprofile/${email}`}>
-          <h4 style={{ marginLeft: "10px" }}>{_.startCase(name)}</h4>
-        </NavLink>
+        <h4>{_.startCase(name)}</h4>
         <p>{_.startCase(description)}</p>
       </div>
-      {/* <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button> */}
+      <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button>
       <button onClick={handleAccept} disabled={accepted}>
         {" "}
         {accepted ? "Accepted" : "Accept"}
@@ -60,15 +48,7 @@ const Request = ({
     </div>
   )
 }
-const Suggest = ({
-  name,
-  description,
-  _id,
-  profile_pic,
-  background_pic,
-  email,
-  connections,
-}) => {
+const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
     axios
@@ -91,6 +71,7 @@ const Suggest = ({
             "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
           }
           alt=""
+          style={{ width: "100%" }}
         />
       </div>
       <div>
@@ -102,25 +83,23 @@ const Suggest = ({
           alt=""
         />
       </div>
-      <NavLink to={`/othersprofile/${email}`}>
-        <h4 style={{ marginLeft: "10px" }}>{_.startCase(name)}</h4>
-      </NavLink>
+      <h4>{_.startCase(name)}</h4>
       <p>{_.startCase(description)}</p>
-      <p>{connections.length} followers</p>
-      <button onClick={handleConnect} disabled={disableConnect}>
+      <p>924 followers</p>
+      {/* <button onClick={handleConnect} disabled={disableConnect}>
         {" "}
         {disableConnect ? "Invitation sent" : "Connect"}
-      </button>
+      </button> */}
     </div>
   )
 }
 
-export const Invitations = () => {
+export const ConnectionDisplay = () => {
   const [suggested, setSuggested] = useState([])
   const [requests, setRequests] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users/not_connections", Header)
+      .get("http://localhost:5000/users/connections", Header)
       .then(({ data }) => {
         console.log("res:", data)
         setSuggested(data.users)
@@ -153,7 +132,12 @@ export const Invitations = () => {
         </div>
         <div className={styles.suggestions}>
           {suggested.map((user) => {
-            return <Suggest {...user} />
+            return (
+              <Link to={`/othersprofile/${user.email}`}>
+                {" "}
+                <Suggest {...user} />
+              </Link>
+            )
           })}
         </div>
       </div>

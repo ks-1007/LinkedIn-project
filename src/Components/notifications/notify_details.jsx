@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react"
 import _ from "lodash";
 import { format } from 'timeago.js';
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 
 const Single = ({ user, body, pic, createdAt }) => {
@@ -97,7 +98,12 @@ export const DetailNotify = () => {
         <div className={styles.notify_list}>
           {feed.map((ele) => {
             // console.log(ele);
-            return <Single {...ele} />
+            return (
+              <Link to={`/othersprofile/${ele.user.email}`}>
+                {" "}
+                <Single {...ele} />
+              </Link>
+            )
           })}
           {/* <hr /> */}
         </div>

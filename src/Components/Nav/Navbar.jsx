@@ -246,6 +246,10 @@ const Icon = styled.div`
   svg {
     fill: #666666;
   }
+  img {
+    width: 24px;
+    height: 24px;
+  }
 `
 const IconName = styled.div`
   text-align: center;
