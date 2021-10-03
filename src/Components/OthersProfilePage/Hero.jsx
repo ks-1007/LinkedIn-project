@@ -43,9 +43,9 @@ export function Hero({ user }) {
               <span>{user.connections.length} connections</span>{" "}
             </p>
             <div className={styles.btnDiv}>
-              <button className={styles.openToBtn}>Open to</button>
+              {/* <button className={styles.openToBtn}>Open to</button>
               <button>Add section</button>
-              <button>More</button>
+              <button>More</button> */}
             </div>
           </div>
 

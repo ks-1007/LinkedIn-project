@@ -4,7 +4,7 @@ export function Skills() {
     <div className={styles.skillsCont}>
       <p>Skills & endorsements</p>
 
-      <button>Take skill quiz</button>
+      {/* <button>Take skill quiz</button> */}
       <div>
         <div>
           <p>JavaScript</p>
