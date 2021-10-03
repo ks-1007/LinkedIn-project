@@ -1,5 +1,6 @@
 import _ from "lodash"
 import React from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export default function ProfileCard(user) {
@@ -26,7 +27,9 @@ export default function ProfileCard(user) {
           />
         </ProfilePhoto>
         <Username>
-          <h3>{_.startCase(user.name)}</h3>
+          <Link to={`/profile/${user.email}`}>
+            <h3>{_.startCase(user.name)}</h3>
+          </Link>
         </Username>
         <About>
           <p>{_.startCase(user.description)}</p>
