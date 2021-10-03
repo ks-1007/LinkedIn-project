@@ -113,8 +113,6 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   `
-
-
 const Time = styled.div`
   display: flex;
   p {
