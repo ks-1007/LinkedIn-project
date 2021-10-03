@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { device } from "../breakpoints"
+import styles from "./navbar.module.css"
 
 export default function Navbar() {
   const [curr_user, setCurr_user] = useState(null)
@@ -56,7 +57,7 @@ export default function Navbar() {
           <input type="text" placeholder="Search" />
         </Search>
         <NavButtons>
-          <NavLink to="/feed">
+          <NavLink to="/feed" activeClassName={styles.active}>
             <NavButton>
               <Icon>
                 <svg
@@ -71,7 +72,7 @@ export default function Navbar() {
               <IconName>Home</IconName>
             </NavButton>
           </NavLink>
-          <NavLink to="/network">
+          <NavLink to="/network" activeClassName={styles.active}>
             <NavButton>
               <Icon>
                 <svg
@@ -85,7 +86,7 @@ export default function Navbar() {
               <IconName>My Network</IconName>
             </NavButton>
           </NavLink>
-          <NavLink to="/jobs">
+          <NavLink to="/jobs" activeClassName={styles.active}>
             <NavButton>
               <Icon>
                 <svg id="global-nav-icon--mercado__jobs" height="24" width="24">
@@ -109,7 +110,7 @@ export default function Navbar() {
               <IconName>Messaging</IconName>
             </NavButton>
           </NavLink>
-          <NavLink to="/notification">
+          <NavLink to="/notification" activeClassName={styles.active}>
             <NavButton>
               <Icon>
                 <svg
@@ -123,7 +124,7 @@ export default function Navbar() {
               <IconName>Notifications</IconName>
             </NavButton>
           </NavLink>
-          <NavLink to={`/profile/${email}`}>
+          <NavLink to={`/profile/${email}`} activeClassName={styles.active}>
             <NavButton>
               <Icon>
                 <img
@@ -137,7 +138,7 @@ export default function Navbar() {
               <IconName>Me</IconName>
             </NavButton>
           </NavLink>
-          <NavLink to="/jobs">
+          <NavLink to="/jobs" activeClassName={styles.active}>
             <NavButton>
               <Icon>
                 <svg id="global-nav-icon--classic__work" height="24" width="24">
@@ -225,8 +226,7 @@ const NavButton = styled.div`
   padding: 5px 0px;
   cursor: pointer;
   &:hover {
-    color: #000000e6;
-    border-bottom: 3px solid black;
+    color: black;
     svg {
       fill: black;
     }
@@ -245,6 +245,10 @@ const Icon = styled.div`
   margin: auto;
   svg {
     fill: #666666;
+  }
+  img {
+    width: 24px;
+    height: 24px;
   }
 `
 const IconName = styled.div`

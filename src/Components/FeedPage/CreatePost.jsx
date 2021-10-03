@@ -197,9 +197,13 @@ const Top = styled.div`
 `
 const Image = styled.div`
   margin-right: 8px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
   img {
-    border-radius: 50%;
-    width: 48px;
+    width: 100%;
+   object-fit: cover;
   }
 `
 const StartCont = styled.div`

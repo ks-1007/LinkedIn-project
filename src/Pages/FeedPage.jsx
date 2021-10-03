@@ -7,6 +7,7 @@ import NewsCard from "../Components/FeedPage/NewsCard"
 import CoursesCard from "../Components/FeedPage/CoursesCard"
 import { device } from "../Components/breakpoints"
 import axios from "axios"
+import Recent from "../Components/FeedPage/recent"
 
 export default function FeedPage() {
   const [feed, setFeed] = useState([])
@@ -45,16 +46,19 @@ export default function FeedPage() {
       })
   }, [updatePosts])
   return !curr_user ? (
-    <h2>...loading</h2>
+    <p>...loading</p>
   ) : (
     <>
       <Page>
         <Left>
-          <ProfileCard {...curr_user} />
+            <ProfileCard {...curr_user} />
+            <Recent/>
         </Left>
         <Middle>
           <CreatePost user={curr_user} handleUpdatePost={handleUpdatePost} />
           {feed.map((post) => {
+            console.log("post:", post)
+
             return <PostCard {...post} />
           })}
         </Middle>

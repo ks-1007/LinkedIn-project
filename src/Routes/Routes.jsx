@@ -9,6 +9,8 @@ import { ProfilePage } from "../Pages/ProfilePage"
 import Join from "../Components/JoinLoginForm/Join"
 import Login from "../Components/JoinLoginForm//Login"
 import { UserCreateForm } from "../Pages/UserCreateForm"
+import { Connections } from "../Pages/Connections"
+import { OthersProfilePage } from "../Pages/OthersProfile"
 
 export function Routes() {
   return (
@@ -39,6 +41,10 @@ export function Routes() {
           <Navbar />
           <Network />
         </Route>
+        <Route exact path="/network/connections">
+          <Navbar />
+          <Connections />
+        </Route>
         <Route exact path="/notification">
           <Navbar />
           <Notifications />
@@ -46,6 +52,10 @@ export function Routes() {
         <Route exact path="/profile/:email">
           <Navbar />
           <ProfilePage />
+        </Route>
+        <Route exact path="/othersprofile/:email">
+          <Navbar />
+          <OthersProfilePage />
         </Route>
         <Route exact path="/create-user/:email">
           <UserCreateForm />

@@ -1,5 +1,6 @@
 import _ from "lodash"
 import React from "react"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export default function ProfileCard(user) {
@@ -7,14 +8,13 @@ export default function ProfileCard(user) {
     <CardCont>
       <Hero>
         <Cover>
-          {/*
             <img
               src={
                 user?.background_pic ||
                 "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
               }
               alt=""
-            />*/}
+            />
         </Cover>
         <ProfilePhoto>
           <img
@@ -26,7 +26,9 @@ export default function ProfileCard(user) {
           />
         </ProfilePhoto>
         <Username>
-          <h3>{_.startCase(user.name)}</h3>
+          <Link to={`/profile/${user.email}`}>
+            <h3>{_.startCase(user.name)}</h3>
+          </Link>
         </Username>
         <About>
           <p>{_.startCase(user.description)}</p>
@@ -80,7 +82,7 @@ const CardCont = styled.div`
 `
 const Hero = styled.div`
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  padding: 12px 12px 16px;
+  //padding: 12px 12px 16px;
   text-align: center;
   position: relative;
 `
@@ -88,20 +90,24 @@ const Cover = styled.div`
   background-color: #808080;
   padding: 0px;
   height: 60px;
+  border-radius: 10px 10px 0px 0px ;
+  overflow: hidden;
   img {
+    width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `
 const ProfilePhoto = styled.div`
   height: 80px;
+  width: 80px;
   z-index: 100;
-  margin-top: -30px;
-  margin-left: 0px;
-  margin-bottom: 40px;
-  //position: absolute;
+  border-radius: 50%;
+  margin: -40px auto 25px auto;
+  overflow: hidden;
   img {
-    height: 100%;
-    border-radius: 50%;
+    width: 100%;
+    object-fit: cover;
   }
 `
 const Username = styled.div`
@@ -109,13 +115,16 @@ const Username = styled.div`
     margin: 0;
     color: #1a1a1a;
     font-weight: 500;
+    padding:0 0.8rem;
   }
 `
 const About = styled.div`
   margin-top: 4px;
+  padding-bottom: 1.5rem;
   p {
     margin: 0;
     font-size: 0.9rem;
+    padding:0 0.8rem;
   }
 `
 const Count = styled.div`
@@ -125,7 +134,6 @@ const Count = styled.div`
   flex-direction: column;
   font-weight: 500;
   font-size: 0.9rem;
-  //border-top: 1px solid rgba(0,0,0,.15);
 `
 const Para = styled.div`
   display: flex;
