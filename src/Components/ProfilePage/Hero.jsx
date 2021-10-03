@@ -6,6 +6,7 @@ import { useState } from "react"
 import axios from "axios"
 import styled from "styled-components"
 import { BiPencil } from "react-icons/bi"
+import _ from "lodash"
 const Btn = styled.div`
   margin: 1rem auto 2rem auto;
   width: 200px;
@@ -202,12 +203,16 @@ export function Hero({ user, handleRerender }) {
         </div>
         <div className={styles.infoCont}>
           <div>
-            <h3>{user.name.toUpperCase()}</h3>
-            <p>{user.description.toUpperCase()}</p>
-            <p style={{ color: "rgb(102,102,102)" }}>
-              {user.location.toUpperCase()} <span>Contact info</span>{" "}
+            <p style={{ fontSize: "25px", color: "black", fontWeight: "500" }}>
+              {_.startCase(user.name)}
             </p>
-            <p>
+            <p style={{ color: "black", fontSize: "18px" }}>
+              {_.startCase(user.description)}
+            </p>
+            <p style={{ color: "rgb(102,102,102)" }}>
+              {_.startCase(user.location)} <span>Contact info</span>{" "}
+            </p>
+            <p style={{ margin: "10px 0" }}>
               {" "}
               <span>{user.connections.length} connections</span>{" "}
             </p>

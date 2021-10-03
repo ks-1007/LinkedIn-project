@@ -1,4 +1,5 @@
 import axios from "axios"
+import _ from "lodash"
 import { useEffect, useState } from "react"
 import styles from "./network.module.css"
 
@@ -11,7 +12,7 @@ const Header = {
   },
 }
 
-const Request = ({ name, description, _id }) => {
+const Request = ({ name, description, _id, profile_pic, background_pic }) => {
   const [accepted, setAccepted] = useState(false)
   const handleAccept = () => {
     axios
@@ -27,13 +28,16 @@ const Request = ({ name, description, _id }) => {
     <div className={styles.inv_div}>
       <div>
         <img
-          src="https://media-exp1.licdn.com/dms/image/C4D03AQHzgitxK-mG5w/profile-displayphoto-shrink_800_800/0/1631119018087?e=1638403200&v=beta&t=GcquY9Aqos37_wqHA3dLoCMRJj533gaZKsAf0VRw_v4"
+          src={
+            profile_pic ||
+            "https://komarketing.com/images/2014/08/linkedin-default.png"
+          }
           alt=""
         />
       </div>
       <div>
-        <h4>{name}</h4>
-        <p>{description}</p>
+        <h4>{_.startCase(name)}</h4>
+        <p>{_.startCase(description)}</p>
       </div>
       <button style={{ display: accepted ? "hidden" : "block" }}>Ignore</button>
       <button onClick={handleAccept} disabled={accepted}>
@@ -77,8 +81,8 @@ const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
           alt=""
         />
       </div>
-      <h4>{name}</h4>
-      <p>{description}</p>
+      <h4>{_.startCase(name)}</h4>
+      <p>{_.startCase(description)}</p>
       <p>11111 followers</p>
       <button onClick={handleConnect} disabled={disableConnect}>
         {" "}

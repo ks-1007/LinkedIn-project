@@ -1,3 +1,4 @@
+import _ from "lodash"
 import React from "react"
 import styled from "styled-components"
 
@@ -16,10 +17,10 @@ export default function PostCard({ user, body, pic }) {
         </UserImg>
         <Details>
           <UserName>
-            <h3>{user.name}</h3>
+            <h3>{_.startCase(user.name)}</h3>
           </UserName>
           <Tagline>
-            <p>{user.description}</p>
+            <p>{_.startCase(user.description)}</p>
           </Tagline>
           <Time>
             <p>10h</p>
