@@ -70,6 +70,7 @@ const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
             "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
           }
           alt=""
+          style={{ width: "100%" }}
         />
       </div>
       <div>
@@ -83,21 +84,21 @@ const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
       </div>
       <h4>{_.startCase(name)}</h4>
       <p>{_.startCase(description)}</p>
-      <p>11111 followers</p>
-      <button onClick={handleConnect} disabled={disableConnect}>
+      <p>924 followers</p>
+      {/* <button onClick={handleConnect} disabled={disableConnect}>
         {" "}
         {disableConnect ? "Invitation sent" : "Connect"}
-      </button>
+      </button> */}
     </div>
   )
 }
 
-export const Invitations = () => {
+export const ConnectionDisplay = () => {
   const [suggested, setSuggested] = useState([])
   const [requests, setRequests] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users/not_connections", Header)
+      .get("http://localhost:5000/users/connections", Header)
       .then(({ data }) => {
         console.log("res:", data)
         setSuggested(data.users)

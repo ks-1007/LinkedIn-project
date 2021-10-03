@@ -9,6 +9,7 @@ import { ProfilePage } from "../Pages/ProfilePage"
 import Join from "../Components/JoinLoginForm/Join"
 import Login from "../Components/JoinLoginForm//Login"
 import { UserCreateForm } from "../Pages/UserCreateForm"
+import { Connections } from "../Pages/Connections"
 
 export function Routes() {
   return (
@@ -38,6 +39,10 @@ export function Routes() {
         <Route exact path="/network">
           <Navbar />
           <Network />
+        </Route>
+        <Route exact path="/network/connections">
+          <Navbar />
+          <Connections />
         </Route>
         <Route exact path="/notification">
           <Navbar />
