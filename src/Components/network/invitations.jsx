@@ -67,6 +67,7 @@ const Suggest = ({
   profile_pic,
   background_pic,
   email,
+  connections,
 }) => {
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
