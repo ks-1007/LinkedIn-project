@@ -30,31 +30,25 @@ export function Routes() {
           <Login />
         </Route>
         <Route exact path="/feed">
-          <Navbar />
           <FeedPage />
         </Route>
         <Route exact path="/jobs">
-          <Navbar />
           <Jobs />
         </Route>
         <Route exact path="/network">
-          <Navbar />
           <Network />
         </Route>
         <Route exact path="/network/connections">
-          <Navbar />
           <Connections />
         </Route>
         <Route exact path="/notification">
-          <Navbar />
           <Notifications />
         </Route>
         <Route exact path="/profile/:email">
-          <Navbar />
+          
           <ProfilePage />
         </Route>
         <Route exact path="/othersprofile/:email">
-          <Navbar />
           <OthersProfilePage />
         </Route>
         <Route exact path="/create-user/:email">
