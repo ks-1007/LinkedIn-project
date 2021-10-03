@@ -10,8 +10,15 @@ import axios from "axios"
 
 export default function FeedPage() {
   const [feed, setFeed] = useState([])
-  const token = localStorage.getItem("token")
+  const curr_email = localStorage.getItem("email")
+  const [curr_user, setCurr_user] = useState(null)
+  const [updatePosts, setUpdatePosts] = useState(false)
+
+  const handleUpdatePost = () => {
+    setUpdatePosts(!updatePosts)
+  }
   // console.log("token:", token)
+  const token = localStorage.getItem("token")
 
   const Header = {
     headers: {
@@ -23,20 +30,30 @@ export default function FeedPage() {
       .get("http://localhost:5000/posts", Header)
       .then(({ data }) => {
         console.log("data:", data)
-        setFeed(data.posts)
+        setFeed(data.posts.reverse())
       })
       .catch((err) => {
         console.log("err:", err)
       })
-  }, [])
-  return (
+    axios
+      .get(`http://localhost:5000/users/profile/${curr_email}`)
+      .then(({ data }) => {
+        setCurr_user(data.user)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [updatePosts])
+  return !curr_user ? (
+    <h2>...loading</h2>
+  ) : (
     <>
       <Page>
         <Left>
-          <ProfileCard />
+          <ProfileCard {...curr_user} />
         </Left>
         <Middle>
-          <CreatePost />
+          <CreatePost user={curr_user} handleUpdatePost={handleUpdatePost} />
           {feed.map((post) => {
             return <PostCard {...post} />
           })}

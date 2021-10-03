@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router"
+import styled from "styled-components"
 import { About } from "../Components/ProfilePage/About"
 import { Dashboard } from "../Components/ProfilePage/Dashboard"
 import { Education } from "../Components/ProfilePage/Education"
@@ -14,9 +15,14 @@ import { RightSideTop } from "../Components/ProfilePage/RightSideTop"
 import { Skills } from "../Components/ProfilePage/Skills"
 import styles from "../Components/ProfilePage/styles/ProfilePage.module.css"
 import { storeUser } from "../Redux/actions"
+
 export function ProfilePage() {
   const [user, setUser] = useState(null)
   const { email } = useParams()
+  const [rerender, setRerender] = useState(false)
+  const handleRerender = () => {
+    setRerender(!rerender)
+  }
   const dispatch = useDispatch()
   useEffect(() => {
     axios
@@ -32,16 +38,16 @@ export function ProfilePage() {
       .catch((err) => {
         console.log("err:", err)
       })
-  }, [])
+  }, [rerender])
   return !user ? (
     <h1>...loading</h1>
   ) : (
     <>
       <div className={styles.rootCont}>
         <div className={styles.leftSection}>
-          <Hero {...user} />
-          <Dashboard {...user} />
-          <About {...user} />
+          <Hero user={user} handleRerender={handleRerender} />
+          <Dashboard />
+          <About user={user} handleRerender={handleRerender} />
           <Education {...user} />
           <Skills {...user} />
           <Interests {...user} />

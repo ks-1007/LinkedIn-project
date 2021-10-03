@@ -4,11 +4,33 @@ import "react-responsive-modal/styles.css"
 import { Modal } from "react-responsive-modal"
 import { useState } from "react"
 import axios from "axios"
-import FileBase64 from "react-file-base64"
-import imageToBase64 from "image-to-base64/browser"
-export function Hero(user) {
+import styled from "styled-components"
+import { BiPencil } from "react-icons/bi"
+import _ from "lodash"
+const Btn = styled.div`
+  margin: 1rem auto 2rem auto;
+  width: 200px;
+
+  border: none;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  /* &:first-child { */
+  background-color: #0a66c2;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  a {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  /* } */
+`
+export function Hero({ user, handleRerender }) {
   const token = localStorage.getItem("token")
-  // console.log("token:", token)
 
   const Header = {
     headers: {
@@ -16,22 +38,36 @@ export function Hero(user) {
     },
   }
   const [openProfile, setOpenProfile] = useState(false)
+  const [openBg, setOpenBg] = useState(false)
+  const [heroInfoModal, setHeroInfoModal] = useState(false)
+  const [input, setInput] = useState({})
+  const [profilePic, setProfilePic] = useState("")
+  const [coverPic, setCoverPic] = useState("")
+  const onCloseHeroInfo = () => {
+    setInput({})
+    setHeroInfoModal(false)
+  }
+  const openHeroInfoModal = () => {
+    setHeroInfoModal(true)
+  }
+  const handleInput = (e) => {
+    const newInput = {
+      ...input,
+      [e.target.name]: e.target.value.toLowerCase(),
+    }
+    setInput(newInput)
+    console.log(newInput)
+  }
 
   const onOpenProfileModal = () => setOpenProfile(true)
   const onCloseProfileModal = () => {
-    // console.log(profilePic)
     setOpenProfile(false)
   }
-  const [openBg, setOpenBg] = useState(false)
 
   const onOpenBgModal = () => setOpenBg(true)
   const onClosBgModal = () => {
-    // console.log(profilePic)
     setOpenBg(false)
   }
-
-  const [profilePic, setProfilePic] = useState("")
-  const [coverPic, setCoverPic] = useState("")
 
   const handleUploadeProfilePic = async (e) => {
     const files = e.target.files
@@ -53,7 +89,9 @@ export function Hero(user) {
     axios
       .patch("http://localhost:5000/users/profile-pic", picBody, Header)
       .then((res) => {
-        setProfilePic("")
+        // setProfilePic("")
+        handleRerender()
+        onCloseProfileModal()
       })
       .catch((err) => {
         console.log("err:", err)
@@ -82,7 +120,21 @@ export function Hero(user) {
     axios
       .patch("http://localhost:5000/users/background-pic", picBody, Header)
       .then((res) => {
-        setCoverPic("")
+        handleRerender()
+        onClosBgModal()
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }
+
+  const updateHeroInfo = () => {
+    axios
+      .patch("http://localhost:5000/users", input, Header)
+      .then((res) => {
+        console.log("res:", res)
+        handleRerender()
+        onCloseHeroInfo()
       })
       .catch((err) => {
         console.log("err:", err)
@@ -91,6 +143,21 @@ export function Hero(user) {
 
   return (
     <>
+      <Modal open={heroInfoModal} onClose={onCloseHeroInfo} center>
+        <div className={styles.editHeroCont}>
+          <h2>Change details</h2>
+          <p>Name</p>
+          <input type="text" name="name" id="" onChange={handleInput} />
+
+          <p>Heading</p>
+          <input type="text" name="description" id="" onChange={handleInput} />
+
+          <p>Location</p>
+          <input type="text" name="location" id="" onChange={handleInput} />
+        </div>
+
+        <Btn onClick={updateHeroInfo}>Save Changes</Btn>
+      </Modal>
       <Modal open={openProfile} onClose={onCloseProfileModal} center>
         <h2>Change profile pic</h2>
         <input
@@ -100,7 +167,7 @@ export function Hero(user) {
           onChange={handleUploadeProfilePic}
         />
 
-        <button onClick={uploadProfilePicToServer}>upload</button>
+        <Btn onClick={uploadProfilePicToServer}>upload</Btn>
       </Modal>
       <Modal open={openBg} onClose={onClosBgModal} center>
         <h2>Change cover pic</h2>
@@ -111,7 +178,7 @@ export function Hero(user) {
           onChange={handleUploadCoverPic}
         />
 
-        <button onClick={uploadCoverPicToServer}>upload</button>
+        <Btn onClick={uploadCoverPicToServer}>upload</Btn>
       </Modal>
       <div className={styles.heroCont}>
         <div className={styles.bgImageCont} onClick={onOpenBgModal}>
@@ -136,12 +203,16 @@ export function Hero(user) {
         </div>
         <div className={styles.infoCont}>
           <div>
-            <h2>{user.name}</h2>
-            <p>{user.description}</p>
-            <p style={{ color: "rgb(102,102,102)" }}>
-              Ghaziabad, Uttar Pradesh, India . <span>Contact info</span>{" "}
+            <p style={{ fontSize: "25px", color: "black", fontWeight: "500" }}>
+              {_.startCase(user.name)}
             </p>
-            <p>
+            <p style={{ color: "black", fontSize: "18px" }}>
+              {_.startCase(user.description)}
+            </p>
+            <p style={{ color: "rgb(102,102,102)" }}>
+              {_.startCase(user.location)} <span>Contact info</span>{" "}
+            </p>
+            <p style={{ margin: "10px 0" }}>
               {" "}
               <span>{user.connections.length} connections</span>{" "}
             </p>
@@ -160,6 +231,7 @@ export function Hero(user) {
             />
             <p>Masai School</p>
           </div>
+          <BiPencil className={styles.editPencil} onClick={openHeroInfoModal} />
         </div>
       </div>
     </>

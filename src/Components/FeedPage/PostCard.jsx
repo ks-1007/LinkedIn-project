@@ -1,19 +1,26 @@
+import _ from "lodash"
 import React from "react"
 import styled from "styled-components"
 
-export default function PostCard({ user, body }) {
+export default function PostCard({ user, body, pic }) {
   return (
     <CardCont>
       <ProfileCont>
         <UserImg>
-          <img src="profile.jpeg" alt="profile" />
+          <img
+            src={
+              user.profile_pic ||
+              "https://komarketing.com/images/2014/08/linkedin-default.png"
+            }
+            alt="profile"
+          />
         </UserImg>
         <Details>
           <UserName>
-            <h3>{user.name}</h3>
+            <h3>{_.startCase(user.name)}</h3>
           </UserName>
           <Tagline>
-            <p>{user.description}</p>
+            <p>{_.startCase(user.description)}</p>
           </Tagline>
           <Time>
             <p>10h</p>
@@ -51,7 +58,12 @@ export default function PostCard({ user, body }) {
       <CaptionCont>
         <p>{body}</p>
       </CaptionCont>
-      {/* <ImgCont></ImgCont> */}
+      {pic && (
+        <ImgCont>
+          <img src={pic} alt="" />
+        </ImgCont>
+      )}
+
       <LikesCont>
         <Icons>
           <img src="like.svg" alt="" /> <img src="celebrate.svg" alt="" />{" "}
@@ -138,7 +150,7 @@ const CardCont = styled.div`
   border-radius: 10px;
   margin-bottom: 3.2rem;
   background-color: #fff;
-  max-width: 640px;
+  width: 640px;
 `
 const ProfileCont = styled.div`
   display: flex;
@@ -154,6 +166,7 @@ const UserImg = styled.div`
 
   img {
     width: 100%;
+    border-radius: 50%;
   }
 `
 const Details = styled.div`
@@ -187,12 +200,21 @@ const More = styled.div`
   position: absolute;
   cursor: pointer;
 `
-const CaptionCont = styled.div``
+const CaptionCont = styled.div`
+  margin: 20px 0;
+  p {
+    color: black;
+  }
+`
 const ImgCont = styled.div`
   width: 100%;
-  height: 540px;
+  /* height: 540px; */
   margin: auto;
-  border: 1px solid #b3b3b3;
+  /* border: 1px solid #b3b3b3; */
+  text-align: center;
+  img {
+    width: 615px;
+  }
 `
 const LikesCont = styled.div`
   display: flex;

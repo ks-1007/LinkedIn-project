@@ -18,6 +18,30 @@
 }
 
 /* Hero section  */
+.editHeroCont input {
+  width: 300px;
+  height: 30px;
+  border-radius: 3px;
+  border: 1px solid rgb(138, 138, 138);
+  margin: 5px 0 0 10px;
+}
+.editHeroCont p {
+  margin-top: 20px;
+}
+.editHeroCont {
+  width: 500px;
+  text-align: center;
+}
+.editPencil {
+  position: absolute;
+  right: 30px;
+  font-size: 25px;
+  color: grey;
+  cursor: pointer;
+}
+.editPencil:hover {
+  color: black;
+}
 .heroCont {
   width: 100%;
   background-color: white;
@@ -43,12 +67,14 @@
 .profileImageCont > img {
   border-radius: 50%;
   width: 170px;
+  height: 170px;
   border: 5px solid white;
 }
 .infoCont {
   display: grid;
   grid-template-columns: 70% 30%;
   padding-bottom: 20px;
+  position: relative;
 }
 .infoCont > div {
   width: 90%;
@@ -186,12 +212,20 @@
   margin-right: 15px;
 }
 /*About section*/
+.editAboutCont textarea {
+  width: 500px;
+  height: 100px;
+  border-radius: 3px;
+  border: 1px solid rgb(138, 138, 138);
+  margin: 5px 0 0 10px;
+}
 .aboutCont {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
   border: 2px solid rgb(224, 223, 220);
+  position: relative;
 }
 .aboutCont > p:nth-of-type(1) {
   font-size: 22px;
@@ -206,6 +240,7 @@
   border: 2px solid rgb(224, 223, 220);
   padding: 0 25px;
   margin-top: 20px;
+  position: relative;
 }
 .educationCont > p {
   font-size: 22px;
@@ -244,6 +279,7 @@
   border: 2px solid rgb(224, 223, 220);
   padding: 0 25px;
   margin-top: 20px;
+  position: relative;
 }
 .skillsCont > p {
   font-size: 22px;
@@ -365,9 +401,14 @@
   font-weight: 500;
   position: fixed;
   width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .rightTopCont > div {
   display: flex;
+  padding: 7px 0;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
@@ -415,4 +456,18 @@
 .footerCont > div > div:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/*for post on createpost.jsx*/
+.postModal {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.postModal p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.postModal textarea {
+  width: 300px;
 }
