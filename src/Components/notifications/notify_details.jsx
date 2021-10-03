@@ -1,5 +1,6 @@
 import styles from "./notify.module.css"
-
+import axios from "axios"
+import React, { useEffect, useState } from "react"
 const notify_arr = [
   {
     url: "https://media-exp1.licdn.com/dms/image/C560BAQG-DVu64TnfaQ/company-logo_100_100/0/1620381956947?e=1640822400&v=beta&t=ddXeOiLdTF1sRaL2VUhtjhp4XmzPg8n_VzDEHlNDmLU",
@@ -35,17 +36,35 @@ const notify_arr = [
   },
 ]
 
-const Single = ({ ele }) => {
-  console.log(ele)
+const Single = ({ user, body, pic }) => {
+  // console.log("res:", res)
+
+  // console.log(ele)
   return (
     <>
       <div className={styles.single_notify}>
         <div>
-          <img src={ele.url} alt="" />
+          {" "}
+          <img
+            src={
+              user.profile_pic ||
+              "https://komarketing.com/images/2014/08/linkedin-default.png"
+            }
+            alt=""
+            style={{ borderRadius: "50%" }}
+          />{" "}
         </div>
         <div>
-          <p>{ele.des}</p>
+          <p>
+            <span style={{ fontWeight: "500" }}>
+              {" "}
+              {user.name.toUpperCase()}
+            </span>{" "}
+            <span style={{ color: "grey" }}>shared a post: </span>
+            {body}
+          </p>
         </div>
+
         <div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,13 +86,32 @@ const Single = ({ ele }) => {
 }
 
 export const DetailNotify = () => {
+  const [feed, setFeed] = useState([])
+  const token = localStorage.getItem("token")
+
+  const Header = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/posts", Header)
+      .then(({ data }) => {
+        console.log("data:", data)
+        setFeed(data.posts.reverse())
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [])
   return (
     <div>
       <div className={styles.list_notify}>
         <div className={styles.notify_list}>
-          {notify_arr.map((ele) => {
+          {feed.map((ele) => {
             // console.log(ele);
-            return <Single ele={ele} />
+            return <Single {...ele} />
           })}
           {/* <hr /> */}
         </div>

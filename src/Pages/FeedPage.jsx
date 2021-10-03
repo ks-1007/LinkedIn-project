@@ -11,7 +11,6 @@ import axios from "axios"
 export default function FeedPage() {
   const [feed, setFeed] = useState([])
   const curr_email = localStorage.getItem("email")
-  const token = localStorage.getItem("token")
   const [curr_user, setCurr_user] = useState(null)
   const [updatePosts, setUpdatePosts] = useState(false)
 
@@ -19,6 +18,7 @@ export default function FeedPage() {
     setUpdatePosts(!updatePosts)
   }
   // console.log("token:", token)
+  const token = localStorage.getItem("token")
 
   const Header = {
     headers: {
