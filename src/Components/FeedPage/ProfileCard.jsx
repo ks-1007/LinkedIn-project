@@ -1,3 +1,4 @@
+import _ from "lodash"
 import React from "react"
 import styled from "styled-components"
 
@@ -25,10 +26,10 @@ export default function ProfileCard(user) {
           />
         </ProfilePhoto>
         <Username>
-          <h3>{user.name}</h3>
+          <h3>{_.startCase(user.name)}</h3>
         </Username>
         <About>
-          <p>{user.description}</p>
+          <p>{_.startCase(user.description)}</p>
         </About>
       </Hero>
       <Count>
