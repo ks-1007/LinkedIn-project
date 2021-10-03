@@ -5,6 +5,8 @@ import _ from "lodash";
 import { format } from 'timeago.js';
 import styled from "styled-components"
 import { Link } from "react-router-dom"
+import Loader from "../loader/Loader"
+import {NotifyFooter} from "./notify_footer"
 
 
 const Single = ({ user, body, pic, createdAt }) => {
@@ -92,7 +94,8 @@ export const DetailNotify = () => {
         console.log("err:", err)
       })
   }, [])
-  return (
+  return !feed.length ? <Loader /> : (
+    <>
     <div>
       <div className={styles.list_notify}>
         <div className={styles.notify_list}>
@@ -108,7 +111,9 @@ export const DetailNotify = () => {
           {/* <hr /> */}
         </div>
       </div>
-    </div>
+      </div>
+        <NotifyFooter />
+      </>
   )
 }
 
