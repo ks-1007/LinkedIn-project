@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
-import { useParams } from "react-router"
+import { Redirect, useParams } from "react-router"
 import styled from "styled-components"
 import { About } from "../Components/OthersProfilePage/About"
 import { Dashboard } from "../Components/OthersProfilePage/Dashboard"
@@ -19,7 +19,7 @@ import { storeUser } from "../Redux/actions"
 export function OthersProfilePage() {
   const [user, setUser] = useState(null)
   const { email } = useParams()
-
+  const defaultEmail = localStorage.getItem("email")
   useEffect(() => {
     axios
       .get(`http://localhost:5000/users/profile/${email}`)
@@ -32,7 +32,9 @@ export function OthersProfilePage() {
         console.log("err:", err)
       })
   }, [])
-  return !user ? (
+  return defaultEmail === email ? (
+    <Redirect to={`/profile/${email}`} />
+  ) : !user ? (
     <p>...loading</p>
   ) : (
     <>
