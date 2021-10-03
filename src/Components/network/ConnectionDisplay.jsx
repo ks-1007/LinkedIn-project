@@ -1,6 +1,7 @@
 import axios from "axios"
 import _ from "lodash"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 import styles from "./network.module.css"
 
 const token = localStorage.getItem("token")
@@ -131,7 +132,12 @@ export const ConnectionDisplay = () => {
         </div>
         <div className={styles.suggestions}>
           {suggested.map((user) => {
-            return <Suggest {...user} />
+            return (
+              <Link to={`/othersprofile/${user.email}`}>
+                {" "}
+                <Suggest {...user} />
+              </Link>
+            )
           })}
         </div>
       </div>
