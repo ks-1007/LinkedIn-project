@@ -48,7 +48,14 @@ const Request = ({ name, description, _id, profile_pic, background_pic }) => {
     </div>
   )
 }
-const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
+const Suggest = ({
+  name,
+  description,
+  _id,
+  profile_pic,
+  background_pic,
+  connections,
+}) => {
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
     axios
@@ -85,7 +92,7 @@ const Suggest = ({ name, description, _id, profile_pic, background_pic }) => {
       </div>
       <h4>{_.startCase(name)}</h4>
       <p>{_.startCase(description)}</p>
-      <p>924 followers</p>
+      <p>{connections.length} followers</p>
       {/* <button onClick={handleConnect} disabled={disableConnect}>
         {" "}
         {disableConnect ? "Invitation sent" : "Connect"}
