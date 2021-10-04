@@ -1,5 +1,5 @@
 const express = require("express")
-const session = require("express-session")
+//const session = require("express-session")
 const passport = require("passport")
 require("./middlewares/auth")
 const bodyParser = require("body-parser")
@@ -36,9 +36,9 @@ function isLoggedIn(req, res, next) {
   req.user ? next() : res.sendStatus(401)
 }
 
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }))
+//app.use(session({ secret: "cats", resave: false, saveUninitialized: true }))
 app.use(passport.initialize())
-app.use(passport.session())
+//app.use(passport.session())
 
 //Passport end--------
 
