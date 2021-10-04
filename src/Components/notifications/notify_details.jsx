@@ -12,7 +12,7 @@ import {NotifyFooter} from "./notify_footer"
 const Single = ({ user, body, pic, createdAt }) => {
   // console.log("res:", res)
 
-  console.log('ggggggggggggggggggggggggggggggggg',createdAt)
+  // console.log('ggggggggggggggggggggggggggggggggg',createdAt)
   return (
     <>
       <div className={styles.single_notify}>
