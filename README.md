@@ -60,10 +60,38 @@ npm start
 #### Vamsi Gudivada [View GitHub profile](https://github.com/vamsinagendra2)
 
 ## Screenshots
-### sign up and login
-![alt text](https://www.amocrm.com/static/images/pages/integrations/logo/linkedin.png)
-### Landing Page
-![alt text](https://www.amocrm.com/static/images/pages/integrations/logo/linkedin.png)
+#### Landing page
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/1.png)
+
+#### Sign up and Login
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/2.png)
+
+#### Feed page (Home)
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/3.png)
+
+#### My network ( connections )
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/4.png)
+
+#### Jobs page
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/5.png)
+
+#### Notifications page
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/6.png)
+
+#### My network ( Invitations and new suggestions )
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/7.png)
+
+#### Page Loader for the entire website
+
+![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/8.png)
+
 
 we tried our best to make a good design and functionality in 5 days from both Front-end and Back-end.
 I am glad that you visited here, Thank you.
