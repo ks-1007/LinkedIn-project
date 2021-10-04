@@ -5,7 +5,7 @@
 
 ##### it is connecting the world’s professionals to make them more productive and successful.
 
-##### About the project
+#### About the project
 <li>This project was built by both, Front-end and Back-end.</li>
 <li>Initially,it starts with a landing page which can take you to singup page where you can use google sign in to sign up or login.</li>
 <li>After entering into website, the user can see his profile page where he can add additional information and edit previous ones including pictures </li>
