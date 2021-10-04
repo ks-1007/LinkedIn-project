@@ -9,8 +9,7 @@ import { BiPencil } from "react-icons/bi"
 import _ from "lodash"
 const Btn = styled.div`
   margin: 1rem auto 2rem auto;
-  width: 200px;
-
+  width: 180px;
   border: none;
   height: 50px;
   text-align: center;
@@ -158,19 +157,44 @@ export function Hero({ user, handleRerender }) {
 
         <Btn onClick={updateHeroInfo}>Save Changes</Btn>
       </Modal>
-      <Modal open={openProfile} onClose={onCloseProfileModal} center>
-        <h2>Change profile pic</h2>
+      <Modal open={openProfile} onClose={onCloseProfileModal} center >
+        <div className={styles.customModal}>
+          <div>
+            <p>Change profile pic</p>
+          </div>
+          <p>{_.startCase(user.name)},keep your profile fresh!</p>
+          <img
+            src={
+              user.profile_pic ||
+              "https://komarketing.com/images/2014/08/linkedin-default.png"
+            }
+            alt=""
+            srcset=""
+          />
         <input
           type="file"
           name="profile_pic"
           id=""
-          onChange={handleUploadeProfilePic}
+            onChange={handleUploadeProfilePic}
         />
+        </div>
 
         <Btn onClick={uploadProfilePicToServer}>upload</Btn>
       </Modal>
       <Modal open={openBg} onClose={onClosBgModal} center>
-        <h2>Change cover pic</h2>
+        <div className={styles.customModal} >
+           <div>
+            <p>Change cover pic</p>
+          </div>
+          <p>{_.startCase(user.name)},keep your profile fresh!</p>
+         <img
+            src={
+              user.background_pic ||
+              "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
+            }
+            alt=""
+            srcset=""
+          />
         <input
           type="file"
           name="background_pic"
@@ -179,6 +203,7 @@ export function Hero({ user, handleRerender }) {
         />
 
         <Btn onClick={uploadCoverPicToServer}>upload</Btn>
+        </div>
       </Modal>
       <div className={styles.heroCont}>
         <div className={styles.bgImageCont} onClick={onOpenBgModal}>
