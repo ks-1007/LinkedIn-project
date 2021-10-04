@@ -1,5 +1,5 @@
 # LinkedIn
-## Project:- Clone of https://www.linkedin.com/
+## Project:- Clone of https://www.linkedin.com
 
 #### LinkedIn, the world's largest professional network with 774+ million members in more than 200 countries and territories worldwide.
 
