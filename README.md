@@ -93,5 +93,5 @@ npm start
 ![alt text](https://github.com/ks-1007/LinkedIn-project/blob/vamsi/screenshots/8.png)
 
 
-we tried our best to make a good design and functionality in 5 days from both Front-end and Back-end.
+we tried our best to make a good design and functionality in 5 days from both Front-end and Back-end.<br/>
 I am glad that you visited here, Thank you.
