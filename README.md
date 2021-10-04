@@ -1,9 +1,8 @@
 # LinkedIn
 ## Project:- Clone of https://www.linkedin.com
 
-##### LinkedIn, the world's largest professional network with 774+ million members in more than 200 countries and territories worldwide.
-
-##### it is connecting the world’s professionals to make them more productive and successful.
+<h3>LinkedIn, the world's largest professional network with 774+ million members in more than 200 countries and territories worldwide.</h3>
+<h4> it is connecting the world’s professionals to make them more productive and successful.</h4>
 
 #### About the project
 <li>This project was built by both, Front-end and Back-end.</li>
