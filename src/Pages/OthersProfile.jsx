@@ -15,7 +15,8 @@ import { RightSideTop } from "../Components/OthersProfilePage/RightSideTop"
 import { Skills } from "../Components/OthersProfilePage/Skills"
 import styles from "../Components/OthersProfilePage/styles/ProfilePage.module.css"
 import { storeUser } from "../Redux/actions"
-
+import Navbar from "../Components/Nav/Navbar"
+import Loader from "../Components/loader/Loader"
 export function OthersProfilePage() {
   const [user, setUser] = useState(null)
   const { email } = useParams()
@@ -35,9 +36,10 @@ export function OthersProfilePage() {
   return defaultEmail === email ? (
     <Redirect to={`/profile/${email}`} />
   ) : !user ? (
-    <p>...loading</p>
+    <Loader />
   ) : (
     <>
+      <Navbar />
       <div className={styles.rootCont}>
         <div className={styles.leftSection}>
           <Hero user={user} />

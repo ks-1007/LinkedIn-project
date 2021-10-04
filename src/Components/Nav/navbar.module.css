@@ -1,0 +1,8 @@
+.active{
+    border-bottom: 2px solid black;
+    color: black;
+    fill: black;
+}
+.active svg{
+    fill: black;
+}

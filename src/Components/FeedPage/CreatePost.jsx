@@ -189,7 +189,7 @@ const CardCont = styled.div`
   border-radius: 10px;
   margin-bottom: 1.4rem;
   background-color: #fff;
-  max-width: 640px;
+  min-width: 640px;
 `
 const Top = styled.div`
   margin: 8px 16px 0;
@@ -197,10 +197,13 @@ const Top = styled.div`
 `
 const Image = styled.div`
   margin-right: 8px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
   img {
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 100%;
+   object-fit: cover;
   }
 `
 const StartCont = styled.div`

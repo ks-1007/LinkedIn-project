@@ -52,6 +52,8 @@ export default function NewsCard() {
 //--------------styled-components----------------
 
 const CardCont = styled.div`
+    position: sticky;
+    top: 5rem;
     margin: 0;
     padding: 12px;
     box-sizing: border-box;
