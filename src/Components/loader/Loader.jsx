@@ -5,7 +5,7 @@ export default function NewsCard() {
     return (
         <div className={styles.loadingscreen}>
             <div className={styles.loadinganimation}>
-            <img src="li-logo.svg" alt="" className={styles.logo}/>
+                <img src="/li-logo.svg" alt="" className={styles.logo}/>
             <div className={styles.loadingbar}></div>
             </div>
         </div>

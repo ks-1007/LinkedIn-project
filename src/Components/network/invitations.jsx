@@ -4,6 +4,7 @@ import { connections } from "mongoose"
 import { useEffect, useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import styles from "./network.module.css"
+import Loader from "../loader/Loader"
 
 const token = localStorage.getItem("token")
 // console.log("token:", token)
@@ -137,7 +138,8 @@ export const Invitations = () => {
         console.log("err:", err)
       })
   }, [])
-  return (
+  return !suggested.length?<Loader />: (
+
     <div>
       <div className={styles.invitations}>
         <div>
@@ -149,7 +151,7 @@ export const Invitations = () => {
       </div>
       <div className={styles.invitations}>
         <div>
-          <p>Connections</p>
+          <p>Suggestions</p>
         </div>
         <div className={styles.suggestions}>
           {suggested.map((user) => {

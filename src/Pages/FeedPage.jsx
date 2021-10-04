@@ -7,7 +7,9 @@ import NewsCard from "../Components/FeedPage/NewsCard"
 import CoursesCard from "../Components/FeedPage/CoursesCard"
 import { device } from "../Components/breakpoints"
 import axios from "axios"
-import Recent from "../Components/FeedPage/recent"
+import Recent from "../Components/FeedPage/recent";
+import Navbar from "../Components/Nav/Navbar"
+import Loader from "../Components/loader/Loader"
 
 export default function FeedPage() {
   const [feed, setFeed] = useState([])
@@ -46,9 +48,10 @@ export default function FeedPage() {
       })
   }, [updatePosts])
   return !curr_user ? (
-    <p>...loading</p>
+    <Loader />
   ) : (
-    <>
+      <>
+        <Navbar />
       <Page>
         <Left>
             <ProfileCard {...curr_user} />

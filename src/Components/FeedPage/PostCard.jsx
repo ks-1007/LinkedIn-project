@@ -152,7 +152,7 @@ const CardCont = styled.div`
   color: #000000e6;
   border: 1px solid #cfcfcf;
   border-radius: 10px;
-  margin-bottom: 3.2rem;
+  margin-bottom: 1.2rem;
   background-color: #fff;
   width: 640px;
 `
