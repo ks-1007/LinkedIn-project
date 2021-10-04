@@ -5,7 +5,7 @@
 <h4> it is connecting the world’s professionals to make them more productive and successful.</h4>
 
 #### About the project
-<li>This project was built by both, Front-end and Back-end.</li>
+<li>This project was built from both sides, Front-end and Back-end.</li>
 <li>Initially,it starts with a landing page which can take you to singup page where you can use google sign in to sign up or login.</li>
 <li>After entering into website, the user can see his profile page where he can add additional information and edit previous ones including pictures </li>
 <li>The user can explore to the new connections with the network page and can send connection requests, similar way others can accept after it was updated in invitations </li>
