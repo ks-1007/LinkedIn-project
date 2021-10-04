@@ -470,6 +470,8 @@
 }
 .postModal textarea {
   width: 300px;
+  height: 70px;
+  font-size: 15px;
 }
 
 /* modal .....................*/
@@ -512,4 +514,8 @@
   padding: 7px;
   font-weight: 400;
   margin-right: 15px;
+}
+
+.postModal input{
+ margin-left: 40px;
 }
