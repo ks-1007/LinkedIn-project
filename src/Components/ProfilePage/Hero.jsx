@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux"
 import styles from "./styles/ProfilePage.module.css"
 import "react-responsive-modal/styles.css"
 import { Modal } from "react-responsive-modal"
@@ -69,18 +68,20 @@ export function Hero({ user, handleRerender }) {
     setOpenBg(false)
   }
 
-  const handleUploadeProfilePic = async (e) => {
+  const handleUploadeProfilePic = (e) => {
     const files = e.target.files
     const data = new FormData()
     data.append("file", files[0])
     data.append("upload_preset", "cloudimages")
 
-    const res = await axios.post(
-      "https://api.cloudinary.com/v1_1/dsze0r5xt/image/upload",
-      data
-    )
-
-    setProfilePic(res.data.url)
+    axios
+      .post("https://api.cloudinary.com/v1_1/dsze0r5xt/image/upload", data)
+      .then((res) => {
+        setProfilePic(res.data.url)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
   }
   const uploadProfilePicToServer = () => {
     const picBody = {
@@ -89,7 +90,7 @@ export function Hero({ user, handleRerender }) {
     axios
       .patch("http://localhost:5000/users/profile-pic", picBody, Header)
       .then((res) => {
-        // setProfilePic("")
+        console.log("res:", res)
         handleRerender()
         onCloseProfileModal()
       })
