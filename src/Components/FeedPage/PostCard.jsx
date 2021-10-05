@@ -1,10 +1,19 @@
+import React,{ useState } from 'react'
 import _ from "lodash"
-import React from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import {format} from 'timeago.js';
+import { format } from 'timeago.js';
+import CommentCard from './CommentCard'
 
 export default function PostCard({ user, body, pic, createdAt }) {
+
+  const [click, setClick] = useState(false);
+
+  function handleClick() {
+    setClick(!click)
+    console.log(click)
+  }
+
   return (
     <CardCont>
       <Link to={`/othersprofile/${user.email}`}>
@@ -91,7 +100,7 @@ export default function PostCard({ user, body, pic, createdAt }) {
           </svg>{" "}
           <span>Like</span>
         </Button>
-        <Button>
+        <Button onClick={handleClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -137,6 +146,39 @@ export default function PostCard({ user, body, pic, createdAt }) {
           <span>Send</span>
         </Button>
       </ButtonCont>
+      {click ?
+        <CommentCont>
+          <Type>
+            <Img>
+              <img src={user.profile_pic || "https://komarketing.com/images/2014/08/linkedin-default.png"} alt="profile" />
+            </Img>
+            <TypeCont>
+              <Inp>
+                <input type="text" placeholder="Add a comment..." />
+              </Inp>
+              <Emoji>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#00000099" class="mercado-match" width="24" height="24" focusable="false">
+                  <path d="M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5 0A10 10 0 1112 2a10 10 0 0110 10zm-2 0a8 8 0 10-8 8 8 8 0 008-8zm-8 4a6 6 0 01-4.24-1.76l-.71.76a7 7 0 009.89 0l-.71-.71A6 6 0 0112 16z"></path>
+                </svg>
+                      
+              </Emoji>
+              <Emoji>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#00000099" class="mercado-match" width="24" height="24" focusable="false">
+                  <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
+                </svg>
+              </Emoji>
+            </TypeCont>
+          </Type>
+          <Sort>
+            <p>Most relevant
+              <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
+                <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
+              </svg>
+              </span> </p>
+          </Sort>
+          <CommentCard user = {user}/>
+        </CommentCont>:<></>}
+
     </CardCont>
   )
 }
@@ -163,7 +205,6 @@ const ProfileCont = styled.div`
 const UserImg = styled.div`
   width: 60px;
   height: 60px;
-  //border-radius: 50%;
   overflow: hidden;
   padding-right: 1rem;
   cursor: pointer;
@@ -250,5 +291,60 @@ const Button = styled.div`
   }
   span {
     font-size: 1rem;
+  }
+`
+const CommentCont = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const Type = styled.div`
+  display: flex;
+  padding: 4px .5rem 8px;
+  justify-content: space-around;
+`
+const Img = styled.div`
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  padding-right: 0.3rem;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+`
+const TypeCont = styled.div`
+  border: 1px solid #cfcfcf;
+  border-radius: 5rem;
+  flex-grow: 1;
+  display: flex;
+  
+`
+const Inp = styled.div`
+padding:0.4rem;
+flex-grow: 1;
+  input {
+    display: flex;
+    height: 100%;
+    text-indent: 0.5rem;
+    font-size:1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+  }
+  input::placeholder {
+    font-size:1rem;
+  }
+`
+const Emoji = styled.div`
+  padding: 0.6rem 0.5rem 0 0.5rem;
+ `
+ const Sort = styled.div`
+  p{
+    padding-top: 0.5rem;
+    padding-left:0.8rem;
+    font-size:1rem;
+    font-weight: 500;
   }
 `
