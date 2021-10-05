@@ -103,7 +103,7 @@ const Suggest = ({
 }
 
 export const ConnectionDisplay = () => {
-  const [suggested, setSuggested] = useState([])
+  const [suggested, setSuggested] = useState(null)
   const [requests, setRequests] = useState([])
   useEffect(() => {
     axios
@@ -124,7 +124,9 @@ export const ConnectionDisplay = () => {
         console.log("err:", err)
       })
   }, [])
-  return !suggested.length?<Loader/>: (
+  return suggested === null ? (
+    <Loader />
+  ) : (
     <div>
       <div className={styles.invitations}>
         <div>
