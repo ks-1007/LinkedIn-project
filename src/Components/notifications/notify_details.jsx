@@ -9,9 +9,9 @@ import Loader from "../loader/Loader"
 import { NotifyFooter } from "./notify_footer"
 
 const Single = ({ user, body, pic, createdAt }) => {
-  // console.log("res:", res)
+  
 
-  console.log("ggggggggggggggggggggggggggggggggg", createdAt)
+
   return (
     <>
       <div className={styles.single_notify}>
@@ -79,7 +79,7 @@ const Single = ({ user, body, pic, createdAt }) => {
 export const DetailNotify = () => {
   const [feed, setFeed] = useState(null)
   var token = localStorage.getItem("token")
-  // console.log("token:", token)
+  
 
   var Header = {
     headers: {
@@ -105,7 +105,7 @@ export const DetailNotify = () => {
         <div className={styles.list_notify}>
           <div className={styles.notify_list}>
             {feed.map((ele) => {
-              // console.log(ele);
+              
               return (
                 <Link to={`/othersprofile/${ele.user.email}`}>
                   {" "}
