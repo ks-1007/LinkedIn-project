@@ -203,7 +203,7 @@ const Image = styled.div`
   overflow: hidden;
   img {
     width: 100%;
-   object-fit: cover;
+    object-fit: cover;
   }
 `
 const StartCont = styled.div`
