@@ -470,4 +470,52 @@
 }
 .postModal textarea {
   width: 300px;
+  height: 70px;
+  font-size: 15px;
+}
+
+/* modal .....................*/
+
+.customModal {
+  width: 500px;
+  height: auto;
+}
+
+.customModal img{
+  height: 150px;
+  margin-left: 120px;
+  border: 1px solid rgb(129, 129, 129);
+  box-shadow: 1px 1px 10px gray;
+}
+
+.customModal>div>p{
+  margin: 10px 10px;
+  font-size: 18px;
+}
+.customModal>div{
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.customModal>p{
+  margin: 20px;
+  margin-left:110px;
+  font-size: 23px;
+  font-weight: 400;
+  
+}
+.customModal>input{
+  margin: 30px 125px;
+  font-size: 14px;
+  border: 1px solid rgb(255, 255, 255)
+}
+::-webkit-file-upload-button {
+  background: #ffffff;
+  color:  #0A66C2;
+  padding: 7px;
+  font-weight: 400;
+  margin-right: 15px;
+}
+
+.postModal input{
+ margin-left: 40px;
 }
