@@ -27,9 +27,7 @@ export default function Join() {
         <div></div>
         <Btn>
           {" "}
-          <a href="https://linked-in-project.vercel.app/auth/google">
-            Join with Google
-          </a>{" "}
+          <a href="http://localhost:5000/auth/google">Join with Google</a>{" "}
         </Btn>
       </Form>
       <Help></Help>
