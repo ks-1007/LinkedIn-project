@@ -7,8 +7,6 @@ const newToken = (user) => {
 
 const authenticate = require("../middlewares/authenticate")
 
-const upload = require("../middlewares/file-uploads")
-
 const User = require("../models/user.model")
 
 const router = express.Router()
