@@ -6,10 +6,10 @@ import { Link, NavLink } from "react-router-dom"
 import styles from "./network.module.css"
 import Loader from "../loader/Loader"
 
-const token = localStorage.getItem("token")
+var token = localStorage.getItem("token")
 // console.log("token:", token)
 
-const Header = {
+var Header = {
   headers: {
     Authorization: "Bearer " + token,
   },
@@ -24,6 +24,14 @@ const Request = ({
   connections,
   email,
 }) => {
+  var token = localStorage.getItem("token")
+  // console.log("token:", token)
+
+  var Header = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }
   const [accepted, setAccepted] = useState(false)
   const handleAccept = () => {
     axios
@@ -70,6 +78,14 @@ const Suggest = ({
   email,
   connections,
 }) => {
+  var token = localStorage.getItem("token")
+  // console.log("token:", token)
+
+  var Header = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
     axios
@@ -117,6 +133,14 @@ const Suggest = ({
 }
 
 export const Invitations = () => {
+  var token = localStorage.getItem("token")
+  // console.log("token:", token)
+
+  var Header = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }
   const [suggested, setSuggested] = useState([])
   const [requests, setRequests] = useState([])
   useEffect(() => {
@@ -138,8 +162,9 @@ export const Invitations = () => {
         console.log("err:", err)
       })
   }, [])
-  return !suggested.length?<Loader />: (
-
+  return !suggested.length ? (
+    <Loader />
+  ) : (
     <div>
       <div className={styles.invitations}>
         <div>
