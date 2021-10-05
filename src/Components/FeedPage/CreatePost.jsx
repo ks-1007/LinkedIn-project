@@ -187,7 +187,7 @@ const CardCont = styled.div`
   border-radius: 10px;
   margin-bottom: 1.4rem;
   background-color: #fff;
-  min-width: 640px;
+  
 `
 const Top = styled.div`
   margin: 8px 16px 0;
@@ -257,16 +257,15 @@ const HashtagsPara = styled.div`
   padding: 10px 0;
 `
 const Btn = styled.div`
-  margin: 1rem auto 2rem auto;
-  width: 200px;
-
+  margin: 2rem auto 1rem auto;
+  width: 180px;
   border: none;
   height: 50px;
   text-align: center;
   line-height: 50px;
   /* &:first-child { */
   background-color: #0a66c2;
-  border-radius: 2rem;
+  border-radius: 3rem;
   color: #fff;
   font-size: 1.2rem;
   font-weight: 500;

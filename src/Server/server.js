@@ -1,7 +1,11 @@
 const express = require("express")
+
 const app = express()
 const cors = require("cors")
 const connect = require("./configs/db")
+
+
+
 const passport = require("passport")
 const cookieSession = require("cookie-session")
 const User = require("./models/user.model")
@@ -23,9 +27,14 @@ const isLoggedIn = (req, res, next) => {
     res.sendStatus(401)
   }
 }
+
 app.use(express.json())
+
+
+
+
 app.use(passport.initialize())
-app.use(passport.session())
+//app.use(passport.session())
 
 app.get("/failed", (req, res) => res.send("you failed to log in!"))
 app.get("/", (req, res) => res.send("logged out"))
