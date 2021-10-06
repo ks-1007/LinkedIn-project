@@ -17,6 +17,8 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
   const [click, setClick] = useState(false)
   const [likes, setLikes] = useState([])
   const [liked, setLiked] = useState(false)
+  const [likedUserName, setLikedUserName] = useState([])
+  const [currUserName] = useState("")
   function handleClick() {
     setClick(!click)
     console.log(click)
@@ -28,9 +30,14 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
         let likesdata = [...data.likes]
 
         likesdata = likesdata.map((item) => {
-          return item.user
+          return item.user._id
+        })
+        let likerName = [...data.likes]
+        likerName = likerName.map((item) => {
+          return item.user.name === data.curr_user_name ? "" : item.user.name
         })
         // console.log("likesdata:", likesdata)
+        setLikedUserName(likerName)
         setLikes([...likesdata])
 
         if (likesdata.includes(data.curr_userId)) {
@@ -128,7 +135,18 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
           <img src="like.svg" alt="" /> <img src="celebrate.svg" alt="" />{" "}
           <img src="love.svg" alt="" />
         </Icons>
-        <Count>{likes.length}</Count>
+        <Count>{likes.length + "."}</Count>
+        {likedUserName.length > 0 ? (
+          <div style={{ display: "flex", color: "grey", fontSize: "13px" }}>
+            <p>Liked by {liked ? "You " : ""} </p>
+
+            {likedUserName.map((user) => {
+              return <p>{", " + _.startCase(user)}</p>
+            })}
+          </div>
+        ) : (
+          ""
+        )}
       </LikesCont>
       <ButtonCont>
         <LikeButton onClick={handleLike}>
@@ -361,10 +379,12 @@ const LikesCont = styled.div`
   display: flex;
   padding: 0.7rem 0;
   cursor: pointer;
+  align-items: center;
 `
 const Icons = styled.div``
 const Count = styled.div`
   font-size: 0.8rem;
+  margin: 0 5px;
 `
 const ButtonCont = styled.div`
   border-top: 1px solid #cccccc;

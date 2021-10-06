@@ -48,9 +48,14 @@ router.get("/:post_id", authenticate, async function (req, res) {
   const { user } = req.user
 
   const curr_userId = user._id
-  const likes = await Like.find({ post: req.params.post_id }).lean().exec()
+  const curr_user = await User.find({ _id: curr_userId }).lean().exec()
+  const curr_user_name = curr_user[0].name
+  const likes = await Like.find({ post: req.params.post_id })
+    .populate("user")
+    .lean()
+    .exec()
 
-  return res.status(200).json({ likes, curr_userId })
+  return res.status(200).json({ likes, curr_userId, curr_user_name })
 })
 
 module.exports = router
