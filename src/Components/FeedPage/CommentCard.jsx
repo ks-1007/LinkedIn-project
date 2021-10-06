@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-
-export default function CommentCard({ user, body }) {
+import { format } from "timeago.js"
+export default function CommentCard({ user, body, createdAt }) {
   return (
     <div>
       <DetailCont>
@@ -18,7 +18,7 @@ export default function CommentCard({ user, body }) {
           <CBio>
             <Top>
               <CName>{user.name}</CName>
-              <CTime>10h</CTime>
+              <CTime>{format(createdAt)}</CTime>
               <Extra>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,6 +97,7 @@ const CName = styled.div`
 const CTime = styled.div`
   font-size: 0.8rem;
   padding-top: 0.5rem;
+  color: grey;
 `
 const Extra = styled.div`
   padding: 0.5rem;
