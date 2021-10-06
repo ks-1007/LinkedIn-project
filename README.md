@@ -33,7 +33,7 @@
 8. Styled Components
 
 ### Install the packages
-To start this clone - the commands required are
+After cloning this repository, the commands required for running this app are
 ```
 npm install
 ```
