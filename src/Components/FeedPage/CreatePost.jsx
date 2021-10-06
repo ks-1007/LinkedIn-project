@@ -29,6 +29,7 @@ export default function CreatePost({ user, handleUpdatePost }) {
         handleUpdatePost()
 
         onClosePostModal()
+        setPostPic("")
       })
       .catch((err) => {
         console.log("err:", err)
@@ -187,7 +188,7 @@ const CardCont = styled.div`
   border-radius: 10px;
   margin-bottom: 1.4rem;
   background-color: #fff;
-  
+  width: 640px;
 `
 const Top = styled.div`
   margin: 8px 16px 0;

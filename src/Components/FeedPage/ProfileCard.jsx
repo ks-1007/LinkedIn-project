@@ -8,13 +8,13 @@ export default function ProfileCard(user) {
     <CardCont>
       <Hero>
         <Cover>
-            <img
-              src={
-                user?.background_pic ||
-                "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
-              }
-              alt=""
-            />
+          <img
+            src={
+              user?.background_pic ||
+              "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
+            }
+            alt=""
+          />
         </Cover>
         <ProfilePhoto>
           <img
@@ -90,7 +90,7 @@ const Cover = styled.div`
   background-color: #808080;
   padding: 0px;
   height: 60px;
-  border-radius: 10px 10px 0px 0px ;
+  border-radius: 10px 10px 0px 0px;
   overflow: hidden;
   img {
     width: 100%;
@@ -115,7 +115,7 @@ const Username = styled.div`
     margin: 0;
     color: #1a1a1a;
     font-weight: 500;
-    padding:0 0.8rem;
+    padding: 0 0.8rem;
   }
 `
 const About = styled.div`
@@ -124,7 +124,7 @@ const About = styled.div`
   p {
     margin: 0;
     font-size: 0.9rem;
-    padding:0 0.8rem;
+    padding: 0 0.8rem;
   }
 `
 const Count = styled.div`
