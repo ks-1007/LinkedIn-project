@@ -6,7 +6,6 @@ import styles from "../ProfilePage/styles/ProfilePage.module.css"
 //import {device} from '../breakpoints'
 
 export default function CreatePost({ user, handleUpdatePost }) {
-  const [post, setPost] = useState({})
   const [postPic, setPostPic] = useState("")
   const [postText, setPostText] = useState("")
   const handlePosting = () => {
@@ -30,7 +29,6 @@ export default function CreatePost({ user, handleUpdatePost }) {
         handleUpdatePost()
 
         onClosePostModal()
-        // alert("posted successfully")
       })
       .catch((err) => {
         console.log("err:", err)

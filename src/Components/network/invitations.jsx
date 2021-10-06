@@ -34,11 +34,10 @@ const Request = ({
   }
   const [accepted, setAccepted] = useState(false)
   const handleAccept = () => {
+    setAccepted(true)
     axios
       .patch(`http://localhost:5000/users/invite/${_id}`, {}, Header)
-      .then((res) => {
-        setAccepted(true)
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log("err:", err)
       })
@@ -88,11 +87,11 @@ const Suggest = ({
   }
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
+    setDisableConnect(true)
     axios
       .patch(`http://localhost:5000/users/request/${_id}`, {}, Header)
       .then((res) => {
         console.log("res:", res)
-        setDisableConnect(true)
       })
       .catch((err) => {
         console.log("err:", err)

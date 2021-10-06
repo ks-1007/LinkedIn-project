@@ -1,19 +1,65 @@
-import React,{ useState } from 'react'
+import React, { useEffect, useState } from "react"
 import _ from "lodash"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
-import { format } from 'timeago.js';
-import CommentCard from './CommentCard'
+import { format } from "timeago.js"
+import CommentCard from "./CommentCard"
+import axios from "axios"
 
-export default function PostCard({ user, body, pic, createdAt }) {
+export default function PostCard({ user, body, pic, createdAt, _id }) {
+  const token = localStorage.getItem("token")
 
-  const [click, setClick] = useState(false);
-
+  const Header = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }
+  const [click, setClick] = useState(false)
+  const [likes, setLikes] = useState([])
+  const [liked, setLiked] = useState(false)
   function handleClick() {
     setClick(!click)
     console.log(click)
   }
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/likes/${_id}`, Header)
+      .then(({ data }) => {
+        let likesdata = [...data.likes]
 
+        likesdata = likesdata.map((item) => {
+          return item.user
+        })
+        // console.log("likesdata:", likesdata)
+        setLikes([...likesdata])
+
+        if (likesdata.includes(data.curr_userId)) {
+          setLiked(true)
+        }
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [liked])
+  const handleLike = () => {
+    // if not liked send like request to backend
+    if (!liked) {
+      console.log("liked")
+      axios
+        .post(`http://localhost:5000/likes`, { post: _id }, Header)
+        .then(({ data }) => {
+          setLiked(!liked)
+        })
+    } else {
+      // if liked then send request to delete like
+      console.log("disliked")
+      axios
+        .patch("http://localhost:5000/likes", { post: _id }, Header)
+        .then(({ data }) => {
+          setLiked(!liked)
+        })
+    }
+  }
   return (
     <CardCont>
       <Link to={`/othersprofile/${user.email}`}>
@@ -82,24 +128,36 @@ export default function PostCard({ user, body, pic, createdAt }) {
           <img src="like.svg" alt="" /> <img src="celebrate.svg" alt="" />{" "}
           <img src="love.svg" alt="" />
         </Icons>
-        <Count>10</Count>
+        <Count>{likes.length}</Count>
       </LikesCont>
       <ButtonCont>
-        <Button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            data-supported-dps="24x24"
-            fill="#00000099"
-            class="mercado-match"
-            width="24"
-            height="24"
-            focusable="false"
-          >
-            <path d="M19.46 11l-3.91-3.91a7 7 0 01-1.69-2.74l-.49-1.47A2.76 2.76 0 0010.76 1 2.75 2.75 0 008 3.74v1.12a9.19 9.19 0 00.46 2.85L8.89 9H4.12A2.12 2.12 0 002 11.12a2.16 2.16 0 00.92 1.76A2.11 2.11 0 002 14.62a2.14 2.14 0 001.28 2 2 2 0 00-.28 1 2.12 2.12 0 002 2.12v.14A2.12 2.12 0 007.12 22h7.49a8.08 8.08 0 003.58-.84l.31-.16H21V11zM19 19h-1l-.73.37a6.14 6.14 0 01-2.69.63H7.72a1 1 0 01-1-.72l-.25-.87-.85-.41A1 1 0 015 17l.17-1-.76-.74A1 1 0 014.27 14l.66-1.09-.73-1.1a.49.49 0 01.08-.7.48.48 0 01.34-.11h7.05l-1.31-3.92A7 7 0 0110 4.86V3.75a.77.77 0 01.75-.75.75.75 0 01.71.51L12 5a9 9 0 002.13 3.5l4.5 4.5H19z"></path>
-          </svg>{" "}
+        <LikeButton onClick={handleLike}>
+          {liked ? (
+            <img
+              class="reactions-icon artdeco-button__icon reactions-react-button__icon reactions-icon__creation--small data-test-reactions-icon-type-LIKE data-test-reactions-icon-theme-light"
+              src="https://static-exp1.licdn.com/sc/h/5zhd32fqi5pxwzsz78iui643e"
+              alt="LIKE"
+              data-test-reactions-icon-type="LIKE"
+              data-test-reactions-icon-theme="light"
+              style={{ marginRight: "5px" }}
+            />
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              data-supported-dps="24x24"
+              fill="#00000099"
+              class="mercado-match"
+              width="24"
+              height="24"
+              focusable="false"
+            >
+              <path d="M19.46 11l-3.91-3.91a7 7 0 01-1.69-2.74l-.49-1.47A2.76 2.76 0 0010.76 1 2.75 2.75 0 008 3.74v1.12a9.19 9.19 0 00.46 2.85L8.89 9H4.12A2.12 2.12 0 002 11.12a2.16 2.16 0 00.92 1.76A2.11 2.11 0 002 14.62a2.14 2.14 0 001.28 2 2 2 0 00-.28 1 2.12 2.12 0 002 2.12v.14A2.12 2.12 0 007.12 22h7.49a8.08 8.08 0 003.58-.84l.31-.16H21V11zM19 19h-1l-.73.37a6.14 6.14 0 01-2.69.63H7.72a1 1 0 01-1-.72l-.25-.87-.85-.41A1 1 0 015 17l.17-1-.76-.74A1 1 0 014.27 14l.66-1.09-.73-1.1a.49.49 0 01.08-.7.48.48 0 01.34-.11h7.05l-1.31-3.92A7 7 0 0110 4.86V3.75a.77.77 0 01.75-.75.75.75 0 01.71.51L12 5a9 9 0 002.13 3.5l4.5 4.5H19z"></path>
+            </svg>
+          )}
+
           <span>Like</span>
-        </Button>
+        </LikeButton>
         <Button onClick={handleClick}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -146,39 +204,76 @@ export default function PostCard({ user, body, pic, createdAt }) {
           <span>Send</span>
         </Button>
       </ButtonCont>
-      {click ?
+      {click ? (
         <CommentCont>
           <Type>
             <Img>
-              <img src={user.profile_pic || "https://komarketing.com/images/2014/08/linkedin-default.png"} alt="profile" />
+              <img
+                src={
+                  user.profile_pic ||
+                  "https://komarketing.com/images/2014/08/linkedin-default.png"
+                }
+                alt="profile"
+              />
             </Img>
             <TypeCont>
               <Inp>
                 <input type="text" placeholder="Add a comment..." />
               </Inp>
               <Emoji>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#00000099" class="mercado-match" width="24" height="24" focusable="false">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  data-supported-dps="24x24"
+                  fill="#00000099"
+                  class="mercado-match"
+                  width="24"
+                  height="24"
+                  focusable="false"
+                >
                   <path d="M8 10.5A1.5 1.5 0 119.5 12 1.5 1.5 0 018 10.5zm6.5 1.5a1.5 1.5 0 10-1.5-1.5 1.5 1.5 0 001.5 1.5zm7.5 0A10 10 0 1112 2a10 10 0 0110 10zm-2 0a8 8 0 10-8 8 8 8 0 008-8zm-8 4a6 6 0 01-4.24-1.76l-.71.76a7 7 0 009.89 0l-.71-.71A6 6 0 0112 16z"></path>
                 </svg>
-                      
               </Emoji>
               <Emoji>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#00000099" class="mercado-match" width="24" height="24" focusable="false">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  data-supported-dps="24x24"
+                  fill="#00000099"
+                  class="mercado-match"
+                  width="24"
+                  height="24"
+                  focusable="false"
+                >
                   <path d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"></path>
                 </svg>
               </Emoji>
             </TypeCont>
           </Type>
           <Sort>
-            <p>Most relevant
-              <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" data-supported-dps="16x16" fill="currentColor" class="mercado-match" width="16" height="16" focusable="false">
-                <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
-              </svg>
-              </span> </p>
+            <p>
+              Most relevant
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  data-supported-dps="16x16"
+                  fill="currentColor"
+                  class="mercado-match"
+                  width="16"
+                  height="16"
+                  focusable="false"
+                >
+                  <path d="M8 11L3 6h10z" fill-rule="evenodd"></path>
+                </svg>
+              </span>{" "}
+            </p>
           </Sort>
-          <CommentCard user = {user}/>
-        </CommentCont>:<></>}
-
+          <CommentCard user={user} />
+        </CommentCont>
+      ) : (
+        <></>
+      )}
     </CardCont>
   )
 }
@@ -293,13 +388,29 @@ const Button = styled.div`
     font-size: 1rem;
   }
 `
+const LikeButton = styled.div`
+  display: flex;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  border-radius: 5px;
+  :hover {
+    background-color: #e3e5e9;
+  }
+  svg {
+    //padding-top: 0.1rem;
+    padding-right: 0.4rem;
+  }
+  span {
+    font-size: 1rem;
+  }
+`
 const CommentCont = styled.div`
   display: flex;
   flex-direction: column;
 `
 const Type = styled.div`
   display: flex;
-  padding: 4px .5rem 8px;
+  padding: 4px 0.5rem 8px;
   justify-content: space-around;
 `
 const Img = styled.div`
@@ -319,32 +430,31 @@ const TypeCont = styled.div`
   border-radius: 5rem;
   flex-grow: 1;
   display: flex;
-  
 `
 const Inp = styled.div`
-padding:0.4rem;
-flex-grow: 1;
+  padding: 0.4rem;
+  flex-grow: 1;
   input {
     display: flex;
     height: 100%;
     text-indent: 0.5rem;
-    font-size:1rem;
+    font-size: 1rem;
     width: 100%;
     outline: none;
     border: none;
   }
   input::placeholder {
-    font-size:1rem;
+    font-size: 1rem;
   }
 `
 const Emoji = styled.div`
   padding: 0.6rem 0.5rem 0 0.5rem;
- `
- const Sort = styled.div`
-  p{
+`
+const Sort = styled.div`
+  p {
     padding-top: 0.5rem;
-    padding-left:0.8rem;
-    font-size:1rem;
+    padding-left: 0.8rem;
+    font-size: 1rem;
     font-weight: 500;
   }
 `

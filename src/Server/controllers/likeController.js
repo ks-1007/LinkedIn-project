@@ -22,11 +22,13 @@ router.post("", authenticate, async function (req, res) {
 })
 
 // removing like from post by user id and post id
-router.delete("", authenticate, async function (req, res) {
+router.patch("", authenticate, async function (req, res) {
   const { user } = req.user
 
   const userId = user._id
-  const postId = req.body.user
+  // console.log("userId:", userId)
+  const postId = req.body.post
+  // console.log("postId:", postId)
 
   // finding like with userID and postID
 
@@ -36,16 +38,19 @@ router.delete("", authenticate, async function (req, res) {
 
   // deleting the like from the collection
 
-  const delete_like = await Like.findByIdAndDelete(like._id)
+  const delete_like = await Like.findByIdAndDelete(like[0]._id)
 
   return res.status(201).json({ delete_like })
 })
 
 // getting all the users who liked a post
-router.get("/:post_id", async function (req, res) {
+router.get("/:post_id", authenticate, async function (req, res) {
+  const { user } = req.user
+
+  const curr_userId = user._id
   const likes = await Like.find({ post: req.params.post_id }).lean().exec()
 
-  return res.status(200).json({ likes })
+  return res.status(200).json({ likes, curr_userId })
 })
 
 module.exports = router
