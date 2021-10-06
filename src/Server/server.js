@@ -4,8 +4,6 @@ const app = express()
 const cors = require("cors")
 const connect = require("./configs/db")
 
-
-
 const passport = require("passport")
 const cookieSession = require("cookie-session")
 const User = require("./models/user.model")
@@ -29,9 +27,6 @@ const isLoggedIn = (req, res, next) => {
 }
 
 app.use(express.json())
-
-
-
 
 app.use(passport.initialize())
 //app.use(passport.session())
@@ -71,9 +66,13 @@ app.get("/logout", (req, res) => {
 
 const userController = require("./controllers/userController")
 const postController = require("./controllers/postController")
+const likeController = require("./controllers/likeController")
+const commentController = require("./controllers/comment.controller")
 
 app.use("/users", userController)
 app.use("/posts", postController)
+app.use("/likes", likeController)
+app.use("/comments", commentController)
 
 app.listen(5000, async function () {
   await connect()

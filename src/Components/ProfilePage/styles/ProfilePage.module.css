@@ -382,6 +382,7 @@
   border-radius: 0 0 10px 10px;
   border: 2px solid rgb(224, 223, 220);
   cursor: pointer;
+  margin-bottom: 60px;
 }
 .seeAllDiv:hover {
   background-color: rgb(221, 221, 221);
@@ -397,19 +398,18 @@
   border: 2px solid rgb(224, 223, 220);
   color: rgb(117, 117, 117);
   padding: 0 15px;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 500;
   position: fixed;
-  width: 320px;
+  width: 290px;
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 .rightTopCont > div {
   display: flex;
-  padding: 7px 0;
-  align-items: center;
+  padding: 17px 0;
+  /* background-color: blue; */
   justify-content: space-between;
   cursor: pointer;
 }
@@ -423,15 +423,15 @@
 /*LinkedIn ad*/
 .adCont {
   position: fixed;
-  top: 200px;
+  top: 230px;
   background-color: white;
   border-radius: 10px;
   border: 2px solid rgb(224, 223, 220);
-  /* width: 320px; */
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 .adCont > img {
   width: 320px;
@@ -440,7 +440,8 @@
 .footerCont {
   /* background-color: rgb(243, 242, 239); */
   width: 80%;
-  margin: 50px auto;
+  margin: auto;
+  padding-bottom: 20px;
 }
 .footerCont > svg {
   color: rgb(10, 102, 194);
@@ -456,6 +457,9 @@
 .footerCont > div > div:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+.footerCont p {
+  line-height: 35px;
 }
 
 /*for post on createpost.jsx*/
@@ -481,41 +485,40 @@
   height: auto;
 }
 
-.customModal img{
+.customModal img {
   height: 150px;
   margin-left: 120px;
   border: 1px solid rgb(129, 129, 129);
   box-shadow: 1px 1px 10px gray;
 }
 
-.customModal>div>p{
+.customModal > div > p {
   margin: 10px 10px;
   font-size: 18px;
 }
-.customModal>div{
+.customModal > div {
   border-bottom: 1px solid rgb(221, 221, 221);
 }
 
-.customModal>p{
+.customModal > p {
   margin: 20px;
-  margin-left:110px;
+  margin-left: 110px;
   font-size: 23px;
   font-weight: 400;
-  
 }
-.customModal>input{
+.customModal > input {
   margin: 30px 125px;
   font-size: 14px;
-  border: 1px solid rgb(255, 255, 255)
+  border: 1px solid rgb(255, 255, 255);
 }
 ::-webkit-file-upload-button {
   background: #ffffff;
-  color:  #0A66C2;
+  color: #0a66c2;
   padding: 7px;
   font-weight: 400;
   margin-right: 15px;
 }
 
-.postModal input{
- margin-left: 40px;
+.postModal input {
+  margin-left: 40px;
 }

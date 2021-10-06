@@ -22,11 +22,13 @@ router.post("", authenticate, async function (req, res) {
 })
 
 // removing like from post by user id and post id
-router.delete("", authenticate, async function (req, res) {
+router.patch("", authenticate, async function (req, res) {
   const { user } = req.user
 
   const userId = user._id
-  const postId = req.body.user
+  // console.log("userId:", userId)
+  const postId = req.body.post
+  // console.log("postId:", postId)
 
   // finding like with userID and postID
 
@@ -36,16 +38,28 @@ router.delete("", authenticate, async function (req, res) {
 
   // deleting the like from the collection
 
-  const delete_like = await Like.findByIdAndDelete(like._id)
+  const delete_like = await Like.findByIdAndDelete(like[0]._id)
 
   return res.status(201).json({ delete_like })
 })
 
 // getting all the users who liked a post
-router.get("/:post_id", async function (req, res) {
-  const likes = await Like.find({ post: req.params.post_id }).lean().exec()
+router.get("/:post_id", authenticate, async function (req, res) {
+  const { user } = req.user
 
-  return res.status(200).json({ likes })
+  const curr_userId = user._id
+  const curr_user = await User.find({ _id: curr_userId }).lean().exec()
+  const curr_user_name = curr_user[0].name
+  const curr_user_connections = curr_user[0].connections
+  // console.log("curr_user_connections:", curr_user_connections)
+  const likes = await Like.find({ post: req.params.post_id })
+    .populate("user")
+    .lean()
+    .exec()
+
+  return res
+    .status(200)
+    .json({ likes, curr_userId, curr_user_name, curr_user_connections })
 })
 
 module.exports = router
