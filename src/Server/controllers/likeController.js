@@ -50,12 +50,16 @@ router.get("/:post_id", authenticate, async function (req, res) {
   const curr_userId = user._id
   const curr_user = await User.find({ _id: curr_userId }).lean().exec()
   const curr_user_name = curr_user[0].name
+  const curr_user_connections = curr_user[0].connections
+  // console.log("curr_user_connections:", curr_user_connections)
   const likes = await Like.find({ post: req.params.post_id })
     .populate("user")
     .lean()
     .exec()
 
-  return res.status(200).json({ likes, curr_userId, curr_user_name })
+  return res
+    .status(200)
+    .json({ likes, curr_userId, curr_user_name, curr_user_connections })
 })
 
 module.exports = router

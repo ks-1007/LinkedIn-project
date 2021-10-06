@@ -34,8 +34,13 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
         })
         let likerName = [...data.likes]
         likerName = likerName.map((item) => {
-          return item.user.name === data.curr_user_name ? "" : item.user.name
+          return item.user.name === data.curr_user_name ? null : item.user.name
         })
+        // likerName = likerName.filter((item) => {
+        //   if (item.user.name !== data.curr_user_name) {
+        //     return item.user.name
+        //   }
+        // })
         // console.log("likesdata:", likesdata)
         setLikedUserName(likerName)
         setLikes([...likesdata])
@@ -141,8 +146,9 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
             <p>Liked by {liked ? "You " : ""} </p>
 
             {likedUserName.map((user) => {
-              return <p>{", " + _.startCase(user)}</p>
+              return user && <p>{", " + _.startCase(user) + " "}</p>
             })}
+            <p>... and others</p>
           </div>
         ) : (
           ""
