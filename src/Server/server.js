@@ -67,10 +67,13 @@ app.get("/logout", (req, res) => {
 const userController = require("./controllers/userController")
 const postController = require("./controllers/postController")
 const likeController = require("./controllers/likeController")
+const commentController = require("./controllers/comment.controller")
 
 app.use("/users", userController)
 app.use("/posts", postController)
 app.use("/likes", likeController)
+app.use("/comments", commentController)
+
 app.listen(5000, async function () {
   await connect()
   console.log("listening on port 5000")

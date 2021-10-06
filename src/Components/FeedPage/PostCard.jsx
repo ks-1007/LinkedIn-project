@@ -6,7 +6,8 @@ import { format } from "timeago.js"
 import CommentCard from "./CommentCard"
 import axios from "axios"
 
-export default function PostCard({ user, body, pic, createdAt, _id }) {
+export default function PostCard({ post, curr_user }) {
+  let { user, body, pic, createdAt, _id } = post
   const token = localStorage.getItem("token")
 
   const Header = {
@@ -14,15 +15,13 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
       Authorization: "Bearer " + token,
     },
   }
-  const [click, setClick] = useState(false)
+  const [showComments, setShowComments] = useState(false)
   const [likes, setLikes] = useState([])
   const [liked, setLiked] = useState(false)
   const [likedUserName, setLikedUserName] = useState([])
-  const [currUserName] = useState("")
-  function handleClick() {
-    setClick(!click)
-    console.log(click)
-  }
+  const [comments, setComments] = useState([])
+  const [commentInput, setCommentInput] = useState("")
+  const [rerender, setRerender] = useState(false)
   useEffect(() => {
     axios
       .get(`http://localhost:5000/likes/${_id}`, Header)
@@ -36,12 +35,7 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
         likerName = likerName.map((item) => {
           return item.user.name === data.curr_user_name ? null : item.user.name
         })
-        // likerName = likerName.filter((item) => {
-        //   if (item.user.name !== data.curr_user_name) {
-        //     return item.user.name
-        //   }
-        // })
-        // console.log("likesdata:", likesdata)
+
         setLikedUserName(likerName)
         setLikes([...likesdata])
 
@@ -52,7 +46,19 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
       .catch((err) => {
         console.log("err:", err)
       })
-  }, [liked])
+
+    // getting comments
+    axios
+      .get(`http://localhost:5000/comments/${_id}`)
+      .then(({ data }) => {
+        setComments(data.comments)
+        // setShowComments(!showComments)
+      })
+      .catch((err) => {
+        console.log("err:", err)
+      })
+  }, [liked, showComments, rerender])
+
   const handleLike = () => {
     // if not liked send like request to backend
     if (!liked) {
@@ -70,6 +76,25 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
         .then(({ data }) => {
           setLiked(!liked)
         })
+    }
+  }
+
+  const handleCommentInput = (e) => {
+    if (e.keyCode === 13) {
+      const body = {
+        post: _id,
+        body: commentInput,
+      }
+      axios
+        .post("http://localhost:5000/comments", body, Header)
+        .then(({ data }) => {
+          // getComment()
+          // setShowComments(!showComments)
+          setRerender(!rerender)
+          e.target.value = ""
+        })
+    } else {
+      setCommentInput(e.target.value)
     }
   }
   return (
@@ -182,7 +207,7 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
 
           <span>Like</span>
         </LikeButton>
-        <Button onClick={handleClick}>
+        <Button onClick={() => setShowComments(!showComments)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -228,13 +253,13 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
           <span>Send</span>
         </Button>
       </ButtonCont>
-      {click ? (
+      {showComments ? (
         <CommentCont>
           <Type>
             <Img>
               <img
                 src={
-                  user.profile_pic ||
+                  curr_user.profile_pic ||
                   "https://komarketing.com/images/2014/08/linkedin-default.png"
                 }
                 alt="profile"
@@ -242,7 +267,12 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
             </Img>
             <TypeCont>
               <Inp>
-                <input type="text" placeholder="Add a comment..." />
+                <input
+                  type="text"
+                  placeholder="Add a comment..."
+                  // value={commentInput}
+                  onKeyUp={handleCommentInput}
+                />
               </Inp>
               <Emoji>
                 <svg
@@ -293,7 +323,9 @@ export default function PostCard({ user, body, pic, createdAt, _id }) {
               </span>{" "}
             </p>
           </Sort>
-          <CommentCard user={user} />
+          {comments.map((comment) => {
+            return <CommentCard {...comment} />
+          })}
         </CommentCont>
       ) : (
         <></>

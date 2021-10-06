@@ -7,7 +7,7 @@ import NewsCard from "../Components/FeedPage/NewsCard"
 import CoursesCard from "../Components/FeedPage/CoursesCard"
 import { device } from "../Components/breakpoints"
 import axios from "axios"
-import Recent from "../Components/FeedPage/recent";
+import Recent from "../Components/FeedPage/recent"
 import Navbar from "../Components/Nav/Navbar"
 import Loader from "../Components/loader/Loader"
 
@@ -50,19 +50,19 @@ export default function FeedPage() {
   return !curr_user ? (
     <Loader />
   ) : (
-      <>
-        <Navbar />
+    <>
+      <Navbar />
       <Page>
         <Left>
-            <ProfileCard {...curr_user} />
-            <Recent/>
+          <ProfileCard {...curr_user} />
+          <Recent />
         </Left>
         <Middle>
           <CreatePost user={curr_user} handleUpdatePost={handleUpdatePost} />
           {feed.map((post) => {
             console.log("post:", post)
 
-            return <PostCard {...post} />
+            return <PostCard post={post} curr_user={curr_user} />
           })}
         </Middle>
         <Right>
