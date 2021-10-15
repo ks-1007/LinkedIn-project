@@ -76,7 +76,7 @@ export function Hero({ user, handleRerender }) {
     axios
       .post("https://api.cloudinary.com/v1_1/dsze0r5xt/image/upload", data)
       .then((res) => {
-        setProfilePic(res.data.url)
+        setProfilePic(res.data.secure_url)
       })
       .catch((err) => {
         console.log("err:", err)
@@ -112,7 +112,7 @@ export function Hero({ user, handleRerender }) {
       data
     )
 
-    setCoverPic(res.data.url)
+    setCoverPic(res.data.secure_url)
   }
 
   const uploadCoverPicToServer = () => {

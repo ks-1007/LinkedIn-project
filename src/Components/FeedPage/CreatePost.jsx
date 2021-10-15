@@ -50,7 +50,7 @@ export default function CreatePost({ user, handleUpdatePost }) {
       data
     )
 
-    setPostPic(res.data.url)
+    setPostPic(res.data.secure_url)
   }
   return (
     <>
