@@ -249,6 +249,7 @@ const Icon = styled.div`
   img {
     width: 24px;
     height: 24px;
+    object-fit: cover;
   }
 `
 const IconName = styled.div`
