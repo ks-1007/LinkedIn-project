@@ -9,9 +9,6 @@ import Loader from "../loader/Loader"
 import { NotifyFooter } from "./notify_footer"
 
 const Single = ({ user, body, pic, createdAt }) => {
-  
-
-
   return (
     <>
       <div className={styles.single_notify}>
@@ -79,7 +76,6 @@ const Single = ({ user, body, pic, createdAt }) => {
 export const DetailNotify = () => {
   const [feed, setFeed] = useState(null)
   var token = localStorage.getItem("token")
-  
 
   var Header = {
     headers: {
@@ -88,7 +84,7 @@ export const DetailNotify = () => {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:5000/posts", Header)
+      .get("https://linkedin-server.herokuapp.com/posts", Header)
       .then(({ data }) => {
         console.log("data:", data)
         setFeed(data.posts.reverse())
@@ -105,7 +101,6 @@ export const DetailNotify = () => {
         <div className={styles.list_notify}>
           <div className={styles.notify_list}>
             {feed.map((ele) => {
-              
               return (
                 <Link to={`/othersprofile/${ele.user.email}`}>
                   {" "}

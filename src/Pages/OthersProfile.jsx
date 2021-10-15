@@ -23,7 +23,7 @@ export function OthersProfilePage() {
   const defaultEmail = localStorage.getItem("email")
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/profile/${email}`)
+      .get(`https://linkedin-server.herokuapp.com/users/profile/${email}`)
       .then(({ data }) => {
         console.log("data:", data)
 

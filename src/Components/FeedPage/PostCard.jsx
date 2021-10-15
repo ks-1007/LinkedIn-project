@@ -24,7 +24,7 @@ export default function PostCard({ post, curr_user }) {
   const [rerender, setRerender] = useState(false)
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/likes/${_id}`, Header)
+      .get(`https://linkedin-server.herokuapp.com/likes/${_id}`, Header)
       .then(({ data }) => {
         let likesdata = [...data.likes]
 
@@ -49,7 +49,7 @@ export default function PostCard({ post, curr_user }) {
 
     // getting comments
     axios
-      .get(`http://localhost:5000/comments/${_id}`)
+      .get(`https://linkedin-server.herokuapp.com/comments/${_id}`)
       .then(({ data }) => {
         setComments(data.comments)
         // setShowComments(!showComments)
@@ -64,7 +64,11 @@ export default function PostCard({ post, curr_user }) {
     if (!liked) {
       console.log("liked")
       axios
-        .post(`http://localhost:5000/likes`, { post: _id }, Header)
+        .post(
+          `https://linkedin-server.herokuapp.com/likes`,
+          { post: _id },
+          Header
+        )
         .then(({ data }) => {
           setLiked(!liked)
         })
@@ -72,7 +76,11 @@ export default function PostCard({ post, curr_user }) {
       // if liked then send request to delete like
       console.log("disliked")
       axios
-        .patch("http://localhost:5000/likes", { post: _id }, Header)
+        .patch(
+          "https://linkedin-server.herokuapp.com/likes",
+          { post: _id },
+          Header
+        )
         .then(({ data }) => {
           setLiked(!liked)
         })
@@ -86,7 +94,7 @@ export default function PostCard({ post, curr_user }) {
         body: commentInput,
       }
       axios
-        .post("http://localhost:5000/comments", body, Header)
+        .post("https://linkedin-server.herokuapp.com/comments", body, Header)
         .then(({ data }) => {
           // getComment()
           // setShowComments(!showComments)

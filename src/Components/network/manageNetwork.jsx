@@ -16,7 +16,7 @@ export const ManageNetwork = () => {
   const curr_email = localStorage.getItem("email")
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/profile/${curr_email}`)
+      .get(`https://linkedin-server.herokuapp.com/users/profile/${curr_email}`)
       .then(({ data }) => {
         setCurr_user(data.user)
       })

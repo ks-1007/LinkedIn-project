@@ -18,7 +18,7 @@ export function About({ user, handleRerender }) {
   const [about, setAbout] = useState("")
   const updateAboutInfo = () => {
     axios
-      .patch("http://localhost:5000/users", { about }, Header)
+      .patch("https://linkedin-server.herokuapp.com/users", { about }, Header)
       .then((res) => {
         console.log("res:", res)
         handleRerender()

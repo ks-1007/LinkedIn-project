@@ -23,7 +23,7 @@ export default function CreatePost({ user, handleUpdatePost }) {
     }
 
     axios
-      .post(`http://localhost:5000/posts`, postBody, Header)
+      .post(`https://linkedin-server.herokuapp.com/posts`, postBody, Header)
       .then((res) => {
         console.log("res:", res)
         handleUpdatePost()

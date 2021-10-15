@@ -28,7 +28,7 @@ export const UserCreateForm = () => {
     // user.email = email
     // setUser({ ...user })
     axios
-      .post("http://localhost:5000/users", user)
+      .post("https://linkedin-server.herokuapp.com/users", user)
       .then(({ data }) => {
         console.log("token:", data.token)
         localStorage.setItem("token", data.token)

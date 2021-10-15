@@ -18,7 +18,11 @@ const Request = ({ name, description, _id, profile_pic, background_pic }) => {
   const [accepted, setAccepted] = useState(false)
   const handleAccept = () => {
     axios
-      .patch(`http://localhost:5000/users/invite/${_id}`, {}, Header)
+      .patch(
+        `https://linkedin-server.herokuapp.com/users/invite/${_id}`,
+        {},
+        Header
+      )
       .then((res) => {
         setAccepted(true)
       })
@@ -60,7 +64,11 @@ const Suggest = ({
   const [disableConnect, setDisableConnect] = useState(false)
   const handleConnect = () => {
     axios
-      .patch(`http://localhost:5000/users/request/${_id}`, {}, Header)
+      .patch(
+        `https://linkedin-server.herokuapp.com/users/request/${_id}`,
+        {},
+        Header
+      )
       .then((res) => {
         console.log("res:", res)
         setDisableConnect(true)
@@ -107,7 +115,7 @@ export const ConnectionDisplay = () => {
   const [requests, setRequests] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users/connections", Header)
+      .get("https://linkedin-server.herokuapp.com/users/connections", Header)
       .then(({ data }) => {
         console.log("res:", data)
         setSuggested(data.users)
@@ -116,7 +124,7 @@ export const ConnectionDisplay = () => {
         console.log("err:", err)
       })
     axios
-      .get("http://localhost:5000/users/invite", Header)
+      .get("https://linkedin-server.herokuapp.com/users/invite", Header)
       .then(({ data }) => {
         setRequests(data.inviters)
       })

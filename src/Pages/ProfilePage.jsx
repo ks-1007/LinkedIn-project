@@ -28,7 +28,7 @@ export function ProfilePage() {
   const dispatch = useDispatch()
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/users/profile/${email}`)
+      .get(`https://linkedin-server.herokuapp.com/users/profile/${email}`)
       .then(({ data }) => {
         console.log("data:", data)
 
@@ -42,10 +42,10 @@ export function ProfilePage() {
       })
   }, [rerender])
   return !user ? (
-    <Loader/>
+    <Loader />
   ) : (
-      <>
-        <Navbar />
+    <>
+      <Navbar />
       <div className={styles.rootCont}>
         <div className={styles.leftSection}>
           <Hero user={user} handleRerender={handleRerender} />

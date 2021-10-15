@@ -87,7 +87,11 @@ export function Hero({ user, handleRerender }) {
       profile_pic: profilePic,
     }
     axios
-      .patch("http://localhost:5000/users/profile-pic", picBody, Header)
+      .patch(
+        "https://linkedin-server.herokuapp.com/users/profile-pic",
+        picBody,
+        Header
+      )
       .then((res) => {
         console.log("res:", res)
         handleRerender()
@@ -118,7 +122,11 @@ export function Hero({ user, handleRerender }) {
     console.log("picBody:", picBody)
 
     axios
-      .patch("http://localhost:5000/users/background-pic", picBody, Header)
+      .patch(
+        "https://linkedin-server.herokuapp.com/users/background-pic",
+        picBody,
+        Header
+      )
       .then((res) => {
         handleRerender()
         onClosBgModal()
@@ -130,7 +138,7 @@ export function Hero({ user, handleRerender }) {
 
   const updateHeroInfo = () => {
     axios
-      .patch("http://localhost:5000/users", input, Header)
+      .patch("https://linkedin-server.herokuapp.com/users", input, Header)
       .then((res) => {
         console.log("res:", res)
         handleRerender()
@@ -158,7 +166,7 @@ export function Hero({ user, handleRerender }) {
 
         <Btn onClick={updateHeroInfo}>Save Changes</Btn>
       </Modal>
-      <Modal open={openProfile} onClose={onCloseProfileModal} center >
+      <Modal open={openProfile} onClose={onCloseProfileModal} center>
         <div className={styles.customModal}>
           <div>
             <p>Change profile pic</p>
@@ -172,23 +180,23 @@ export function Hero({ user, handleRerender }) {
             alt=""
             srcset=""
           />
-        <input
-          type="file"
-          name="profile_pic"
-          id=""
+          <input
+            type="file"
+            name="profile_pic"
+            id=""
             onChange={handleUploadeProfilePic}
-        />
+          />
         </div>
 
         <Btn onClick={uploadProfilePicToServer}>upload</Btn>
       </Modal>
       <Modal open={openBg} onClose={onClosBgModal} center>
-        <div className={styles.customModal} >
-           <div>
+        <div className={styles.customModal}>
+          <div>
             <p>Change cover pic</p>
           </div>
           <p>{_.startCase(user.name)},keep your profile fresh!</p>
-         <img
+          <img
             src={
               user.background_pic ||
               "https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
@@ -196,14 +204,14 @@ export function Hero({ user, handleRerender }) {
             alt=""
             srcset=""
           />
-        <input
-          type="file"
-          name="background_pic"
-          id=""
-          onChange={handleUploadCoverPic}
-        />
+          <input
+            type="file"
+            name="background_pic"
+            id=""
+            onChange={handleUploadCoverPic}
+          />
 
-        <Btn onClick={uploadCoverPicToServer}>upload</Btn>
+          <Btn onClick={uploadCoverPicToServer}>upload</Btn>
         </div>
       </Modal>
       <div className={styles.heroCont}>

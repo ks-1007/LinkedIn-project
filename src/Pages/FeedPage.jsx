@@ -30,7 +30,7 @@ export default function FeedPage() {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:5000/posts", Header)
+      .get("https://linkedin-server.herokuapp.com/posts", Header)
       .then(({ data }) => {
         console.log("data:", data)
         setFeed(data.posts.reverse())
@@ -39,7 +39,7 @@ export default function FeedPage() {
         console.log("err:", err)
       })
     axios
-      .get(`http://localhost:5000/users/profile/${curr_email}`)
+      .get(`https://linkedin-server.herokuapp.com/users/profile/${curr_email}`)
       .then(({ data }) => {
         setCurr_user(data.user)
       })

@@ -36,7 +36,11 @@ const Request = ({
   const handleAccept = () => {
     setAccepted(true)
     axios
-      .patch(`http://localhost:5000/users/invite/${_id}`, {}, Header)
+      .patch(
+        `https://linkedin-server.herokuapp.com/users/invite/${_id}`,
+        {},
+        Header
+      )
       .then((res) => {})
       .catch((err) => {
         console.log("err:", err)
@@ -89,7 +93,11 @@ const Suggest = ({
   const handleConnect = () => {
     setDisableConnect(true)
     axios
-      .patch(`http://localhost:5000/users/request/${_id}`, {}, Header)
+      .patch(
+        `https://linkedin-server.herokuapp.com/users/request/${_id}`,
+        {},
+        Header
+      )
       .then((res) => {
         console.log("res:", res)
       })
@@ -144,7 +152,10 @@ export const Invitations = () => {
   const [requests, setRequests] = useState([])
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users/not_connections", Header)
+      .get(
+        "https://linkedin-server.herokuapp.com/users/not_connections",
+        Header
+      )
       .then(({ data }) => {
         console.log("res:", data)
         setSuggested(data.users)
@@ -153,7 +164,7 @@ export const Invitations = () => {
         console.log("err:", err)
       })
     axios
-      .get("http://localhost:5000/users/invite", Header)
+      .get("https://linkedin-server.herokuapp.com/users/invite", Header)
       .then(({ data }) => {
         setRequests(data.inviters)
       })

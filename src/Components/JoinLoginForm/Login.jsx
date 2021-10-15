@@ -23,7 +23,7 @@ export default function Join() {
         <div></div>
         <Btn>
           {" "}
-          <a href="http://localhost:5000/auth/google">
+          <a href="https://linkedin-server.herokuapp.com/auth/google">
             Sign In with Google
           </a>{" "}
         </Btn>
