@@ -1,6 +1,6 @@
 # LinkedIn
-## Project:- Clone of https://www.linkedin.com
-
+## Project:- Clone of LinkedIn.com
+## Demo of the project: https://linkedin-clone-sigma.vercel.app/
 <h3>LinkedIn, the world's largest professional network with 774+ million members in more than 200 countries and territories worldwide.</h3>
 <h4> it is connecting the world’s professionals to make them more productive and successful.</h4>
 
