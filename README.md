@@ -26,11 +26,20 @@
 #### Tech library used:
 1. Material UI & material icons
 2. Redux
-3. Google OAuth2
+3. React-redux
+4. Passport-google-oauth20
 5. React Icons
 6. Axios
-7. react-router-dom
+7. React-router-dom
 8. Styled Components
+9. Timeago.js
+10. Body-parser
+11. Mongoose
+12. Dot-env
+13. Jsonwebtoken
+14. Lodash
+
+
 
 ### Install the packages
 After cloning this repository, the commands required for running this app are
